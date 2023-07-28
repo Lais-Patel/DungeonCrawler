@@ -4,20 +4,51 @@ using UnityEngine;
 
 public class EntityMovement : MonoBehaviour
 {
-    public float maxSpeed = 5f;
+    public float maxSpeed = 10f;
+    public float velocity;
+    public float acceleration = 0.6f;
     public Rigidbody2D rb;
     Vector2 directionMovement;
+    public float framesSincePressed;
 
     // Update is called once per frame
     void Update()
     {
         directionMovement.x = Input.GetAxisRaw("Horizontal");
         directionMovement.y = Input.GetAxisRaw("Vertical");
+        //directionMovement.normalized;
+        
     }
 
     // Update is called at fixed increments
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + directionMovement * maxSpeed * Time.fixedDeltaTime);
+        if (directionMovement.x != 0 || directionMovement.y != 0)
+        {
+            CountFramesSincePressed();
+        }
+        else if (directionMovement.x == 0 && directionMovement.y == 0)
+        {
+            framesSincePressed = 0;
+        }
+
+        velocity = -8/(framesSincePressed+0.8)+maxSpeed;
+
+        if (velocity > maxSpeed)
+        {
+            velocity = maxSpeed;
+        }
+        else if (velocity < 0)
+        {
+            velocity = 0;
+        }
+
+        rb.MovePosition(rb.position + directionMovement * Time.fixedDeltaTime * velocity);
     }
+
+    void CountFramesSincePressed()
+    {
+        framesSincePressed += acceleration;
+    }
+    
 }
