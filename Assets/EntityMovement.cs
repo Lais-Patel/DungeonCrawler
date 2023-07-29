@@ -16,7 +16,7 @@ public class EntityMovement : MonoBehaviour
     {
         directionMovement.x = Input.GetAxisRaw("Horizontal");
         directionMovement.y = Input.GetAxisRaw("Vertical");
-        //directionMovement.normalized;
+        directionMovement = directionMovement.normalized;
         
     }
 
@@ -32,7 +32,7 @@ public class EntityMovement : MonoBehaviour
             framesSincePressed = 0;
         }
 
-        velocity = -8/(framesSincePressed+0.8)+maxSpeed;
+        velocity = framesSincePressed;
 
         if (velocity > maxSpeed)
         {
