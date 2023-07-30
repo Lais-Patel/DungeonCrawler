@@ -9,8 +9,8 @@ public class EntityMovement : MonoBehaviour
     public float acceleration = 0.1f;
     public Rigidbody2D rb;
 
-    public float dashPower = 10f;
-    public float dashLength = 0.5f;
+    public float dashPower = 20f;
+    public float dashLength = 0.15f;
     public float dashCooldown = 1f;
     private bool hasPressedDash;
     private bool canDash = true;
@@ -50,7 +50,7 @@ public class EntityMovement : MonoBehaviour
     {
         if (hasPressedDash)
         {
-            return;
+            //return;
         }
         else if (!hasPressedDash)
         {
