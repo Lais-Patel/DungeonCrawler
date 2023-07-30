@@ -5,11 +5,11 @@ using UnityEngine;
 public class EntityMovement : MonoBehaviour
 {
     public float maxSpeed = 10f;
-    public float velocity;
     public float acceleration = 0.6f;
     public Rigidbody2D rb;
-    Vector2 directionMovement;
-    public float framesSincePressed;
+    private Vector2 directionMovement;
+    private Vector2 directionMovementSmooth;
+    private Vector2 directionMovementSmoothRef;
 
     // Update is called once per frame
     void Update()
@@ -23,32 +23,8 @@ public class EntityMovement : MonoBehaviour
     // Update is called at fixed increments
     void FixedUpdate()
     {
-        if (directionMovement.x != 0 || directionMovement.y != 0)
-        {
-            CountFramesSincePressed();
-        }
-        else if (directionMovement.x == 0 && directionMovement.y == 0)
-        {
-            framesSincePressed = 0;
-        }
+        directionMovementSmooth = Vector2.SmoothDamp(directionMovementSmooth, directionMovement, ref directionMovementSmoothRef, acceleration);
 
-        velocity = framesSincePressed;
-
-        if (velocity > maxSpeed)
-        {
-            velocity = maxSpeed;
-        }
-        else if (velocity < 0)
-        {
-            velocity = 0;
-        }
-
-        rb.MovePosition(rb.position + directionMovement * Time.fixedDeltaTime * velocity);
+        rb.MovePosition(rb.position + directionMovementSmooth * Time.fixedDeltaTime * maxSpeed);
     }
-
-    void CountFramesSincePressed()
-    {
-        framesSincePressed += acceleration;
-    }
-    
 }
