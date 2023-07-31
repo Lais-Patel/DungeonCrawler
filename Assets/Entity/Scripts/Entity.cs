@@ -9,15 +9,15 @@ public class Entity : MonoBehaviour
     public float acceleration;
     public Rigidbody2D rb;
 
-    public float dashPower;
+    /*public float dashPower;
     public float dashLength;
     public float dashCooldown;
     private bool hasPressedDash;
-    private bool canDash = true;
+    private bool canDash = true;*/
 
-    private Vector2 directionMovement;
-    private Vector2 directionMovementSmooth;
-    private Vector2 directionMovementSmoothRef;
+    public Vector2 directionMovement;
+    public Vector2 directionMovementSmooth;
+    public Vector2 directionMovementSmoothRef;
 
     public Animator animationController;
 
@@ -27,34 +27,34 @@ public class Entity : MonoBehaviour
         maxSpeed = 6f;
         acceleration = 0.1f;
 
-        dashPower = 20f;
+        /*dashPower = 20f;
         dashLength = 0.15f;
-        dashCooldown = 1f;
+        dashCooldown = 1f;*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerControlAlgorithm();
+        //PlayerControlAlgorithm();
     }
 
     // Update is called at fixed increments
     void FixedUpdate()
     {
-        if (hasPressedDash)
+        /*if (hasPressedDash)
         {
             //return;
         }
         else if (!hasPressedDash)
         {
             velocity = maxSpeed;
-        }
+        }*/
 
         EntityMovementCalc();
     }
 
     // Checks for user input
-    public static void  PlayerControlAlgorithm()
+    /*public void  PlayerControlAlgorithm()
     {
         if (hasPressedDash)
         {
@@ -74,17 +74,17 @@ public class Entity : MonoBehaviour
         {
             StartCoroutine(dashAlgorithm());
         }
-    }
+    }*/
 
     // Calculates and updates the new position of the entity
-    public static void EntityMovementCalc()
+    public void EntityMovementCalc()
     {
         directionMovementSmooth = Vector2.SmoothDamp(directionMovementSmooth, directionMovement, ref directionMovementSmoothRef, acceleration);
         rb.MovePosition(rb.position + directionMovementSmooth * Time.fixedDeltaTime * velocity);
     }
 
     // Validates if user can dash
-    private IEnumerator dashAlgorithm()
+    /*private IEnumerator dashAlgorithm()
     {
         hasPressedDash = true;
         canDash = false;
@@ -94,5 +94,5 @@ public class Entity : MonoBehaviour
         hasPressedDash = false;
         yield return new  WaitForSeconds(dashCooldown);
         canDash = true;
-    }
+    }*/
 }
