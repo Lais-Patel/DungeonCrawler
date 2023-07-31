@@ -39,7 +39,7 @@ public class Player : Entity
         EntityMovementCalc();
     }
 
-     // Checks for user input
+    // Checks for user input
     public void  PlayerControlAlgorithm()
     {
         if (hasPressedDash)
