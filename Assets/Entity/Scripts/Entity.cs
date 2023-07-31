@@ -54,7 +54,7 @@ public class Entity : MonoBehaviour
     }
 
     // Checks for user input
-    public void PlayerControlAlgorithm()
+    public static void  PlayerControlAlgorithm()
     {
         if (hasPressedDash)
         {
@@ -77,7 +77,7 @@ public class Entity : MonoBehaviour
     }
 
     // Calculates and updates the new position of the entity
-    public void EntityMovementCalc()
+    public static void EntityMovementCalc()
     {
         directionMovementSmooth = Vector2.SmoothDamp(directionMovementSmooth, directionMovement, ref directionMovementSmoothRef, acceleration);
         rb.MovePosition(rb.position + directionMovementSmooth * Time.fixedDeltaTime * velocity);
