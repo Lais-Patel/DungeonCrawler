@@ -27,11 +27,7 @@ public class Player : Entity
     // Update is called at fixed increments
     void FixedUpdate()
     {
-        if (hasPressedDash)
-        {
-            //return;
-        }
-        else if (!hasPressedDash)
+        if (!hasPressedDash)
         {
             velocity = maxSpeed;
         }

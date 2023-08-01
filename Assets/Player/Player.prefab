@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2377052730019129466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.13758716, y: -0.043908656, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -95,7 +95,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6598946016331564889, guid: 23748c298f885bf4c89671f6d30f562b, type: 3}
+  m_Sprite: {fileID: -6598946016331564889, guid: 1ed76c2d25329e34b8f9286eb04961a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -166,12 +166,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 6
-  velocity: 6
+  velocity: 0
   acceleration: 0.1
   rb: {fileID: 2377052730019129470}
   directionMovement: {x: 0, y: 0}
-  directionMovementSmooth: {x: -1e-45, y: -1e-45}
-  directionMovementSmoothRef: {x: 1e-45, y: 1e-45}
+  directionMovementSmooth: {x: 0, y: 0}
+  directionMovementSmoothRef: {x: 0, y: 0}
   animationController: {fileID: 2377052730019129465}
   dashPower: 20
   dashLength: 0.15
@@ -186,7 +186,7 @@ Animator:
   m_GameObject: {fileID: 2377052730019129466}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e24d19d8b9503d64f8676e772b1b3647, type: 2}
+  m_Controller: {fileID: 9100000, guid: d1600a56939f4e945b41ab9d23d493b0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
