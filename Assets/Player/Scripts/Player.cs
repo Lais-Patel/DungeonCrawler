@@ -10,8 +10,10 @@ public class Player : Entity
     private bool hasPressedDash;
     private bool canDash = true;
 
+    //private array upgradeinventory;
+
     //constructor
-    public Player()
+    void Awake()
     {
         dashPower = 20f;
         dashLength = 0.15f;

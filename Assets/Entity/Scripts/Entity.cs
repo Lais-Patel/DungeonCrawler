@@ -9,6 +9,12 @@ public class Entity : MonoBehaviour
     public float acceleration;
     public Rigidbody2D rb;
 
+    public float health;
+    public float defence;
+    public float attackPower;
+    public float damageTaken;
+    public float damageDealt;
+
     public Vector2 directionMovement;
     public Vector2 directionMovementSmooth;
     public Vector2 directionMovementSmoothRef;
@@ -16,7 +22,7 @@ public class Entity : MonoBehaviour
     public Animator animationController;
 
     //constructor
-    public Entity()
+    void Awake()
     {
         maxSpeed = 6f;
         acceleration = 0.1f;
