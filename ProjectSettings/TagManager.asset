@@ -14,12 +14,12 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Entity
+  - Enemies
+  - Players
+  - Walls
+  - Bullets
+  - Chests
   - 
   - 
   - 

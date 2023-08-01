@@ -228,6 +228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity
       objectReference: {fileID: 0}
+    - target: {fileID: 638080692976824064, guid: ec5433d5e2532d04b8ee2c555bbd67aa, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 638080692976824076, guid: ec5433d5e2532d04b8ee2c555bbd67aa, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -329,6 +333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room
       objectReference: {fileID: 0}
+    - target: {fileID: 2863200093006549584, guid: 09a450e756adc274a868cdc740686373, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09a450e756adc274a868cdc740686373, type: 3}
 --- !u!1001 &2522958805734844241
@@ -341,6 +349,10 @@ PrefabInstance:
     - target: {fileID: 2522958807061351808, guid: 85ab0d90ac0d3a44b9e45b345f95f135, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522958807061351808, guid: 85ab0d90ac0d3a44b9e45b345f95f135, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2522958807061351811, guid: 85ab0d90ac0d3a44b9e45b345f95f135, type: 3}
       propertyPath: player
@@ -458,6 +470,14 @@ PrefabInstance:
     - target: {fileID: 2377052730019129466, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377052730019129466, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377052730019129466, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_TagString
+      value: EditorOnly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
