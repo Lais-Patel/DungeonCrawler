@@ -376,5 +376,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5844192111571487634, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 2522958807061351808, guid: 85ab0d90ac0d3a44b9e45b345f95f135, type: 3}
+    - target: {fileID: 5844192111571487634, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
+      propertyPath: enemySpawnDelay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}

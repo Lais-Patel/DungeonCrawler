@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    public GameObject player; 
+    public Transform player; 
     public float distanceFromPlayer;
 
     //constructor
-    void Awake()
+    void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         maxSpeed = 2f;
         acceleration = 0.0333f;
     }
