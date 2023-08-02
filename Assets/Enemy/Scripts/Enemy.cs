@@ -13,6 +13,8 @@ public class Enemy : Entity
         player = GameObject.FindGameObjectWithTag("Player").transform;
         maxSpeed = 2f;
         acceleration = 0.0333f;
+        health = 3f;
+        defence = 1f;
     }
 
 
@@ -34,5 +36,17 @@ public class Enemy : Entity
 
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, maxSpeed * Time.fixedDeltaTime);
         EntityMovementCalc();      
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Bullets"))
+        {
+            health -= 1;
+            if (health == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

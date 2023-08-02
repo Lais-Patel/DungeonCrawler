@@ -321,6 +321,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09a450e756adc274a868cdc740686373, type: 3}
+--- !u!1 &2013907607 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4443328635809740150, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
+  m_PrefabInstance: {fileID: 1309663183937235205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &2013907610
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013907607}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1309663183937235205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,11 +360,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1363166162988228928, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.95
+      value: 6.94
       objectReference: {fileID: 0}
     - target: {fileID: 1363166162988228928, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.71
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 1363166162988228928, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -376,6 +402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5844192111571487634, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 2013907610}
     - target: {fileID: 5844192111571487634, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
       propertyPath: enemyPrefab
       value: 

@@ -10,6 +10,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float enemySpawnDelay;
 
+    [SerializeField]
+    private bool enemySpawnOn = true;
+
     private Vector3 randomPositionOnScreen;
     public Rigidbody2D rb;
     private float timeUntilEnemySpawn;
@@ -23,13 +26,16 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         timeUntilEnemySpawn -= Time.deltaTime;
-
-        if (timeUntilEnemySpawn <= 0) 
+        if (enemySpawnOn)
         {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-            TimeUntilNextSpawn();
-            MoveToRandomPosition();
+            timeUntilEnemySpawn -= Time.deltaTime;
+
+            if (timeUntilEnemySpawn <= 0) 
+            {
+                Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+                TimeUntilNextSpawn();
+                MoveToRandomPosition();
+            }
         }
     }
 
