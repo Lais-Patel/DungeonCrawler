@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 0}
   enemySpawnDelay: 1
-  enemySpawnOn: 0
+  enemySpawnOn: 1
   rb: {fileID: 2013907610}
 --- !u!50 &2013907610
 Rigidbody2D:

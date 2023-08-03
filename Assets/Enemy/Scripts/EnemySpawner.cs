@@ -53,4 +53,3 @@ public class EnemySpawner : MonoBehaviour
         rb.MovePosition(randomPositionOnScreen);
     }
 }
-

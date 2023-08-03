@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
     {
         rangeTime = 3f;
         size = .1f;
-        bulletForce = 1f;
+        bulletForce = 8f;
     }
 
     // Start is called before the first frame update
