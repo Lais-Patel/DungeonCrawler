@@ -9,15 +9,20 @@ public class Player : Entity
     public float dashCooldown;
     private bool hasPressedDash;
     private bool canDash = true;
-
+    public Counters Icons;
     //private array upgradeinventory;
 
     //constructor
-    void Awake()
+    void Start()
     {
         dashPower = 20f;
         dashLength = 0.15f;
         dashCooldown = 1f;
+
+        health = 10f;
+        defence = 5f;
+        Icons.SetMaxHealth(health);
+        Icons.SetDefence(defence);
     }
     
     // Update is called once per frame
@@ -63,6 +68,8 @@ public class Player : Entity
     // Validates if user can dash
     private IEnumerator dashAlgorithm()
     {
+        health -= 1;
+        Icons.SetHealth(health);
         hasPressedDash = true;
         canDash = false;
         velocity = dashPower;

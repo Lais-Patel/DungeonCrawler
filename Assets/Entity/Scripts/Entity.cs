@@ -46,4 +46,9 @@ public class Entity : MonoBehaviour
         directionMovementSmooth = Vector2.SmoothDamp(directionMovementSmooth, directionMovement, ref directionMovementSmoothRef, acceleration);
         rb.MovePosition(rb.position + directionMovementSmooth * Time.fixedDeltaTime * velocity);
     }
+
+    public void calculateDamageTaken(float health, float defence, float damageDealt)
+    {
+        damageTaken = (damageDealt - defence/5)
+    }
 }

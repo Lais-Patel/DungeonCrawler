@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Counters : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Text healthTextUI;
+    public Text defenceTextUI;
+    public Text roomsTextUI;
+    public Slider sliderHealthBar;
+    
+    public void SetMaxHealth(float health)
     {
-        
+        sliderHealthBar.maxValue = health;
+        sliderHealthBar.value = health;
+        healthTextUI.text = health.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetHealth(float health)
     {
-        
+        sliderHealthBar.value = health;
+        healthTextUI.text = health.ToString();
     }
+
+    public void SetDefence(float defence)
+    {
+        defenceTextUI.text = defence.ToString();
+    }
+
+    public void SetRooms(float rooms)
+    {
+        roomsTextUI.text = rooms.ToString();
+    }
+
+
 }
