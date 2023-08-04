@@ -207,6 +207,7 @@ MonoBehaviour:
   animationController: {fileID: 2522958807061351810}
   player: {fileID: 0}
   distanceFromPlayer: 0
+  Count: {fileID: 0}
 --- !u!95 &2522958807061351810
 Animator:
   serializedVersion: 5

@@ -9,6 +9,14 @@ public class Counters : MonoBehaviour
     public Text defenceTextUI;
     public Text roomsTextUI;
     public Slider sliderHealthBar;
+    public float rooms;
+    public float enemiesFelledCount;  
+
+    void Start()
+    {
+        rooms = 1;
+        enemiesFelledCount = 0;
+    }
     
     public void SetMaxHealth(float health)
     {
@@ -31,6 +39,16 @@ public class Counters : MonoBehaviour
     public void SetRooms(float rooms)
     {
         roomsTextUI.text = rooms.ToString();
+    }
+
+    public void IncrementEnemeyFelledCount()
+    {
+        enemiesFelledCount++;
+        if ((enemiesFelledCount % 5) == 0)
+        {
+            rooms++;
+            SetRooms(rooms);
+        }
     }
 
 

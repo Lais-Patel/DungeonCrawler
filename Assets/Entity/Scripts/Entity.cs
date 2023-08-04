@@ -47,8 +47,15 @@ public class Entity : MonoBehaviour
         rb.MovePosition(rb.position + directionMovementSmooth * Time.fixedDeltaTime * velocity);
     }
 
-    public void calculateDamageTaken(float health, float defence, float damageDealt)
+    public float calculateDamageTaken(float health, float defence, float damageDealt)
     {
-        damageTaken = (damageDealt - defence/5)
+        damageTaken = (damageDealt - defence/5);
+        return damageTaken;
+    }
+
+    public float calculateDamageDealt(float attackPower)
+    {
+        damageDealt = attackPower;
+        return damageDealt;
     }
 }

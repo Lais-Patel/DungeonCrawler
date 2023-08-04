@@ -6,11 +6,14 @@ public class Enemy : Entity
 {
     public Transform player; 
     public float distanceFromPlayer;
+    private float difficultyRating;
+    public Counters Count;
 
     //constructor
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        difficultyRating = Count.rooms;
         maxSpeed = 2f;
         acceleration = 0.0333f;
         health = 3f;
@@ -38,6 +41,12 @@ public class Enemy : Entity
         EntityMovementCalc();      
     }
 
+    public float calculateDamageDealt(float attackPower, float difficultyRating)
+    {
+        damageDealt = attackPower;
+        return damageDealt;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Bullets"))
@@ -45,6 +54,7 @@ public class Enemy : Entity
             health -= 1;
             if (health == 0)
             {
+                Count.IncrementEnemeyFelledCount();
                 Destroy(gameObject);
             }
         }

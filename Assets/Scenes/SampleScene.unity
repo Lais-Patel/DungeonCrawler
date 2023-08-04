@@ -156,6 +156,8 @@ MonoBehaviour:
   defenceTextUI: {fileID: 0}
   roomsTextUI: {fileID: 0}
   sliderHealthBar: {fileID: 0}
+  rooms: 0
+  enemiesFelledCount: 0
 --- !u!4 &214611057
 Transform:
   m_ObjectHideFlags: 0
@@ -511,6 +513,8 @@ MonoBehaviour:
   defenceTextUI: {fileID: 1816428388}
   roomsTextUI: {fileID: 1800875655}
   sliderHealthBar: {fileID: 599437507}
+  rooms: 0
+  enemiesFelledCount: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,6 +1708,10 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2522958807061351811, guid: 85ab0d90ac0d3a44b9e45b345f95f135, type: 3}
+      propertyPath: Count
+      value: 
+      objectReference: {fileID: 369410012}
+    - target: {fileID: 2522958807061351811, guid: 85ab0d90ac0d3a44b9e45b345f95f135, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2038114953}
@@ -1760,26 +1768,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1613369140093602373, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613369140093602373, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613369140093602373, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613369140093602373, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613369140093602373, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2377052730019129443, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1825,29 +1813,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2377052730019129464, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2377052730019129464, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
-      propertyPath: sliderHealthBar
+      propertyPath: Icons
       value: 
       objectReference: {fileID: 369410012}
     - target: {fileID: 2377052730019129466, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6825644752483035731, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-    - target: {fileID: 6825644752483035731, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7291511462365268652, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
 --- !u!1001 &5940627218369898027
