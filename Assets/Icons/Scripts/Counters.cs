@@ -15,7 +15,8 @@ public class Counters : MonoBehaviour
     void Start()
     {
         rooms = 1;
-        enemiesFelledCount = 0;
+        roomsTextUI.text = rooms.ToString();
+        enemiesFelledCount = 4;
     }
     
     public void SetMaxHealth(float health)
@@ -44,10 +45,14 @@ public class Counters : MonoBehaviour
     public void IncrementEnemeyFelledCount()
     {
         enemiesFelledCount++;
-        if ((enemiesFelledCount % 5) == 0)
+        rooms++;
+        if (roomsTextUI != null)
         {
-            rooms++;
             SetRooms(rooms);
+        }
+        else
+        {
+            Debug.LogWarning("roomsTextUI is null");
         }
     }
 

@@ -7,13 +7,14 @@ public class Enemy : Entity
     public Transform player; 
     public float distanceFromPlayer;
     private float difficultyRating;
-    public Counters Count;
+    public Counters counters;
 
     //constructor
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        difficultyRating = Count.rooms;
+        counters = FindObjectOfType<Counters>();
+        difficultyRating = counters.rooms;
         maxSpeed = 2f;
         acceleration = 0.0333f;
         health = 3f;
@@ -54,7 +55,7 @@ public class Enemy : Entity
             health -= 1;
             if (health == 0)
             {
-                Count.IncrementEnemeyFelledCount();
+                counters.IncrementEnemeyFelledCount();
                 Destroy(gameObject);
             }
         }
