@@ -9,6 +9,8 @@ TagManager:
   - Players
   - Entities
   - Bullets
+  - Player Melee Hitbox
+  - Enemy Melee Hitbox
   layers:
   - Default
   - TransparentFX
