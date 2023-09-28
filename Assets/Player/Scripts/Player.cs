@@ -79,5 +79,18 @@ public class Player : Entity
         yield return new  WaitForSeconds(dashCooldown);
         canDash = true;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy Melee Hitbox"))
+        {
+            meeleAttack()
+        }
+    }
+    private void meleeAttack()
+    {
+        health -= 1;
+        Icons.SetHealth(health);
+    }
 }
 
