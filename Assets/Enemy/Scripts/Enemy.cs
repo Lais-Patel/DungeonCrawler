@@ -21,6 +21,7 @@ public class Enemy : Entity
         health = 2f;
         defence = 1f;
         difficultyRating = Room.rooms;
+        attackPower = 1 * 1 + difficultyRating/5
     }
 
 

@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+class UpgradeItem
+{
+    public string Name { get; set; }
+    public float Value1 { get; set; }
+    public float Value2 { get; set; }
+    public float Value3 { get; set; }
+}
+
 public class Player : Entity
 {
     public float dashPower;
@@ -9,8 +17,10 @@ public class Player : Entity
     public float dashCooldown;
     private bool hasPressedDash;
     private bool canDash = true;
+
+    List<UpgradeItem> upgradeInventory = new List<UpgradeItem>();
+
     public Counters Icons;
-    //private array upgradeinventory;
 
     //constructor
     void Start()
@@ -78,10 +88,27 @@ public class Player : Entity
         canDash = true;
     }
 
-    public void playerMeleeAttack()
+    public void enemyMeleeAttack(float damageDealt)
     {
-        health -= 1;
+        health -= calculateDamageTaken(defence, damageDealt);
         Icons.SetHealth(health);
+    }
+
+    public void addUpgradeToInventory(numberUpgradeToAdd)
+    {
+        string[] = Files.ReadAllLines(upgradeInventoryIndex.txt)
+
+        for (int i = lineNumber; i < lineNumber + 4; i++)
+        {
+        UpgradeItem item = new UpgradeItem
+        {
+            Name = lines[i],
+            Value1 = float.Parse(lines[i + 1]),
+            Value2 = float.Parse(lines[i + 2]),
+            Value3 = float.Parse(lines[i + 3])
+        };
+            upgradeInventory.Add(item);
+        }
     }
 }
 
