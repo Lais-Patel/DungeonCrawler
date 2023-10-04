@@ -45,7 +45,9 @@ public class Counters : MonoBehaviour
     public void IncrementEnemeyFelledCount()
     {
         enemiesFelledCount++;
+        Debug.LogWarning("Enemy Felled:"+enemiesFelledCount);
         rooms++;
+        Debug.LogWarning("Room Count:"+rooms);
         if (roomsTextUI != null)
         {
             SetRooms(rooms);

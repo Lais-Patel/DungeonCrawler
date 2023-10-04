@@ -16,6 +16,8 @@ public class EnemySpawner : MonoBehaviour
     private Vector3 randomPositionOnScreen;
     public Rigidbody2D rb;
     private float timeUntilEnemySpawn;
+    private float EnemiesPerLevel = 20;
+    private float EnemiesSpawnedInLevel = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,14 +30,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemySpawnOn)
         {
-            timeUntilEnemySpawn -= Time.deltaTime;
-
-            if (timeUntilEnemySpawn <= 0) 
-            {
-                Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-                TimeUntilNextSpawn();
-                MoveToRandomPosition();
-            }
+            SpawnEnemy();
         }
     }
 
@@ -51,5 +46,30 @@ public class EnemySpawner : MonoBehaviour
 
         randomPositionOnScreen = new Vector3(x, y, transform.position.z);
         rb.MovePosition(randomPositionOnScreen);
+    }
+
+    private void SpawnEnemy
+    {
+        if (timeUntilEnemySpawn <= 0) 
+        {
+        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        EnemiesSpawnedInLevel++;
+        TimeUntilNextSpawn();
+        MoveToRandomPosition();
+        }
+    }
+    public void SpawnEnemyWaveForLevel()
+    {
+        timeUntilEnemySpawn -= Time.deltaTime;
+        
+        if (EnemiesSpawnedInLevel != EnemiesPerLevel)
+        {
+            SpawnEnemy();
+        }
+    }
+
+    public void StartNextLevel()
+    {
+        
     }
 }
