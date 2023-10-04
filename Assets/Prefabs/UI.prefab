@@ -604,8 +604,8 @@ MonoBehaviour:
   defenceTextUI: {fileID: 0}
   roomsTextUI: {fileID: 0}
   sliderHealthBar: {fileID: 0}
-  rooms: 0
   enemiesFelledCount: 0
+  Room: {fileID: 0}
 --- !u!1 &5796099865492681455
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,8 +727,8 @@ MonoBehaviour:
   defenceTextUI: {fileID: 5796099864582533724}
   roomsTextUI: {fileID: 5796099864466219967}
   sliderHealthBar: {fileID: 5796099865685491195}
-  rooms: 0
   enemiesFelledCount: 0
+  Room: {fileID: 0}
 --- !u!1 &5796099865508351329
 GameObject:
   m_ObjectHideFlags: 0

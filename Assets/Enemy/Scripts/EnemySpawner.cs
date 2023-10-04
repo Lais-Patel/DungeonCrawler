@@ -18,7 +18,6 @@ public class EnemySpawner : MonoBehaviour
     private float timeUntilEnemySpawn;
     private float EnemiesPerLevel = 20;
     private float EnemiesSpawnedInLevel = 0;
-
     public Room Room;
 
     // Start is called before the first frame update
@@ -57,6 +56,10 @@ public class EnemySpawner : MonoBehaviour
         EnemiesSpawnedInLevel++;
         TimeUntilNextSpawn();
         MoveToRandomPosition();
+        if (EnemiesSpawnedInLevel == 20)
+        {
+            StartNextLevel();
+        }
     }
     public void SpawnEnemyWaveForLevel()
     {   
@@ -66,15 +69,12 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy();
         }
-        else
-        {
-            Room.IncrementRoomCount();
-        }
         }
     }
 
     public void StartNextLevel()
     {
+        Room.IncrementRoomCount();
         EnemiesPerLevel = 20;
         EnemiesSpawnedInLevel = 0;
         SpawnEnemyWaveForLevel();

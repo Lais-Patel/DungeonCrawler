@@ -15,11 +15,11 @@ public class Enemy : Entity
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         Icons = FindObjectOfType<Counters>();
-        difficultyRating = Room.rooms;
         maxSpeed = 2f;
         acceleration = 0.0333f;
         health = 3f;
         defence = 1f;
+        difficultyRating = Room.rooms;
     }
 
 
