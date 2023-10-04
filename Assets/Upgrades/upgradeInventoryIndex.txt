@@ -1,0 +1,16 @@
+Eye
+1
+2
+3
+Finger
+2
+4
+6
+Hair
+3
+6
+9
+Blood Stained Tooth
+4
+8
+12

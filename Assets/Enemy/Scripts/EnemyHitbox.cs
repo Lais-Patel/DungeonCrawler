@@ -19,11 +19,7 @@ public class EnemyHitbox : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player Melee Hitbox"))
-        {
-            //meleeAttack();
-        }
-        else if (other.CompareTag("Bullets"))
+        if (other.CompareTag("Bullets"))
         {
             Enemy.TakeDamage();
         }
