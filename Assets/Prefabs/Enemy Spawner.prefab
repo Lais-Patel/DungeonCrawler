@@ -45,10 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43644378d2858c4ba811d7237deeac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 2522958807061351808, guid: 85ab0d90ac0d3a44b9e45b345f95f135, type: 3}
   enemySpawnDelay: 1
   enemySpawnOn: 1
   rb: {fileID: 2013907610}
+  Room: {fileID: 0}
 --- !u!50 &2013907610
 Rigidbody2D:
   serializedVersion: 4

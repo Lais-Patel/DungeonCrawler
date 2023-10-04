@@ -19,6 +19,8 @@ public class EnemySpawner : MonoBehaviour
     private float EnemiesPerLevel = 20;
     private float EnemiesSpawnedInLevel = 0;
 
+    public Room Room;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -63,6 +65,10 @@ public class EnemySpawner : MonoBehaviour
         if (EnemiesSpawnedInLevel != EnemiesPerLevel)
         {
             SpawnEnemy();
+        }
+        else
+        {
+            Room.IncrementRoomCount();
         }
         }
     }

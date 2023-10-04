@@ -9,14 +9,12 @@ public class Counters : MonoBehaviour
     public Text defenceTextUI;
     public Text roomsTextUI;
     public Slider sliderHealthBar;
-    public float rooms;
     public float enemiesFelledCount;  
+    public Room Room;
 
     void Start()
     {
-        rooms = 1;
-        roomsTextUI.text = rooms.ToString();
-        enemiesFelledCount = 4;
+
     }
     
     public void SetMaxHealth(float health)
@@ -46,16 +44,7 @@ public class Counters : MonoBehaviour
     {
         enemiesFelledCount++;
         Debug.LogWarning("Enemy Felled:"+enemiesFelledCount);
-        rooms++;
-        Debug.LogWarning("Room Count:"+rooms);
-        if (roomsTextUI != null)
-        {
-            SetRooms(rooms);
-        }
-        else
-        {
-            Debug.LogWarning("roomsTextUI is null");
-        }
+        Debug.LogWarning("Room Count:"+Room.rooms);
     }
 
 

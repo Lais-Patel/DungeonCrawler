@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339202239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.429, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57,10 +57,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.37599093, y: 0.8707534}
-      - {x: -0.38119546, y: 0.8612535}
-      - {x: -0.37041563, y: 0.060461536}
-      - {x: 0.37564665, y: 0.06521186}
+    - - {x: 0.35626507, y: 0.9545873}
+      - {x: -0.37133253, y: 0.9598815}
+      - {x: -0.37041566, y: -0.05296053}
+      - {x: 0.3953725, y: -0.087661445}
 --- !u!1 &2522958807061351808
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +269,8 @@ MonoBehaviour:
   animationController: {fileID: 2522958807061351810}
   player: {fileID: 0}
   distanceFromPlayer: 0
-  counters: {fileID: 0}
+  Icons: {fileID: 0}
+  Room: {fileID: 0}
 --- !u!95 &2522958807061351810
 Animator:
   serializedVersion: 5
