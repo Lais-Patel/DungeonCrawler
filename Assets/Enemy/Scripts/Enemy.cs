@@ -47,7 +47,7 @@ public class Enemy : Entity
 
     public float calculateDamageDealt(float attackPower, float difficultyRating)
     {
-        damageDealt = attackPower;
+        damageDealt = attackPower * difficultyRating;
         return damageDealt;
     }
 

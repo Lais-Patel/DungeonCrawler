@@ -21,7 +21,9 @@ public class PlayerHitbox : MonoBehaviour
     {
         if (other.CompareTag("Enemy Melee Hitbox"))
         {
-            Player.playerMeleeAttack();
+            Enemy Enemy = other.GetComponentInParent<Enemy>();
+            float damageDealt = Enemy.calculateDamageDealt();
+            Player.enemyMeleeAttack(damageDealt);
         }
     }
 }
