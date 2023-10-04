@@ -68,8 +68,6 @@ public class Player : Entity
     // Validates if user can dash
     private IEnumerator dashAlgorithm()
     {
-        health -= 1;
-        Icons.SetHealth(health);
         hasPressedDash = true;
         canDash = false;
         velocity = dashPower;
@@ -80,14 +78,7 @@ public class Player : Entity
         canDash = true;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy Melee Hitbox"))
-        {
-            meleeAttack();
-        }
-    }
-    private void meleeAttack()
+    public void playerMeleeAttack()
     {
         health -= 1;
         Icons.SetHealth(health);
