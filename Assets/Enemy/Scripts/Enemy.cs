@@ -50,7 +50,11 @@ public class Enemy : Entity
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bullets"))
+        if (other.CompareTag("Player Melee Hitbox"))
+        {
+            //meleeAttack();
+        }
+        else if (other.CompareTag("Bullets"))
         {
             health -= 1;
             if (health == 0)

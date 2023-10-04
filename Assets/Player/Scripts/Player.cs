@@ -84,7 +84,7 @@ public class Player : Entity
     {
         if (other.CompareTag("Enemy Melee Hitbox"))
         {
-            meeleAttack()
+            meleeAttack();
         }
     }
     private void meleeAttack()
