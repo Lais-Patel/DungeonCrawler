@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     void Awake()
     {
         rangeTime = 3f;
-        size = .1f;
+        size = .2f;
         bulletForce = 8f;
     }
 
@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (other.CompareTag("Enemies"))
+        else if (other.CompareTag("Enemies"))
         {
             Destroy(gameObject);
         } 
