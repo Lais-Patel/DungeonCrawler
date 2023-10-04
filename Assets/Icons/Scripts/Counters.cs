@@ -8,6 +8,7 @@ public class Counters : MonoBehaviour
     public Text healthTextUI;
     public Text defenceTextUI;
     public Text roomsTextUI;
+    public Text enemyKilledTextUI;
     public Slider sliderHealthBar;
     public float enemiesFelledCount;  
     public Room Room;
@@ -40,11 +41,14 @@ public class Counters : MonoBehaviour
         roomsTextUI.text = rooms.ToString();
     }
 
+    public void SetEnemiesKilled(float enemiesFelledCount)
+    {
+        enemyKilledTextUI.text = enemiesFelledCount.ToString();
+    }
+
     public void IncrementEnemeyFelledCount()
     {
         enemiesFelledCount++;
-        Debug.LogWarning("Enemy Felled:"+enemiesFelledCount);
-        Debug.LogWarning("Room Count:"+Room.rooms);
     }
 
 
