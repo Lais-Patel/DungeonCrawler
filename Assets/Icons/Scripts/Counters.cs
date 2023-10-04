@@ -49,6 +49,7 @@ public class Counters : MonoBehaviour
     public void IncrementEnemeyFelledCount()
     {
         enemiesFelledCount++;
+        SetEnemiesKilled(enemiesFelledCount);
     }
 
 
