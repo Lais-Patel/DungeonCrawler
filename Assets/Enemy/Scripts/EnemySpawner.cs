@@ -70,6 +70,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void StartNextLevel()
     {
-        
+        EnemiesPerLevel = 20;
+        EnemiesSpawnedInLevel = 0;
     }
 }
