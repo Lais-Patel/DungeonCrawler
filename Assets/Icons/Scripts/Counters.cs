@@ -28,7 +28,7 @@ public class Counters : MonoBehaviour
     public void SetHealth(float health)
     {
         sliderHealthBar.value = health;
-        healthTextUI.text = health.ToString();
+        healthTextUI.text = Mathf.RoundToInt(health).ToString();
     }
 
     public void SetDefence(float defence)
