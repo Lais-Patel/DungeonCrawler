@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 class UpgradeItem
@@ -94,11 +95,11 @@ public class Player : Entity
         Icons.SetHealth(health);
     }
 
-    public void addUpgradeToInventory(numberUpgradeToAdd)
+    public void addUpgradeToInventory(int numberUpgradeToAdd)
     {
-        string[] = Files.ReadAllLines(upgradeInventoryIndex.txt)
+        string[] lines = File.ReadAllLines("upgradeInventoryIndex.txt");
 
-        for (int i = lineNumber; i < lineNumber + 4; i++)
+        for (int i = numberUpgradeToAdd; i < numberUpgradeToAdd + 4; i++)
         {
         UpgradeItem item = new UpgradeItem
         {

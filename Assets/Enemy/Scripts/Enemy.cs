@@ -21,7 +21,7 @@ public class Enemy : Entity
         health = 2f;
         defence = 1f;
         difficultyRating = Room.rooms;
-        attackPower = 1 * 1 + difficultyRating/5
+        attackPower = 1 * 1 + difficultyRating/5;
     }
 
 
@@ -45,7 +45,7 @@ public class Enemy : Entity
         EntityMovementCalc();      
     }
 
-    public float calculateDamageDealt(float attackPower, float difficultyRating)
+    public float calculateDamageDealt()
     {
         damageDealt = attackPower * difficultyRating;
         return damageDealt;
