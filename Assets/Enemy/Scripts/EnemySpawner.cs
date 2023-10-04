@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
         rb.MovePosition(randomPositionOnScreen);
     }
 
-    private void SpawnEnemy
+    private void SpawnEnemy()
     {
         if (timeUntilEnemySpawn <= 0) 
         {
