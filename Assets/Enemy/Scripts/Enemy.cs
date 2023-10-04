@@ -15,6 +15,7 @@ public class Enemy : Entity
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         Icons = FindObjectOfType<Counters>();
+        Room = FindObjectOfType<Room>();
         maxSpeed = 2f;
         acceleration = 0.0333f;
         health = 3f;
