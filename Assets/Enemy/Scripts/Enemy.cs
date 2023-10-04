@@ -18,7 +18,7 @@ public class Enemy : Entity
         Room = FindObjectOfType<Room>();
         maxSpeed = 2f;
         acceleration = 0.0333f;
-        health = 3f;
+        health = 2f;
         defence = 1f;
         difficultyRating = Room.rooms;
     }
@@ -50,20 +50,18 @@ public class Enemy : Entity
         return damageDealt;
     }
 
+    public void TakeDamage()
+    {
+        health -= 1;
+        if (health == 0)
+        {
+            Icons.IncrementEnemeyFelledCount();
+            Destroy(gameObject);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player Melee Hitbox"))
-        {
-            //meleeAttack();
-        }
-        else if (other.CompareTag("Bullets"))
-        {
-            health -= 1;
-            if (health == 0)
-            {
-                Icons.IncrementEnemeyFelledCount();
-                Destroy(gameObject);
-            }
-        }
+        
     }
 }
