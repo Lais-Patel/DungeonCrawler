@@ -19,7 +19,7 @@ public class Player : Entity
         dashLength = 0.15f;
         dashCooldown = 1f;
 
-        health = 10f;
+        health = 100f;
         defence = 5f;
         Icons.SetMaxHealth(health);
         Icons.SetDefence(defence);
