@@ -22,15 +22,16 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        TimeUntilNextSpawn();
+        StartNextLevel();
     }
 
     // Update is called once per frame
     void Update()
     {
+        timeUntilEnemySpawn -= Time.deltaTime;
         if (enemySpawnOn)
         {
-            SpawnEnemy();
+            SpawnEnemyWaveForLevel();
         }
     }
 
@@ -50,21 +51,19 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        if (timeUntilEnemySpawn <= 0) 
-        {
         Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         EnemiesSpawnedInLevel++;
         TimeUntilNextSpawn();
         MoveToRandomPosition();
-        }
     }
     public void SpawnEnemyWaveForLevel()
-    {
-        timeUntilEnemySpawn -= Time.deltaTime;
-        
+    {   
+        if (timeUntilEnemySpawn <= 0) 
+        {
         if (EnemiesSpawnedInLevel != EnemiesPerLevel)
         {
             SpawnEnemy();
+        }
         }
     }
 
@@ -72,5 +71,6 @@ public class EnemySpawner : MonoBehaviour
     {
         EnemiesPerLevel = 20;
         EnemiesSpawnedInLevel = 0;
+        SpawnEnemyWaveForLevel();
     }
 }
