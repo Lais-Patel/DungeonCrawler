@@ -9,10 +9,12 @@ public class Enemy : Entity
     private float difficultyRating;
     public Counters Icons;
     public Room Room;
-
+    private float spawnDelay = 8/12;
+    
     //constructor
     void Start()
     {
+        StartCoroutine(SpawningAnimationWait());
         player = GameObject.FindGameObjectWithTag("Player").transform;
         Icons = FindObjectOfType<Counters>();
         Room = FindObjectOfType<Room>();
@@ -23,8 +25,10 @@ public class Enemy : Entity
         difficultyRating = Room.rooms;
         attackPower = 10 * 1 + difficultyRating/5;
     }
-
-
+    private IEnumerator SpawningAnimationWait()
+    {
+        yield return new WaitForSeconds(waitTime)
+    }
     // Update is called once per frame
     void Update()
     {
