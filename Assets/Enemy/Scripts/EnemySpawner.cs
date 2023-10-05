@@ -13,6 +13,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private bool enemySpawnOn = true;
 
+    [SerializeField]
+    private bool enemyWavesOn = true;
+
     private Vector3 randomPositionOnScreen;
     public Rigidbody2D rb;
     private float timeUntilEnemySpawn;
@@ -38,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void TimeUntilNextSpawn()
     {
-        timeUntilEnemySpawn = Random.Range(enemySpawnDelay, enemySpawnDelay + 2);
+        timeUntilEnemySpawn = Random.Range((enemySpawnDelay*0.5f), enemySpawnDelay);
     }
 
     void MoveToRandomPosition()
@@ -56,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
         EnemiesSpawnedInLevel++;
         TimeUntilNextSpawn();
         MoveToRandomPosition();
-        if (EnemiesSpawnedInLevel == 20)
+        if (EnemiesSpawnedInLevel == 20 & enemyWavesOn)
         {
             StartNextLevel();
         }

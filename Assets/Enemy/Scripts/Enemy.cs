@@ -9,7 +9,8 @@ public class Enemy : Entity
     private float difficultyRating;
     public Counters Icons;
     public Room Room;
-    private float spawnDelay = 8/12;
+    private float spawnDelay = 1;
+    private bool currentlySpawning;
     
     //constructor
     void Start()
@@ -23,30 +24,47 @@ public class Enemy : Entity
         health = 2f;
         defence = 1f;
         difficultyRating = Room.rooms;
-        attackPower = 10 * 1 + difficultyRating/5;
+        attackPower = 2 * 1 + difficultyRating/5;
     }
+
     private IEnumerator SpawningAnimationWait()
     {
-        yield return new WaitForSeconds(waitTime)
+        currentlySpawning = true;
+        yield return new WaitForSeconds(spawnDelay);
+        currentlySpawning = false;
     }
+    
     // Update is called once per frame
     void Update()
     {
+        if (currentlySpawning)
+        { 
+            return;
+        }
+        else
+        {
         distanceFromPlayer = Vector2.Distance(transform.position, player.transform.position);
         directionMovement = player.transform.position - transform.position;
 
         animationController.SetFloat("Vertical", directionMovement.y);
         animationController.SetFloat("Horizontal", directionMovement.x);
         animationController.SetFloat("Velocity", directionMovement.sqrMagnitude);
+        }
     }
 
     // Update is called at fixed increments
     void FixedUpdate()
     {
+        if (currentlySpawning)
+        { 
+            return;
+        }
+        else
+        {
         velocity = maxSpeed;
-
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, maxSpeed * Time.fixedDeltaTime);
-        EntityMovementCalc();      
+        EntityMovementCalc();
+        }
     }
 
     public float calculateDamageDealt()
