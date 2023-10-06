@@ -410,6 +410,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2377052730019129469, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377052730019129469, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377052730019129469, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032503978336862014, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: delayFire
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6825644752483035731, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
       propertyPath: m_Enabled
       value: 0
