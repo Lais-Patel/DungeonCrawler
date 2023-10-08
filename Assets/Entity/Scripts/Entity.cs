@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    // Public properties for entity attributes
     public float maxSpeed;
     public float velocity;
     public float acceleration;
@@ -21,22 +22,18 @@ public class Entity : MonoBehaviour
 
     public Animator animationController;
 
-    //constructor
+    // Awake is called when the script is initialized
     void Awake()
     {
+        // Set default values for maxSpeed and acceleration
         maxSpeed = 6f;
         acceleration = 0.1f;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    // Update is called at fixed increments
+    
+    // FixedUpdate is called at fixed time intervals
     void FixedUpdate()
     {
+        // Calculate and update entity movement
         EntityMovementCalc();
     }
 
@@ -47,12 +44,14 @@ public class Entity : MonoBehaviour
         rb.MovePosition(rb.position + directionMovementSmooth * Time.fixedDeltaTime * velocity);
     }
 
+    // Calculate the damage taken by the entity
     public float calculateDamageTaken(float defence, float damageDealt)
     {
-        damageTaken = (damageDealt - defence/5);
+        damageTaken = (damageDealt - defence / 5);
         return damageTaken;
     }
 
+    // Calculate the damage dealt by the entity
     public float calculateDamageDealt(float attackPower)
     {
         damageDealt = attackPower;

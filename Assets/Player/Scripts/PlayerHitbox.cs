@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class PlayerHitbox : MonoBehaviour
 {
-    public Player Player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Player Player; // Reference to the associated player
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // Called when another 2D collider enters this trigger collider
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy Melee Hitbox"))
         {
+            // When attacked by an enemy, calculate and apply damage to the player
             Enemy Enemy = other.GetComponentInParent<Enemy>();
             float damageDealt = Enemy.calculateDamageDealt();
             Player.enemyMeleeAttack(damageDealt);

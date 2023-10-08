@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public float rooms = 0;
-    public Counters Icons;
+    public float rooms = 0;     // Number of rooms cleared
+    public Counters Icons;      // Reference to the Counters script for UI updates
 
     // Start is called before the first frame update
     void Start()
     {
+        // Initialize the UI with the initial room count
         Icons.SetRooms(rooms);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    // Increment the room count and update the UI
     public void IncrementRoomCount()
     {
         rooms++;

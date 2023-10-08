@@ -4,36 +4,39 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    public Transform bulletTransform;
-    public bool canFire;
-    public float delayFire;
+    public GameObject bulletPrefab;     // Prefab for the bullet to be fired
+    public Transform bulletTransform;   // Transform where bullets will spawn
+    public bool canFire;                // Boolean to control firing
+    public float delayFire;             // Delay between shots
 
     // Start is called before the first frame update
     void Start()
     {
-        canFire = true;
+        canFire = true; // Enable firing at the start
     }
 
     // Update is called once per frame
     void Update()
     {
-        pointTowardsMousePointer();
+        pointTowardsMousePointer(); // Point the gun towards the mouse pointer
 
+        // Check for user input to fire bullets
         if (Input.GetButtonDown("Fire1") && canFire)
         {
-            StartCoroutine(fireAlgorithm());
+            StartCoroutine(fireAlgorithm()); // Start firing sequence
         }
     }
 
+    // Coroutine to handle the firing sequence
     private IEnumerator fireAlgorithm()
     {
-        canFire = false;
-        Instantiate(bulletPrefab, bulletTransform.position, Quaternion.identity);
-        yield return new WaitForSeconds(delayFire);
-        canFire = true;
+        canFire = false; // Disable firing during the sequence
+        Instantiate(bulletPrefab, bulletTransform.position, Quaternion.identity); // Spawn a bullet
+        yield return new WaitForSeconds(delayFire); // Wait for the specified delay
+        canFire = true; // Enable firing again
     }
 
+    // Point the gun towards the mouse pointer
     private void pointTowardsMousePointer()
     {
         Vector2 directionToMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
