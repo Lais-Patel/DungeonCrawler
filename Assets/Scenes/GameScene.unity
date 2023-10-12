@@ -655,6 +655,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7381850661413743655, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: audioMenu
+      value: 
+      objectReference: {fileID: 5796099865190976825}
+    - target: {fileID: 7381850661413743655, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: graphicsMenu
+      value: 
+      objectReference: {fileID: 5796099865190976825}
     - target: {fileID: 8593132297072269939, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -166.99998
@@ -665,3 +673,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+--- !u!1 &5796099865190976825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6205981293908525877, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+  m_PrefabInstance: {fileID: 5796099865190976824}
+  m_PrefabAsset: {fileID: 0}
