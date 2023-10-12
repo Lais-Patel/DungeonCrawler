@@ -22,7 +22,7 @@ public class EnemyHitbox : MonoBehaviour
     // Called when another 2D collider enters this trigger collider
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bullets"))
+        if (other.CompareTag("Bullets") && !Enemy.currentlySpawning)
         {
             // If the entering collider has the "Bullets" tag, inform the associated enemy to take damage
             Enemy.TakeDamage();

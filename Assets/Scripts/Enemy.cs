@@ -10,7 +10,7 @@ public class Enemy : Entity
     public Counters Icons;
     public Room Room;
     private float spawnDelay = 1;
-    private bool currentlySpawning;
+    public static bool currentlySpawning;
 
     // Start is called before the first frame update
     void Start()
