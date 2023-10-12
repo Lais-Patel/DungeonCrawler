@@ -577,7 +577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5796099865492681441, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
       propertyPath: m_ScreenMatchMode
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5796099865492681441, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
       propertyPath: m_ReferenceResolution.x
