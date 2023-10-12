@@ -11,7 +11,7 @@ public class ResolutionMenu : MonoBehaviour
     private List<Resolution> resolutionsFilter;
 
     private float currentScreenRefreshRate;
-    private int currentScreenResolution = 0;
+    public int currentScreenResolution;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,9 @@ public class ResolutionMenu : MonoBehaviour
 
         for (int i = resolutions.Length - 1; i >= 0; i--)
         {
-            if (resolutions[i].refreshRate == currentScreenRefreshRate)
+            float aspectRatio = (float)resolutions[i].width / resolutions[i].height;
+            Debug.Log("Checking aspect: " + aspectRatio);
+            if (aspectRatio == 16/9f)
             {
                 resolutionsFilter.Add(resolutions[i]);
             }
