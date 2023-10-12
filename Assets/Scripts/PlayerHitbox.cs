@@ -9,12 +9,15 @@ public class PlayerHitbox : MonoBehaviour
     // Called when another 2D collider enters this trigger collider
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy Melee Hitbox") && !Enemy.currentlySpawning)
+        if (other.CompareTag("Enemy Melee Hitbox"))
         {
             // When attacked by an enemy, calculate and apply damage to the player
             Enemy Enemy = other.GetComponentInParent<Enemy>();
-            float damageDealt = Enemy.calculateDamageDealt();
-            Player.enemyMeleeAttack(damageDealt);
+            if (!Enemy.currentlySpawning)
+            {
+                float damageDealt = Enemy.calculateDamageDealt();
+                Player.enemyMeleeAttack(damageDealt);
+            }
         }
     }
 }
