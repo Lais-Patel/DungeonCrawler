@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Menus : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public bool isGamePaused;
+    public static bool isGamePaused;
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class Menus : MonoBehaviour
     public void ChangeScenetoMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        ResumeGame();
     }
 
     public void PauseGame()

@@ -62,7 +62,7 @@ public class Player : Entity
     // Handle player control
     public void PlayerControlAlgorithm()
     {
-        if (hasPressedDash)
+        if (hasPressedDash || Menus.isGamePaused)
         {
             return;
         }
