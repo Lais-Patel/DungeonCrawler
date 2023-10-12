@@ -31,13 +31,14 @@ public class ResolutionMenu : MonoBehaviour
         }
 
         List<string> optionsOfDropdown = new List<string>();
-        for (int i = 0; i < resolutionsFilter.Count; i++)
+
+        for (int i = resolutionsFilter.Count - 1; i >= 0; i--)
         {
             string resolutionOption = resolutionsFilter[i].width + "x" +  resolutionsFilter[i].height + " : " +  resolutionsFilter[i].refreshRate + "Hz";
             optionsOfDropdown.Add(resolutionOption);
             if (resolutionsFilter[i].width == Screen.width && resolutionsFilter[i].height == Screen.height)
             {
-                currentScreenResolution = i;
+                currentScreenResolution = i - resolutionsFilter.Count - 1;
             }
         }
 
