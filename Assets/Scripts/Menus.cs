@@ -44,6 +44,11 @@ public class Menus : MonoBehaviour
         ResumeGame();
     }
 
+    public void ChangeScenetoSettingsMenu()
+    {
+        SceneManager.LoadScene("MainSettingsMenu");
+    }
+
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
