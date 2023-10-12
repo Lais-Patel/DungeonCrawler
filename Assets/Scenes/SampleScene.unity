@@ -495,9 +495,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 5796099865492681441, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796099865492681441, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796099865492681441, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796099865492681441, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796099865492681442, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 5796099865492681442, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796099865492681442, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5796099865492681444, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
       propertyPath: Room
       value: 
       objectReference: {fileID: 914621809}
+    - target: {fileID: 5796099865685491194, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -69.64453
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
