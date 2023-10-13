@@ -10,6 +10,12 @@ public class Room : MonoBehaviour
     public static float enemiesSpawnCap;
     public static float difficultySpawnCap;
 
+    private float enemiesSpawnCapBase = 5;
+    private float difficultySpawnCapBase = 10;
+    
+    private float playerHealthBase = 100;
+    private float playerAttackBase = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,32 +26,35 @@ public class Room : MonoBehaviour
         
         if (difficultyRating == 1)
         {
-            enemiesSpawnCap = 2.5f;
-            difficultySpawnCap = 5f;
-            Player.health = (float)(Player.health * 2);
+            enemiesSpawnCap = enemiesSpawnCapBase * 0.5f;
+            difficultySpawnCap = difficultySpawnCapBase * 0.5f;
+            
+            Player.health = playerHealthBase * 2f;
             Icons.SetHealth(Player.health);
-            Player.attackPower = (float)(Player.attackPower * 2);
+            Player.attackPower = playerAttackBase * 2f;
         }
         else if (difficultyRating == 2)
         {
-            enemiesSpawnCap = 5f;
-            difficultySpawnCap = 10f;
+            enemiesSpawnCap = enemiesSpawnCapBase;
+            difficultySpawnCap = difficultySpawnCapBase;
         }
         else if (difficultyRating == 3)
         {
-            enemiesSpawnCap = 7.5f;
-            difficultySpawnCap = 15f;
-            Player.health = (float)(Player.health * 0.75);
+            enemiesSpawnCap = enemiesSpawnCapBase * 1.5f;
+            difficultySpawnCap = difficultySpawnCapBase * 1.5f;
+            
+            Player.health = playerHealthBase * 0.75f;
             Icons.SetHealth(Player.health);
-            Player.attackPower = (float)(Player.attackPower * 0.75);
+            Player.attackPower = playerAttackBase * 0.75f;
         }
         else if (difficultyRating == 4)
         {
-            enemiesSpawnCap = 15f;
-            difficultySpawnCap = 30f;
-            Player.health = (float)(Player.health * 0.05);
+            enemiesSpawnCap = enemiesSpawnCapBase * 3f;
+            difficultySpawnCap = difficultySpawnCapBase * 3f;
+            
+            Player.health = playerHealthBase * 0.05f;
             Icons.SetHealth(Player.health);
-            Player.attackPower = (float)(Player.attackPower * 0.5);
+            Player.attackPower = playerAttackBase * 0.5f;
         }
         
         
