@@ -62,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
         enemiesSpawned++;
         TimeUntilNextSpawn();
         MoveToRandomPosition();
-        if (enemiesSpawned == 20 && enemyWavesOn)
+        if (enemiesSpawned == enemiesSpawnCapIncremental && enemyWavesOn)
         {
             StartNextLevel();
         }
@@ -84,7 +84,7 @@ public class EnemySpawner : MonoBehaviour
     public void StartNextLevel()
     {
         Room.IncrementRoomCount();
-        enemiesSpawnCapIncremental = Room.difficultyRating;
+        enemiesSpawnCapIncremental = Room.enemiesSpawnCap * (Room.rooms * 0.2f);
         enemiesSpawned = 0;
         SpawnEnemyWaveForLevel();
     }

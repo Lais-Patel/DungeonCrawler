@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public float rooms = 0;     // Number of rooms cleared
+    public float rooms = 1;     // Number of rooms cleared
     public Counters Icons;      // Reference to the Counters script for UI updates
     public static float difficultyRating;
     public static float enemiesSpawnCap;
