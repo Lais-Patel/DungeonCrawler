@@ -14,7 +14,10 @@ public class DifficultyMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        difficultyRating = 2f;
+	    if (PlayerPrefs.HasKey("DifficultyRating"))
+	    {
+		    difficultyRating = PlayerPrefs.GetFloat("DifficultyRating");
+	    }
         difficultyBar.value = difficultyRating;
 		Debug.Log("Difficulty = " + difficultyRating);
 		updateDifficultyRating();
@@ -23,6 +26,8 @@ public class DifficultyMenu : MonoBehaviour
     public void updateDifficultyRating()
     {
         difficultyRating = difficultyBar.value;
+        PlayerPrefs.SetFloat("DifficultyRating", difficultyRating);
+        
         Debug.Log("Difficulty rating = " + difficultyRating);
 		Debug.Log("Difficulty value = " + difficultyBar.value);
 	
@@ -31,24 +36,29 @@ public class DifficultyMenu : MonoBehaviour
 			difficultyDescription.text = "Player Health 200%     " +
 			                             "Player Damage 200%     " +
 			                             "Enemy Spawns 0.5x      ";
+			difficultyDescription.color = Color.white;
+			
 		}
 		else if (difficultyRating == 2)
 		{
 			difficultyDescription.text = "Player Health 100%     " +
 			                             "Player Damage 100%     " +
 			                             "Enemy Spawns 1x        ";
+			difficultyDescription.color = Color.white;
 		}
 		else if (difficultyRating == 3)
 		{
 			difficultyDescription.text = "Player Health 75%      " +
 			                             "Player Damage 75%      " +
 			                             "Enemy Spawns 1.5x      ";
+			difficultyDescription.color = Color.white;
 		}
 		else if (difficultyRating == 4)
 		{
 			difficultyDescription.text = "Player Health 3        " +
 			                             "Player Damage 50%      " +
 			                             "Enemy Spawns 3x        ";
+			difficultyDescription.color = Color.red;
 		}
     }
 }

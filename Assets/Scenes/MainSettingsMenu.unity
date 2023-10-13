@@ -1454,6 +1454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultyBar: {fileID: 869064881}
+  difficultyDescription: {fileID: 1407848482}
 --- !u!1 &625921754
 GameObject:
   m_ObjectHideFlags: 0

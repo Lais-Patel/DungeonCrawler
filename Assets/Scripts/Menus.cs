@@ -10,10 +10,20 @@ public class Menus : MonoBehaviour
     public GameObject graphicsMenu;
     public GameObject difficultyMenu;
 
+    public static float difficultyRating;
     public static bool isGamePaused;
 
     void Start()
     {
+        if (PlayerPrefs.HasKey("DifficultyRating"))
+        {
+            difficultyRating = PlayerPrefs.GetFloat("DifficultyRating");
+        }
+        else
+        {
+            difficultyRating = 2;
+        }
+        
         pauseMenu.SetActive(false);
         audioMenu.SetActive(false);
         graphicsMenu.SetActive(false);
