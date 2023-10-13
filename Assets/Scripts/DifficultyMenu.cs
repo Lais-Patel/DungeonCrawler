@@ -55,7 +55,7 @@ public class DifficultyMenu : MonoBehaviour
 		}
 		else if (difficultyRating == 4)
 		{
-			difficultyDescription.text = "Player Health 3        " +
+			difficultyDescription.text = "Player Health 5%        " +
 			                             "Player Damage 50%      " +
 			                             "Enemy Spawns 3x        ";
 			difficultyDescription.color = Color.red;

@@ -19,6 +19,7 @@ public class Player : Entity
     public float dashCooldown;
     private bool hasPressedDash;
     private bool canDash = true;
+    
 
     List<UpgradeItem> upgradeInventory = new List<UpgradeItem>();
 

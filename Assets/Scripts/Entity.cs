@@ -10,7 +10,7 @@ public class Entity : MonoBehaviour
     public float acceleration;
     public Rigidbody2D rb;
 
-    public float health;
+    public static float health;
     public float defence;
     public float attackPower;
     public float damageTaken;
