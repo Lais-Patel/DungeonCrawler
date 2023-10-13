@@ -6,7 +6,7 @@ public class Enemy : Entity
 {
     public Transform player;
     public float distanceFromPlayer;
-    private float difficultyRating;
+    private float difficultyScore;
     public Counters Icons;
     public Room Room;
     private float spawnDelay = 1;
@@ -30,8 +30,8 @@ public class Enemy : Entity
         acceleration = 0.0333f;
         health = 2f;
         defence = 1f;
-        difficultyRating = Room.rooms;
-        attackPower = 2 * 1 + difficultyRating / 5;
+        difficultyScore = Room.rooms;
+        attackPower = 2 * 1 + difficultyScore / 5;
     }
 
     // Coroutine to handle enemy spawning animation delay
@@ -81,7 +81,7 @@ public class Enemy : Entity
     // Calculate the damage dealt by the enemy
     public float calculateDamageDealt()
     {
-        damageDealt = attackPower * difficultyRating;
+        damageDealt = attackPower * difficultyScore;
         return damageDealt;
     }
 
