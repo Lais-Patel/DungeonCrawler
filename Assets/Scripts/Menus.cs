@@ -8,6 +8,7 @@ public class Menus : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject audioMenu;
     public GameObject graphicsMenu;
+    public GameObject difficultyMenu;
 
     public static bool isGamePaused;
 
@@ -16,6 +17,7 @@ public class Menus : MonoBehaviour
         pauseMenu.SetActive(false);
         audioMenu.SetActive(false);
         graphicsMenu.SetActive(false);
+        difficultyMenu.SetActive(false);
     }
 
     void Update()
@@ -67,12 +69,21 @@ public class Menus : MonoBehaviour
     {
         audioMenu.SetActive(true);
         graphicsMenu.SetActive(false);
+        difficultyMenu.SetActive(false);
     }
 
     public void openGraphicsMenu()
     {
         audioMenu.SetActive(false);
         graphicsMenu.SetActive(true);
+        difficultyMenu.SetActive(false);
+    }
+    
+    public void openDifficultyMenu()
+    {
+        audioMenu.SetActive(false);
+        graphicsMenu.SetActive(false);
+        difficultyMenu.SetActive(true);
     }
 
     public void QuitGame()
