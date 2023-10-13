@@ -12,7 +12,7 @@ public class Entity : MonoBehaviour
 
     public static float health;
     public float defence;
-    public float attackPower;
+    public static float attackPower;
     public float damageTaken;
     public float damageDealt;
 

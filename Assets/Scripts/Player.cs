@@ -35,6 +35,7 @@ public class Player : Entity
 
         health = 100f;
         defence = 5f;
+        attackPower = 1f;
 
         // Set initial values for health and defence in the UI
         Icons.SetMaxHealth(health);

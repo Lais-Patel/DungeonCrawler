@@ -96,10 +96,4 @@ public class Enemy : Entity
             Destroy(gameObject);
         }
     }
-
-    // Called when another 2D collider enters this trigger collider
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        // You can add collision handling logic here if needed
-    }
 }

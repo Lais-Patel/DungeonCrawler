@@ -23,6 +23,8 @@ public class Room : MonoBehaviour
             enemiesSpawnCap = 2.5f;
             difficultySpawnCap = 5f;
             Player.health = (float)(Player.health * 2);
+            Icons.SetHealth(Player.health);
+            Player.attackPower = (float)(Player.attackPower * 2);
         }
         else if (difficultyRating == 2)
         {
@@ -34,12 +36,16 @@ public class Room : MonoBehaviour
             enemiesSpawnCap = 7.5f;
             difficultySpawnCap = 15f;
             Player.health = (float)(Player.health * 0.75);
+            Icons.SetHealth(Player.health);
+            Player.attackPower = (float)(Player.attackPower * 0.75);
         }
         else if (difficultyRating == 4)
         {
             enemiesSpawnCap = 15f;
             difficultySpawnCap = 30f;
             Player.health = (float)(Player.health * 0.05);
+            Icons.SetHealth(Player.health);
+            Player.attackPower = (float)(Player.attackPower * 0.5);
         }
         
         
