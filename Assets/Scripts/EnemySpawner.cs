@@ -19,8 +19,8 @@ public class EnemySpawner : MonoBehaviour
     private Vector3 randomPositionOnScreen;  // Random position to spawn enemies
     public Rigidbody2D rb;
     private float timeUntilEnemySpawn;       // Countdown timer for enemy spawn
-    private float EnemiesPerLevel = 20;      // Number of enemies to spawn in each level
-    private float EnemiesSpawnedInLevel = 0; // Counter for enemies spawned in the current level
+    private float enemiesSpawnCapIncremental;      // Number of enemies to spawn in each level
+    private float enemiesSpawned;        // Counter for enemies spawned in the current level
     public Room Room;
 
     // Start is called before the first frame update
@@ -59,10 +59,10 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-        EnemiesSpawnedInLevel++;
+        enemiesSpawned++;
         TimeUntilNextSpawn();
         MoveToRandomPosition();
-        if (EnemiesSpawnedInLevel == 20 && enemyWavesOn)
+        if (enemiesSpawned == 20 && enemyWavesOn)
         {
             StartNextLevel();
         }
@@ -73,7 +73,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (timeUntilEnemySpawn <= 0)
         {
-            if (EnemiesSpawnedInLevel != EnemiesPerLevel)
+            if (enemiesSpawned != enemiesSpawnCapIncremental)
             {
                 SpawnEnemy();
             }
@@ -84,8 +84,8 @@ public class EnemySpawner : MonoBehaviour
     public void StartNextLevel()
     {
         Room.IncrementRoomCount();
-        EnemiesPerLevel = 20;
-        EnemiesSpawnedInLevel = 0;
+        enemiesSpawnCapIncremental = Room.difficultyRating;
+        enemiesSpawned = 0;
         SpawnEnemyWaveForLevel();
     }
 }
