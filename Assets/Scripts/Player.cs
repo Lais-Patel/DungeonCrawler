@@ -32,10 +32,8 @@ public class Player : Entity
         dashPower = 20f;
         dashLength = 0.15f;
         dashCooldown = 1f;
-
-        health = 100f;
+        
         defence = 5f;
-        attackPower = 10f;
 
         // Set initial values for health and defence in the UI
         Icons.SetMaxHealth(health);

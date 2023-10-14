@@ -30,13 +30,17 @@ public class Room : MonoBehaviour
             difficultySpawnCap = difficultySpawnCapBase * 0.5f;
             
             Player.health = playerHealthBase * 2f;
-            Icons.SetHealth(Player.health);
+            Icons.SetMaxHealth(Player.health);
             Player.attackPower = playerAttackBase * 2f;
         }
         else if (difficultyRating == 2)
         {
             enemiesSpawnCap = enemiesSpawnCapBase;
             difficultySpawnCap = difficultySpawnCapBase;
+            
+            Player.health = playerHealthBase * 1f;
+            Icons.SetMaxHealth(Player.health);
+            Player.attackPower = playerAttackBase * 1f;
         }
         else if (difficultyRating == 3)
         {
@@ -44,7 +48,7 @@ public class Room : MonoBehaviour
             difficultySpawnCap = difficultySpawnCapBase * 1.5f;
             
             Player.health = playerHealthBase * 0.75f;
-            Icons.SetHealth(Player.health);
+            Icons.SetMaxHealth(Player.health);
             Player.attackPower = playerAttackBase * 0.75f;
         }
         else if (difficultyRating == 4)
@@ -53,7 +57,7 @@ public class Room : MonoBehaviour
             difficultySpawnCap = difficultySpawnCapBase * 3f;
             
             Player.health = playerHealthBase * 0.05f;
-            Icons.SetHealth(Player.health);
+            Icons.SetMaxHealth(Player.health);
             Player.attackPower = playerAttackBase * 0.5f;
         }
         
