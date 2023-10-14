@@ -10,7 +10,7 @@ public class Countdown : MonoBehaviour
     private static float timeLeftOnClock;
     private static bool timerOn;
 
-    public static TextMeshProUGUI TimerText;
+    public TextMeshProUGUI TimerText;
     public EnemySpawner enemySpawner;
     
     // Update is called once per frame
@@ -18,6 +18,7 @@ public class Countdown : MonoBehaviour
     {
         if (timerOn)
         {
+            updateTimerText();
             if (timeLeftOnClock > 0)
             {
                 timeLeftOnClock -= Time.deltaTime;
@@ -25,6 +26,7 @@ public class Countdown : MonoBehaviour
             else
             {
                 timeLeftOnClock = 0;
+                TimerText.text = "";
                 timerOn = false;
                 enemySpawner.StartNextLevel();
             }
@@ -33,7 +35,7 @@ public class Countdown : MonoBehaviour
     
     private void updateTimerText()
     {
-        TimerText.text = timeLeftOnClock.ToString();
+        TimerText.text = timeLeftOnClock.ToString("F0");
     }
 
     public static void StartCountdown(float timeToSet)
