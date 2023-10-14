@@ -18,8 +18,8 @@ public class DifficultyMenu : MonoBehaviour
 	    {
 		    difficultyRating = PlayerPrefs.GetFloat("DifficultyRating");
 	    }
-        difficultyBar.value = difficultyRating;
-		Debug.Log("Difficulty = " + difficultyRating);
+
+	    difficultyBar.value = difficultyRating;
 		updateDifficultyRating();
     }
 
@@ -28,9 +28,6 @@ public class DifficultyMenu : MonoBehaviour
         difficultyRating = difficultyBar.value;
         PlayerPrefs.SetFloat("DifficultyRating", difficultyRating);
         
-        Debug.Log("Difficulty rating = " + difficultyRating);
-		Debug.Log("Difficulty value = " + difficultyBar.value);
-	
 		if (difficultyRating == 1)
 		{
 			difficultyDescription.text = "Player Health 200%     " +
