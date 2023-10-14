@@ -69,7 +69,9 @@ public class Room : MonoBehaviour
     // Increment the room count and update the UI
     public void IncrementRoomCount()
     {
+        Debug.Log("Increment Room: " + rooms);
         rooms++;
+        Debug.Log("Increment Room: " + rooms);
         Icons.SetRooms(rooms);
         
     }
