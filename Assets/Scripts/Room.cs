@@ -10,11 +10,11 @@ public class Room : MonoBehaviour
     public static float enemiesSpawnCap;
     public static float difficultySpawnCap;
 
-    private float enemiesSpawnCapBase = 5;
-    private float difficultySpawnCapBase = 10;
+    private float enemiesSpawnCapBase = 5f;
+    private float difficultySpawnCapBase = 10f;
     
-    private float playerHealthBase = 100;
-    private float playerAttackBase = 1;
+    private float playerHealthBase = 100f;
+    private float playerAttackBase = 10f;
 
     // Start is called before the first frame update
     void Start()
