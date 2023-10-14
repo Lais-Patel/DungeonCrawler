@@ -21,7 +21,9 @@ public class EnemySpawner : MonoBehaviour
     private float timeUntilEnemySpawn;       // Countdown timer for enemy spawn
     private float enemiesSpawnCapIncremental;      // Number of enemies to spawn in each level
     private float enemiesSpawned;        // Counter for enemies spawned in the current level
+    private int enemiesSpawnedTotal = 0;
     public Room Room;
+    public Counters Icons;
 
     // Start is called before the first frame update
     void Start()
@@ -61,13 +63,18 @@ public class EnemySpawner : MonoBehaviour
     {
         Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         enemiesSpawned++;
+        enemiesSpawnedTotal++;
         TimeUntilNextSpawn();
         MoveToRandomPosition();
-        Debug.Log("if enemiesSpawned == EnemySpawnCapIncremental: " + enemiesSpawned + " == " + enemiesSpawnCapIncremental);
-        if (enemiesSpawned == enemiesSpawnCapIncremental && enemyWavesOn)
+        Debug.Log("if enemiesSpawned >= EnemySpawnCapIncremental: " + enemiesSpawned + " >= " + enemiesSpawnCapIncremental);
+        if (enemiesSpawned >= enemiesSpawnCapIncremental && enemyWavesOn);
         {
-            Countdown.StartCountdown(5f);
-            enemySpawnOn = false;
+            Debug.Log("if enemiesSpawnedTotal <= EnemySpawnCapIncremental: " + enemiesSpawnedTotal + " <= " + Icons.enemiesFelledCount);
+            if (enemiesSpawnedTotal <= Icons.enemiesFelledCount) ;
+            {
+                Countdown.StartCountdown(5f);
+                enemySpawnOn = false;
+            }
         }
     }
 
@@ -90,7 +97,7 @@ public class EnemySpawner : MonoBehaviour
         enemySpawnOn = true;
         Room.IncrementRoomCount();
         Debug.Log("Room: " + Room.rooms);
-        enemiesSpawnCapIncremental = (float)System.Math.Round(Room.enemiesSpawnCap * (Room.rooms * 1.1f));
+        enemiesSpawnCapIncremental = Room.enemiesSpawnCap * (Room.rooms * 1.1f);
         Debug.Log("EnemySpawnCapIncremental: " +enemiesSpawnCapIncremental);
         enemiesSpawned = 0;
         SpawnEnemyWaveForLevel();
