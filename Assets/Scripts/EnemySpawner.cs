@@ -28,8 +28,8 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemySpawnOn = false;
         Countdown.StartCountdown(5f);
+        enemySpawnOn = false;
     }
 
     // Update is called once per frame
@@ -39,6 +39,17 @@ public class EnemySpawner : MonoBehaviour
         if (enemySpawnOn)
         {
             SpawnEnemyWaveForLevel();
+            
+            Debug.Log("if enemiesSpawned >= EnemySpawnCapIncremental: " + enemiesSpawned + " >= " + enemiesSpawnCapIncremental);
+            if (enemiesSpawned >= enemiesSpawnCapIncremental && enemyWavesOn)
+            {
+                Debug.Log("if enemiesSpawnedTotal <= enemiesFelledCount: " + enemiesSpawnedTotal + " <= " + Icons.enemiesFelledCount);
+                if (enemiesSpawnedTotal <= Icons.enemiesFelledCount)
+                {
+                    Countdown.StartCountdown(5f);
+                    enemySpawnOn = false;
+                }
+            }
         }
     }
 
@@ -66,16 +77,6 @@ public class EnemySpawner : MonoBehaviour
         enemiesSpawnedTotal++;
         TimeUntilNextSpawn();
         MoveToRandomPosition();
-        Debug.Log("if enemiesSpawned >= EnemySpawnCapIncremental: " + enemiesSpawned + " >= " + enemiesSpawnCapIncremental);
-        if (enemiesSpawned >= enemiesSpawnCapIncremental && enemyWavesOn);
-        {
-            Debug.Log("if enemiesSpawnedTotal <= EnemySpawnCapIncremental: " + enemiesSpawnedTotal + " <= " + Icons.enemiesFelledCount);
-            if (enemiesSpawnedTotal <= Icons.enemiesFelledCount) ;
-            {
-                Countdown.StartCountdown(5f);
-                enemySpawnOn = false;
-            }
-        }
     }
 
     // Spawn an enemy wave for the current level

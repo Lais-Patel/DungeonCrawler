@@ -11,8 +11,9 @@ public class Enemy : Entity
     public Room Room;
     private float spawnDelay = 1;
     public bool currentlySpawning;
-    private float health;
-    private float attackPower;
+    
+    new private float health;
+    new private float attackPower;
 
     // Start is called before the first frame update
     void Start()
