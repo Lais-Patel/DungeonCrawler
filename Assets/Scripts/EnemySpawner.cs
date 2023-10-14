@@ -24,8 +24,9 @@ public class EnemySpawner : MonoBehaviour
     public Room Room;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
+        enemySpawnOn = false;
         Countdown.StartCountdown(5f);
     }
 
