@@ -101,7 +101,7 @@ public class Player : Entity
     }
 
     // Handle enemy melee attack
-    public void enemyMeleeAttack(float damageDealt)
+    public void enemyMeleeAttack( float damageDealt)
     {
         health -= calculateDamageTaken(defence, damageDealt);
         Icons.SetHealth(health);

@@ -912,6 +912,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1154716428}
   audioMenu: {fileID: 1154716428}
   graphicsMenu: {fileID: 1154716428}
+  difficultyMenu: {fileID: 1154716428}
 --- !u!1 &1534526892
 GameObject:
   m_ObjectHideFlags: 0

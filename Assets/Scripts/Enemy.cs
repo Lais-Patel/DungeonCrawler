@@ -11,6 +11,7 @@ public class Enemy : Entity
     public Room Room;
     private float spawnDelay = 1;
     public bool currentlySpawning;
+    private float health;
 
     // Start is called before the first frame update
     void Start()
@@ -88,9 +89,7 @@ public class Enemy : Entity
     // Handle enemy taking damage
     public void TakeDamage()
     {
-        calculateDamageTaken(defence, Player.calculateDamageDealt());
-
-        health -= damageTaken;
+        health -= calculateDamageTaken(defence, Player.calculateDamageDealt());
         
         if (health == 0)
         {
