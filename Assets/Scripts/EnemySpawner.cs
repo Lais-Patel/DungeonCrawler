@@ -90,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
         enemySpawnOn = true;
         Room.IncrementRoomCount();
         Debug.Log("Room: " + Room.rooms);
-        enemiesSpawnCapIncremental = Room.enemiesSpawnCap * (Room.rooms * 1.1f);
+        enemiesSpawnCapIncremental = (float)System.Math.Round(Room.enemiesSpawnCap * (Room.rooms * 1.1f));
         Debug.Log("EnemySpawnCapIncremental: " +enemiesSpawnCapIncremental);
         enemiesSpawned = 0;
         SpawnEnemyWaveForLevel();
