@@ -13,12 +13,6 @@ public class EnemyHitbox : MonoBehaviour
         Enemy = FindObjectOfType<Enemy>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // This method is currently empty as no updates are needed here
-    }
-
     // Called when another 2D collider enters this trigger collider
     void OnTriggerEnter2D(Collider2D other)
     {

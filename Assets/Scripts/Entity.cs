@@ -47,14 +47,16 @@ public class Entity : MonoBehaviour
     // Calculate the damage taken by the entity
     public float calculateDamageTaken(float defence, float damageDealt)
     {
-        damageTaken = (damageDealt - defence / 5);
+        damageTaken = (damageDealt - defence * 0.2f);
         return damageTaken;
     }
 
-    // Calculate the damage dealt by the entity
+    /*
+    Calculate the damage dealt by the entity
     public float calculateDamageDealt(float attackPower)
     {
         damageDealt = attackPower;
         return damageDealt;
     }
+    */
 }

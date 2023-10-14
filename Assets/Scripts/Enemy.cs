@@ -28,9 +28,9 @@ public class Enemy : Entity
         // Set initial values for enemy properties
         maxSpeed = 2f;
         acceleration = 0.0333f;
-        health = 2f;
-        defence = 1f;
-        attackPower = 2 * (1 + difficultyScore / 10);
+        health = 20f;
+        defence = 0f;
+        attackPower = 2f * (1f + difficultyScore * 0.1f);
         difficultyScore = Room.rooms;
     }
 
@@ -81,14 +81,17 @@ public class Enemy : Entity
     // Calculate the damage dealt by the enemy
     public float calculateDamageDealt()
     {
-        damageDealt = attackPower * difficultyScore;
+        damageDealt = attackPower;
         return damageDealt;
     }
 
     // Handle enemy taking damage
     public void TakeDamage()
     {
-        health -= 1;
+        calculateDamageTaken(defence, Player.calculateDamageDealt());
+
+        health -= damageTaken;
+        
         if (health == 0)
         {
             // Increment the count of defeated enemies and destroy this enemy object

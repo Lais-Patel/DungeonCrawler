@@ -35,7 +35,7 @@ public class Player : Entity
 
         health = 100f;
         defence = 5f;
-        attackPower = 1f;
+        attackPower = 10f;
 
         // Set initial values for health and defence in the UI
         Icons.SetMaxHealth(health);
@@ -105,6 +105,13 @@ public class Player : Entity
     {
         health -= calculateDamageTaken(defence, damageDealt);
         Icons.SetHealth(health);
+    }
+    
+    //Calculate the damage dealt by the entity
+    public static float calculateDamageDealt()
+    {
+        float damageDealt = attackPower;
+        return damageDealt;
     }
 
     // Add upgrades to the player's inventory
