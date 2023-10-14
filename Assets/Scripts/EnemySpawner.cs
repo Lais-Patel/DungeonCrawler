@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        StartNextLevel();
+        Countdown.StartCountdown(5f);
     }
 
     // Update is called once per frame
@@ -64,7 +64,8 @@ public class EnemySpawner : MonoBehaviour
         MoveToRandomPosition();
         if (enemiesSpawned == enemiesSpawnCapIncremental && enemyWavesOn)
         {
-            StartNextLevel();
+            Countdown.StartCountdown(5f);
+            enemySpawnOn = false;
         }
     }
 
@@ -73,7 +74,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (timeUntilEnemySpawn <= 0)
         {
-            if (enemiesSpawned != enemiesSpawnCapIncremental)
+            if (enemiesSpawned <= enemiesSpawnCapIncremental)
             {
                 SpawnEnemy();
             }
@@ -83,8 +84,9 @@ public class EnemySpawner : MonoBehaviour
     // Start the next level by resetting counters and spawning the first wave
     public void StartNextLevel()
     {
+        enemySpawnOn = true;
         Room.IncrementRoomCount();
-        enemiesSpawnCapIncremental = Room.enemiesSpawnCap * (Room.rooms * 0.2f);
+        enemiesSpawnCapIncremental = Room.enemiesSpawnCap * (Room.rooms * 1.1f);
         enemiesSpawned = 0;
         SpawnEnemyWaveForLevel();
     }
