@@ -173,7 +173,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8596944865064148130, guid: 251fb2e2a81722d49bda10261064d665, type: 3}
   bulletTransform: {fileID: 1613369140093602373}
   canFire: 1
-  delayFire: 0.3
+  delayFire: 0.1
 --- !u!1 &1793954011915483505
 GameObject:
   m_ObjectHideFlags: 0

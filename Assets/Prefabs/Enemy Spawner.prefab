@@ -46,10 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2522958807061351808, guid: 85ab0d90ac0d3a44b9e45b345f95f135, type: 3}
-  enemySpawnDelay: 1
+  enemySpawnDelay: 2
   enemySpawnOn: 1
+  enemyWavesOn: 1
   rb: {fileID: 2013907610}
   Room: {fileID: 0}
+  Icons: {fileID: 0}
 --- !u!50 &2013907610
 Rigidbody2D:
   serializedVersion: 4

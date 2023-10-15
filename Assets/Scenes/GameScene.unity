@@ -521,10 +521,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 477139417, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 149.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 477139417, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 477139418, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_fontSize
+      value: 179
+      objectReference: {fileID: 0}
+    - target: {fileID: 477139418, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_margin.z
+      value: -0.7453921
+      objectReference: {fileID: 0}
+    - target: {fileID: 477139418, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 477139418, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.49803925
+      objectReference: {fileID: 0}
+    - target: {fileID: 477139418, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.43529415
+      objectReference: {fileID: 0}
+    - target: {fileID: 477139418, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4288642927
+      objectReference: {fileID: 0}
     - target: {fileID: 524649447, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
       propertyPath: enemySpawner
       value: 
       objectReference: {fileID: 316757941}
+    - target: {fileID: 1875369719, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.22352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875369719, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.20000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875369719, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.24705884
+      objectReference: {fileID: 0}
     - target: {fileID: 5796099864013888311, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -589,6 +633,18 @@ PrefabInstance:
       propertyPath: Room
       value: 
       objectReference: {fileID: 914621809}
+    - target: {fileID: 5796099865508351331, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.22352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796099865508351331, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.20000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796099865508351331, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.24705884
+      objectReference: {fileID: 0}
     - target: {fileID: 7381850661413743655, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
       propertyPath: audioMenu
       value: 
