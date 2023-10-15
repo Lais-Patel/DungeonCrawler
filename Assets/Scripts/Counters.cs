@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Counters : MonoBehaviour
 {
-    public Text healthTextUI;           // Text UI for displaying health
-    public Text defenceTextUI;          // Text UI for displaying defence
-    public Text roomsTextUI;            // Text UI for displaying rooms
-    public Text enemyKilledTextUI;      // Text UI for displaying enemies killed
+    public TextMeshProUGUI healthTextUI;           // Text UI for displaying health
+    public TextMeshProUGUI defenceTextUI;          // Text UI for displaying defence
+    public TextMeshProUGUI roomsTextUI;            // Text UI for displaying rooms
+    public TextMeshProUGUI enemyKilledTextUI;      // Text UI for displaying enemies killed
     public Slider sliderHealthBar;      // Health bar slider
     public float enemiesFelledCount;    // Counter for enemies defeated
     public Room Room;                   // Reference to the Room script

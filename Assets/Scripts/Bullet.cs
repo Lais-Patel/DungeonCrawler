@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Destroy the bullet if it collides with Walls or Enemies
-        if (other.CompareTag("Walls") || other.CompareTag("Enemies"))
+        if (other.CompareTag("Upper Walls") || other.CompareTag("Enemies"))
         {
             Destroy(gameObject);
         }

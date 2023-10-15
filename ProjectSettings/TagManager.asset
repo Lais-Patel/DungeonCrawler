@@ -11,6 +11,7 @@ TagManager:
   - Bullets
   - Player Melee Hitbox
   - Enemy Melee Hitbox
+  - Upper Walls
   layers:
   - Default
   - TransparentFX
