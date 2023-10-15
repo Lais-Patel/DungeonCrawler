@@ -23,6 +23,10 @@ public class Room : MonoBehaviour
         {
             difficultyRating = PlayerPrefs.GetFloat("DifficultyRating");
         }
+        else
+        {
+            difficultyRating = 2f;
+        }
         
         if (difficultyRating == 1)
         {

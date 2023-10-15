@@ -21,7 +21,7 @@ public class Menus : MonoBehaviour
         }
         else
         {
-            difficultyRating = 2;
+            difficultyRating = 2f;
         }
         
         pauseMenu.SetActive(false);

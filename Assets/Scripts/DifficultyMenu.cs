@@ -18,6 +18,10 @@ public class DifficultyMenu : MonoBehaviour
 	    {
 		    difficultyRating = PlayerPrefs.GetFloat("DifficultyRating");
 	    }
+	    else
+	    {
+		    difficultyRating = 2f;
+	    }
 
 	    difficultyBar.value = difficultyRating;
 		updateDifficultyRating();
