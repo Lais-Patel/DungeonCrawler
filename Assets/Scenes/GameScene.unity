@@ -355,6 +355,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1396175616, guid: 09a450e756adc274a868cdc740686373, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9686103
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396175616, guid: 09a450e756adc274a868cdc740686373, type: 3}
+      propertyPath: m_Offset.x
+      value: 7.5156946
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396175617, guid: 09a450e756adc274a868cdc740686373, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9688592
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396175617, guid: 09a450e756adc274a868cdc740686373, type: 3}
+      propertyPath: m_Offset.x
+      value: -7.515723
+      objectReference: {fileID: 0}
     - target: {fileID: 562986679205176876, guid: 09a450e756adc274a868cdc740686373, type: 3}
       propertyPath: Icons
       value: 
@@ -573,10 +589,6 @@ PrefabInstance:
       propertyPath: Room
       value: 
       objectReference: {fileID: 914621809}
-    - target: {fileID: 6205981293908525877, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7381850661413743655, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
       propertyPath: audioMenu
       value: 
