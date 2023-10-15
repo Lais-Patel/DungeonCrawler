@@ -40,10 +40,8 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemyWaveForLevel();
             
-            Debug.Log("if enemiesSpawned >= EnemySpawnCapIncremental: " + enemiesSpawned + " >= " + enemiesSpawnCapIncremental);
             if (enemiesSpawned >= enemiesSpawnCapIncremental && enemyWavesOn)
             {
-                Debug.Log("if enemiesSpawnedTotal <= enemiesFelledCount: " + enemiesSpawnedTotal + " <= " + Icons.enemiesFelledCount);
                 if (enemiesSpawnedTotal <= Icons.enemiesFelledCount)
                 {
                     Countdown.StartCountdown(5f);
@@ -84,7 +82,6 @@ public class EnemySpawner : MonoBehaviour
     {
         if (timeUntilEnemySpawn <= 0)
         {
-            Debug.Log("if enemiesSpawned <= EnemySpawnCapIncremental: " + enemiesSpawned + " <= " + enemiesSpawnCapIncremental);
             if (enemiesSpawned <= enemiesSpawnCapIncremental)
             {
                 SpawnEnemy();
@@ -97,9 +94,7 @@ public class EnemySpawner : MonoBehaviour
     {
         enemySpawnOn = true;
         Room.IncrementRoomCount();
-        Debug.Log("Room: " + Room.rooms);
         enemiesSpawnCapIncremental = Room.enemiesSpawnCap * (Room.rooms * 1.1f);
-        Debug.Log("EnemySpawnCapIncremental: " +enemiesSpawnCapIncremental);
         enemiesSpawned = 0;
         SpawnEnemyWaveForLevel();
     }
