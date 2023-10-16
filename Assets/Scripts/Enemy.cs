@@ -88,8 +88,8 @@ public class Enemy : Entity
             velocity = maxSpeed;
             Debug.Log("Player Transform: " + player.transform.position );
             Debug.Log("positionClosestEnemy: " + positionClosestEnemy );
-            Debug.Log("player.transform.position - (positionClosestEnemy * 0.5f): " + (player.transform.position - (positionClosestEnemy * 2.5f)) );
-            transform.position = Vector2.MoveTowards(this.transform.position, (player.transform.position - (positionClosestEnemy * 2.5f)), maxSpeed * Time.fixedDeltaTime);
+            Debug.Log("player.transform.position - (positionClosestEnemy * 0.5f): " + (player.transform.position + (positionClosestEnemy * 2.5f)) );
+            transform.position = Vector2.MoveTowards(this.transform.position, (player.transform.position + (positionClosestEnemy * 2.5f)), maxSpeed * Time.fixedDeltaTime);
             EntityMovementCalc();
         }
     }
