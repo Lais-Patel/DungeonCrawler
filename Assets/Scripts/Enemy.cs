@@ -64,12 +64,9 @@ public class Enemy : Entity
         else
         {
             // Calculate distance from the enemy to the player
+            targetPosition = player.transform.position;
             distanceFromPlayer = Vector2.Distance(transform.position, targetPosition);
             directionMovement = targetPosition - transform.position;
-            
-            FindClosestEnemy();
-            CalculateTargetPosition();
-            //directionToClosestEnemy = closestEnemy.transform.position - transform.position;
             
             // Set animation parameters
             animationController.SetFloat("Vertical", directionMovement.y);
