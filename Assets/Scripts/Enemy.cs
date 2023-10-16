@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class Enemy : Entity
 {
@@ -14,6 +17,10 @@ public class Enemy : Entity
     
     new private float health;
     new private float attackPower;
+    
+    private float closestDistance = float.MaxValue;
+    private Enemy closestEnemy = null;
+    private Vector3 positionClosestEnemy;
 
     // Start is called before the first frame update
     void Start()
@@ -57,11 +64,10 @@ public class Enemy : Entity
             // Calculate distance from the enemy to the player
             distanceFromPlayer = Vector2.Distance(transform.position, player.transform.position);
             directionMovement = player.transform.position - transform.position;
-
-
-			
-			distanceFromClosestEnemy = Vector2.Distance(transform.position, closestEnemy.transform.position);
-
+            
+            FindClosestEnemy();
+            //directionToClosestEnemy = closestEnemy.transform.position - transform.position;
+            
             // Set animation parameters
             animationController.SetFloat("Vertical", directionMovement.y);
             animationController.SetFloat("Horizontal", directionMovement.x);
@@ -80,7 +86,7 @@ public class Enemy : Entity
         {
             // Set the enemy's velocity for movement
             velocity = maxSpeed;
-            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, maxSpeed * Time.fixedDeltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, (player.transform.position - (positionClosestEnemy * 0.5f)), maxSpeed * Time.fixedDeltaTime);
             EntityMovementCalc();
         }
     }
@@ -107,18 +113,22 @@ public class Enemy : Entity
 
 	private void FindClosestEnemy()
 	{
-		float closestDistance = float.MaxValue;
-		Enemy closestEnemy = null;
 		List<Enemy> enemiesOnScreen = new List<Enemy>();
 
-		foreach (Enemy enemy in enemiesOnScreen)
-		{
-			float distanceFromEnemy = Vector3.Distnce(transform.position, enemy.transform.position);
-			
-			if ( distanceFromEnemy < closestDistance)
-			{
-				closestDistance = distance;
-				closestEnemy = enemy;
-			}
-	}
+        foreach (Enemy enemy in enemiesOnScreen)
+        {
+            float distanceFromEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+
+            if (distanceFromEnemy < closestDistance)
+            {
+                closestDistance = distanceFromEnemy;
+                closestEnemy = enemy;
+            }
+        }
+
+        if (closestEnemy == null)
+        {
+            positionClosestEnemy = Vector3.zero;
+        }
+    } 
 }
