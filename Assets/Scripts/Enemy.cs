@@ -121,6 +121,7 @@ public class Enemy : Entity
 
             if (distanceFromEnemy < closestDistance)
             {
+                Debug.Log(closestEnemy);
                 closestDistance = distanceFromEnemy;
                 closestEnemy = enemy;
             }
@@ -128,7 +129,13 @@ public class Enemy : Entity
 
         if (closestEnemy == null)
         {
-            positionClosestEnemy = Vector3.zero;
+            positionClosestEnemy = Vector2.zero;
+            Debug.Log("null - positionClosestEnemy: " + positionClosestEnemy);
+        }
+        else
+        {
+            positionClosestEnemy = closestEnemy.transform.position;
+            Debug.Log("!null - positionClosestEnemy: " + positionClosestEnemy);
         }
     } 
 }

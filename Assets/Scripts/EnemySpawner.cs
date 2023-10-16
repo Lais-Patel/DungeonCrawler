@@ -15,6 +15,9 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     private bool enemyWavesOn = true;        // Toggle for enabling enemy waves
+    
+    [SerializeField]
+    private bool CountdownOn = true; 
 
     private Vector3 randomPositionOnScreen;  // Random position to spawn enemies
     public Rigidbody2D rb;
@@ -28,8 +31,16 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Countdown.StartCountdown(5f);
-        enemySpawnOn = false;
+        if (CountdownOn)
+        {
+            Countdown.StartCountdown(5f);
+            enemySpawnOn = false;
+        }
+        else
+        {
+            StartNextLevel();
+        }
+        
     }
 
     // Update is called once per frame
