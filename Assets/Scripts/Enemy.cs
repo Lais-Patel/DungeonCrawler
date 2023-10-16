@@ -64,8 +64,8 @@ public class Enemy : Entity
         else
         {
             // Calculate distance from the enemy to the player
-            distanceFromPlayer = Vector2.Distance(transform.position, player.transform.position);
-            directionMovement = player.transform.position - transform.position;
+            distanceFromPlayer = Vector2.Distance(transform.position, targetPosition);
+            directionMovement = targetPosition - transform.position;
             
             FindClosestEnemy();
             CalculateTargetPosition();
@@ -89,9 +89,6 @@ public class Enemy : Entity
         {
             // Set the enemy's velocity for movement
             velocity = maxSpeed;
-            Debug.Log("Player Transform: " + player.transform.position );
-            Debug.Log("positionClosestEnemy: " + positionClosestEnemy );
-            Debug.Log("targetPosition: " + (player.transform.position + (positionClosestEnemy)) );
             transform.position = Vector2.MoveTowards(this.transform.position, (targetPosition), maxSpeed * Time.fixedDeltaTime);
             EntityMovementCalc();
         }
@@ -121,45 +118,34 @@ public class Enemy : Entity
 	{
 		List<Enemy> enemiesOnScreen = new List<Enemy>();
         enemiesOnScreen.AddRange(FindObjectsOfType<Enemy>());
+        float count = 0;
 
-        foreach (Enemy enemy in enemiesOnScreen)
+        foreach (Enemy screenEnemy in enemiesOnScreen)
         {
-            if (enemy != this)
+            count++;
+            Debug.Log("Count of Enemies on Screen:    " + count);
+            if (screenEnemy != this)
             {
-                float distanceFromEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                float distanceFromEnemy = Vector3.Distance(transform.position, screenEnemy.transform.position);
 
                 if (distanceFromEnemy < closestDistance)
                 {
-                    Debug.Log(closestEnemy);
                     closestDistance = distanceFromEnemy;
-                    closestEnemy = enemy;
+                    closestEnemy = screenEnemy;
                 }
             }
-        }
-
-        if (closestEnemy == null)
-        {
-            positionClosestEnemy = Vector2.zero;
-            //Debug.Log("null - positionClosestEnemy: " + positionClosestEnemy);
-        }
-        else
-        {
-            positionClosestEnemy = closestEnemy.transform.position;
-            //Debug.Log("!null - positionClosestEnemy: " + positionClosestEnemy);
         }
     } 
     
     private void CalculateTargetPosition()
     {
-        float weight  = 1f / closestDistance;
-        Vector2 selfToClosetEnemy = Vector2.zero;
-        
-        if (closestEnemy != null)
+        if (Vector3.Distance(transform.position, closestEnemy.transform.position) > 1f)
         {
-            selfToClosetEnemy = positionClosestEnemy - this.transform.position;
+            targetPosition = player.transform.position;
         }
-        
-        Vector2 selfToPlayer = player.transform.position - this.transform.position;
-        targetPosition = (2f * selfToPlayer) - (weight * selfToClosetEnemy);
+        else
+        {
+            targetPosition = player.transform.position - closestEnemy.transform.position;
+        }
     }
 }
