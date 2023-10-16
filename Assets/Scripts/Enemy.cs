@@ -86,7 +86,10 @@ public class Enemy : Entity
         {
             // Set the enemy's velocity for movement
             velocity = maxSpeed;
-            transform.position = Vector2.MoveTowards(this.transform.position, (player.transform.position - (positionClosestEnemy * 0.5f)), maxSpeed * Time.fixedDeltaTime);
+            Debug.Log("Player Transform: " + player.transform.position );
+            Debug.Log("positionClosestEnemy: " + positionClosestEnemy );
+            Debug.Log("player.transform.position - (positionClosestEnemy * 0.5f): " + (player.transform.position - (positionClosestEnemy * 2.5f)) );
+            transform.position = Vector2.MoveTowards(this.transform.position, (player.transform.position - (positionClosestEnemy * 2.5f)), maxSpeed * Time.fixedDeltaTime);
             EntityMovementCalc();
         }
     }
@@ -114,6 +117,8 @@ public class Enemy : Entity
 	private void FindClosestEnemy()
 	{
 		List<Enemy> enemiesOnScreen = new List<Enemy>();
+        Enemy[] allEnemies = FindObjectsOfType<Enemy>();
+        enemiesOnScreen.AddRange(allEnemies = FindObjectsOfType<Enemy>());
 
         foreach (Enemy enemy in enemiesOnScreen)
         {
