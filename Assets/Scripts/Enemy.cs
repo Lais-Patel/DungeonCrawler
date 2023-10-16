@@ -58,6 +58,10 @@ public class Enemy : Entity
             distanceFromPlayer = Vector2.Distance(transform.position, player.transform.position);
             directionMovement = player.transform.position - transform.position;
 
+
+			
+			distanceFromClosestEnemy = Vector2.Distance(transform.position, closestEnemy.transform.position);
+
             // Set animation parameters
             animationController.SetFloat("Vertical", directionMovement.y);
             animationController.SetFloat("Horizontal", directionMovement.x);
@@ -100,4 +104,21 @@ public class Enemy : Entity
             Destroy(gameObject);
         }
     }
+
+	private void FindClosestEnemy()
+	{
+		float closestDistance = float.MaxValue;
+		Enemy closestEnemy = null;
+		List<Enemy> enemiesOnScreen = new List<Enemy>();
+
+		foreach (Enemy enemy in enemiesOnScreen)
+		{
+			float distanceFromEnemy = Vector3.Distnce(transform.position, enemy.transform.position);
+			
+			if ( distanceFromEnemy < closestDistance)
+			{
+				closestDistance = distance;
+				closestEnemy = enemy;
+			}
+	}
 }
