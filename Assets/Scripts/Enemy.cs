@@ -22,6 +22,8 @@ public class Enemy : Entity
     private Enemy closestEnemy = null;
     private Vector3 positionClosestEnemy;
 
+    private Vector3 targetPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +68,7 @@ public class Enemy : Entity
             directionMovement = player.transform.position - transform.position;
             
             FindClosestEnemy();
+            CalculateTargetPosition();
             //directionToClosestEnemy = closestEnemy.transform.position - transform.position;
             
             // Set animation parameters
@@ -88,8 +91,8 @@ public class Enemy : Entity
             velocity = maxSpeed;
             Debug.Log("Player Transform: " + player.transform.position );
             Debug.Log("positionClosestEnemy: " + positionClosestEnemy );
-            Debug.Log("player.transform.position - (positionClosestEnemy * 0.5f): " + (player.transform.position + (positionClosestEnemy * 2.5f)) );
-            transform.position = Vector2.MoveTowards(this.transform.position, (player.transform.position + (positionClosestEnemy * 2.5f)), maxSpeed * Time.fixedDeltaTime);
+            Debug.Log("targetPosition: " + (player.transform.position + (positionClosestEnemy)) );
+            transform.position = Vector2.MoveTowards(this.transform.position, (targetPosition), maxSpeed * Time.fixedDeltaTime);
             EntityMovementCalc();
         }
     }
@@ -117,30 +120,40 @@ public class Enemy : Entity
 	private void FindClosestEnemy()
 	{
 		List<Enemy> enemiesOnScreen = new List<Enemy>();
-        Enemy[] allEnemies = FindObjectsOfType<Enemy>();
-        enemiesOnScreen.AddRange(allEnemies = FindObjectsOfType<Enemy>());
+        enemiesOnScreen.AddRange(FindObjectsOfType<Enemy>());
 
         foreach (Enemy enemy in enemiesOnScreen)
         {
-            float distanceFromEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if (distanceFromEnemy < closestDistance)
+            if (enemy != this)
             {
-                Debug.Log(closestEnemy);
-                closestDistance = distanceFromEnemy;
-                closestEnemy = enemy;
+                float distanceFromEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (distanceFromEnemy < closestDistance)
+                {
+                    Debug.Log(closestEnemy);
+                    closestDistance = distanceFromEnemy;
+                    closestEnemy = enemy;
+                }
             }
         }
 
         if (closestEnemy == null)
         {
             positionClosestEnemy = Vector2.zero;
-            Debug.Log("null - positionClosestEnemy: " + positionClosestEnemy);
+            //Debug.Log("null - positionClosestEnemy: " + positionClosestEnemy);
         }
         else
         {
             positionClosestEnemy = closestEnemy.transform.position;
-            Debug.Log("!null - positionClosestEnemy: " + positionClosestEnemy);
+            //Debug.Log("!null - positionClosestEnemy: " + positionClosestEnemy);
         }
     } 
+    
+    private void CalculateTargetPosition()
+    {
+        float weight  = 5f / closestDistance;
+        Vector2 selfToClosetEnemy = closestEnemy.transform.position - this.transform.position;
+        Vector2 selfToPlayer = player.transform.position - this.transform.position;
+        targetPosition = (2f * selfToPlayer) - (weight * selfToClosetEnemy);
+    }
 }
