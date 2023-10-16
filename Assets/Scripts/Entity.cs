@@ -26,7 +26,7 @@ public class Entity : MonoBehaviour
     void Awake()
     {
         // Set default values for maxSpeed and acceleration
-        maxSpeed = 6f;
+        maxSpeed = 2.5f;
         acceleration = 0.1f;
     }
     

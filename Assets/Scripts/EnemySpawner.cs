@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (enemiesSpawnedTotal <= Icons.enemiesFelledCount)
                 {
-                    Countdown.StartCountdown(5f);
+                    Countdown.StartCountdown(2f);
                     enemySpawnOn = false;
                 }
             }

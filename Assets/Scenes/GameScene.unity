@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: Icons
       value: 
       objectReference: {fileID: 369410012}
+    - target: {fileID: 5844192111571487634, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
+      propertyPath: enemySpawnDelay
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
 --- !u!114 &316757941 stripped
@@ -452,6 +456,10 @@ PrefabInstance:
       propertyPath: Icons
       value: 
       objectReference: {fileID: 369410012}
+    - target: {fileID: 2377052730019129464, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: maxSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2377052730019129466, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
       propertyPath: m_Name
       value: Player
