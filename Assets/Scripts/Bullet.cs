@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     public float size;           // Bullet size
     public float bulletForce;    // Bullet speed
     private Rigidbody2D rb;     // Rigidbody component
+    
+    public bool hitEnemy = false;
 
     // Awake is called when the script is initialized
     void Awake()

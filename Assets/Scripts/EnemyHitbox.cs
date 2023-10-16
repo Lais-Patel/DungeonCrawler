@@ -18,8 +18,13 @@ public class EnemyHitbox : MonoBehaviour
     {
         if (other.CompareTag("Bullets") && !Enemy.currentlySpawning)
         {
+            Bullet Bullet = other.gameObject.GetComponent<Bullet>();
             // If the entering collider has the "Bullets" tag, inform the associated enemy to take damage
-            Enemy.TakeDamage();
+            if (!Bullet.hitEnemy)
+            {
+                Bullet.hitEnemy = true;
+                Enemy.TakeDamage();
+            }
         }
     }
 }
