@@ -151,8 +151,14 @@ public class Enemy : Entity
     
     private void CalculateTargetPosition()
     {
-        float weight  = 5f / closestDistance;
-        Vector2 selfToClosetEnemy = closestEnemy.transform.position - this.transform.position;
+        float weight  = 1f / closestDistance;
+        Vector2 selfToClosetEnemy = Vector2.zero;
+        
+        if (closestEnemy != null)
+        {
+            selfToClosetEnemy = positionClosestEnemy - this.transform.position;
+        }
+        
         Vector2 selfToPlayer = player.transform.position - this.transform.position;
         targetPosition = (2f * selfToPlayer) - (weight * selfToClosetEnemy);
     }
