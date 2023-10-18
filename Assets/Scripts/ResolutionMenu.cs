@@ -26,7 +26,7 @@ public class ResolutionMenu : MonoBehaviour
         {
             float aspectRatio = (float)resolutions[i].width / resolutions[i].height;
             Debug.Log("Checking aspect: " + aspectRatio);
-            if (aspectRatio == 16/9f)
+            if (aspectRatio == (Screen.currentResolution.width / Screen.currentResolution.height))
             {
                 resolutionsFilter.Add(resolutions[i]);
             }
