@@ -42,8 +42,8 @@ public class Enemy : Entity
         acceleration = 0.0333f;
         health = 20f;
         defence = 0f;
-        attackPower = 2f * (1f + difficultyScore * 0.1f);
         difficultyScore = Room.rooms;
+        attackPower = 2f * (1f + difficultyScore * 0.1f);
     }
 
     // Coroutine to handle enemy spawning animation delay

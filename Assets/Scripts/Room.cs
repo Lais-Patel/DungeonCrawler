@@ -10,7 +10,7 @@ public class Room : MonoBehaviour
     public static float enemiesSpawnCap;
     public static float difficultySpawnCap;
 
-    private float enemiesSpawnCapBase = 100f;
+    private float enemiesSpawnCapBase = 5f;
     private float difficultySpawnCapBase = 10f;
     
     private float playerHealthBase = 100f;
