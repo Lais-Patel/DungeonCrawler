@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Menus : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject settingsMenu;
     public GameObject audioMenu;
     public GameObject graphicsMenu;
     public GameObject difficultyMenu;
@@ -25,6 +26,7 @@ public class Menus : MonoBehaviour
         }
         
         pauseMenu.SetActive(false);
+        settingsMenu.SetActive(false);
         audioMenu.SetActive(false);
         graphicsMenu.SetActive(false);
         difficultyMenu.SetActive(false);
