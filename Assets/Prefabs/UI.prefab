@@ -472,7 +472,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7381850661413743655}
         m_TargetAssemblyTypeName: Menus, Assembly-CSharp
-        m_MethodName: ChangeScenetoMainMenu
+        m_MethodName: openAudioMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1982,7 +1982,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7381850661413743655}
         m_TargetAssemblyTypeName: Menus, Assembly-CSharp
-        m_MethodName: ChangeScenetoMainMenu
+        m_MethodName: closeSettingsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4778,7 +4778,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7381850661413743655}
         m_TargetAssemblyTypeName: Menus, Assembly-CSharp
-        m_MethodName: ChangeScenetoMainMenu
+        m_MethodName: openGraphicsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6484,7 +6484,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7381850661413743655}
         m_TargetAssemblyTypeName: Menus, Assembly-CSharp
-        m_MethodName: ChangeScenetoMainMenu
+        m_MethodName: openDifficultyMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
