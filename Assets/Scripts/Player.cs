@@ -115,7 +115,7 @@ public class Player : Entity
     // Add upgrades to the player's inventory
     public void addUpgradeToInventory(int numberUpgradeToAdd)
     {
-        numberUpgradeToAdd = (4 * numberUpgradeToAdd) - 3
+        int i = (4 * numberUpgradeToAdd) - 3;
         string[] lines = File.ReadAllLines("upgradeInventoryIndex.txt");
         UpgradeItem item = new UpgradeItem
         {
