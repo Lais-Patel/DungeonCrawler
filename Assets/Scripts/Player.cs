@@ -6,10 +6,10 @@ using UnityEngine;
 //Basic object to store basic data of each type of Upgrade
 class UpgradeItem
 {
-    public string Name { get; set; }
-    public float Value1 { get; set; }
-    public float Value2 { get; set; }
-    public float Value3 { get; set; }
+    public string upgradeName { get; set; }
+    public float upgradeTier { get; set; }
+    public float upgradeValue1 { get; set; }
+    public float upgradeValue2 { get; set; }
 }
 
 public class Player : Entity
@@ -115,18 +115,15 @@ public class Player : Entity
     // Add upgrades to the player's inventory
     public void addUpgradeToInventory(int numberUpgradeToAdd)
     {
+        numberUpgradeToAdd = (4 * numberUpgradeToAdd) - 3
         string[] lines = File.ReadAllLines("upgradeInventoryIndex.txt");
-
-        for (int i = numberUpgradeToAdd; i < numberUpgradeToAdd + 4; i++)
+        UpgradeItem item = new UpgradeItem
         {
-            UpgradeItem item = new UpgradeItem
-            {
-                Name = lines[i],
-                Value1 = float.Parse(lines[i + 1]),
-                Value2 = float.Parse(lines[i + 2]),
-                Value3 = float.Parse(lines[i + 3])
-            };
-            upgradeInventory.Add(item);
-        }
+            upgradeName = lines[i],
+            upgradeTier = 1f,
+            upgradeValue1 = float.Parse(lines[i + 2]),
+            upgradeValue2 = float.Parse(lines[i + 3])
+        };
+        upgradeInventory.Add(item);
     }
 }
