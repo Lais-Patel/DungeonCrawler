@@ -609,6 +609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 1898448689}
   currentScreenResolution: 0
+  currentAspectRatio: 0
 --- !u!1 &248808102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +1027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 87986315}
+  settingsMenu: {fileID: 87986315}
   audioMenu: {fileID: 1016398546}
   graphicsMenu: {fileID: 176229236}
   difficultyMenu: {fileID: 549425695}

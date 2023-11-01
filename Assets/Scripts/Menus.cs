@@ -66,6 +66,7 @@ public class Menus : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
+        settingsMenu.SetActive(false);
         Time.timeScale = 0f;
         isGamePaused = true;
     }
@@ -73,10 +74,29 @@ public class Menus : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        settingsMenu.SetActive(false);
         Time.timeScale = 1f;
         isGamePaused = false;
     }
-
+    
+    public void openSettingsMenu()
+    {
+        settingsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        audioMenu.SetActive(false);
+        graphicsMenu.SetActive(false);
+        difficultyMenu.SetActive(false);
+    }
+    
+    public void closeSettingsMenu()
+    {
+        settingsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        audioMenu.SetActive(false);
+        graphicsMenu.SetActive(false);
+        difficultyMenu.SetActive(false);
+    }
+    
     public void openAudioMenu()
     {
         audioMenu.SetActive(true);

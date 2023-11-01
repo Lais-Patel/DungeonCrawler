@@ -956,6 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1154716428}
+  settingsMenu: {fileID: 1154716428}
   audioMenu: {fileID: 1154716428}
   graphicsMenu: {fileID: 1154716428}
   difficultyMenu: {fileID: 1154716428}
