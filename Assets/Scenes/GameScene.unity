@@ -481,30 +481,6 @@ PrefabInstance:
       propertyPath: enemySpawner
       value: 
       objectReference: {fileID: 316757941}
-    - target: {fileID: 2173889237388838227, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2823287240961100975, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435328996314403535, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435328996314403535, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435328996314403535, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5061631687796440532, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5796099864013888311, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -569,33 +545,5 @@ PrefabInstance:
       propertyPath: Room
       value: 
       objectReference: {fileID: 914621809}
-    - target: {fileID: 5959263457335871337, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.0025901794
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381850661413743655, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: audioMenu
-      value: 
-      objectReference: {fileID: 911530238}
-    - target: {fileID: 7381850661413743655, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: graphicsMenu
-      value: 
-      objectReference: {fileID: 911530238}
-    - target: {fileID: 7381850661413743655, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: difficultyMenu
-      value: 
-      objectReference: {fileID: 911530238}
-    - target: {fileID: 7621221717241413119, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 32.899994
-      objectReference: {fileID: 0}
-    - target: {fileID: 7830608354552368007, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182706859499253193, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 30.892212
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b45751357508f8b4c88242afe9827ed7, type: 3}
