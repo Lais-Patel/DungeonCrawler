@@ -3,15 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-//Basic object to store basic data of each type of Upgrade
-class UpgradeItem
-{
-    public string upgradeName { get; set; }
-    public float upgradeTier { get; set; }
-    public float upgradeValue1 { get; set; }
-    public float upgradeValue2 { get; set; }
-}
-
 public class Player : Entity
 {
     public float dashPower;
@@ -21,7 +12,7 @@ public class Player : Entity
     private bool canDash = true;
     
 
-    List<UpgradeItem> upgradeInventory = new List<UpgradeItem>();
+    public List<UpgradeItem> upgradeInventory = new List<UpgradeItem>();
 
     public Counters Icons;
 
@@ -110,20 +101,5 @@ public class Player : Entity
     {
         float damageDealt = attackPower;
         return damageDealt;
-    }
-
-    // Add upgrades to the player's inventory
-    public void addUpgradeToInventory(int numberUpgradeToAdd)
-    {
-        int i = (4 * numberUpgradeToAdd) - 3;
-        string[] lines = File.ReadAllLines("upgradeInventoryIndex.txt");
-        UpgradeItem item = new UpgradeItem
-        {
-            upgradeName = lines[i],
-            upgradeTier = 1f,
-            upgradeValue1 = float.Parse(lines[i + 2]),
-            upgradeValue2 = float.Parse(lines[i + 3])
-        };
-        upgradeInventory.Add(item);
     }
 }
