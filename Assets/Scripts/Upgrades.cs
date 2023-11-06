@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 //Basic object to store basic data of each type of Upgrade
-class UpgradeItem
+public class UpgradeItem
 {
     public string upgradeName { get; set; }
     public float upgradeTier { get; set; }
@@ -13,6 +14,8 @@ class UpgradeItem
 
 public class Upgrades : MonoBehaviour
 {
+	private Player Player;
+
     // Add upgrades to the player's inventory
     public void addUpgradeToInventory(int numberUpgradeToAdd)
     {

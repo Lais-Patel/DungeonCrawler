@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHitbox : MonoBehaviour
 {
     public Player Player; // Reference to the associated player
+	public Upgrades Upgrades;
 
     // Called when another 2D collider enters this trigger collider
     void OnTriggerEnter2D(Collider2D other)
@@ -18,6 +19,14 @@ public class PlayerHitbox : MonoBehaviour
                 float damageDealt = Enemy.calculateDamageDealt();
                 Player.enemyMeleeAttack(damageDealt);
             }
+        }
+
+        if (other.CompareTag("SpawnedUpgrade"))
+        {
+			SpawnedUpgrade SpawnedUpgrade = other.gameObject.GetComponent<SpawnedUpgrade>();
+            Upgrades.addUpgradeToInventory(SpawnedUpgrade.numberOfTheUpgrade);
+			Destroy(SpawnedUpgrade);
+			SpawnedUpgrade.Die();
         }
     }
 }
