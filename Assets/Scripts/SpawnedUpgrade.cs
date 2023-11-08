@@ -13,6 +13,6 @@ public class SpawnedUpgrade : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject.name("Upgrade"));
+        Destroy(gameObject);
     }
 }

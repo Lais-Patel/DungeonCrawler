@@ -25,7 +25,6 @@ public class PlayerHitbox : MonoBehaviour
         {
 			SpawnedUpgrade SpawnedUpgrade = other.gameObject.GetComponent<SpawnedUpgrade>();
             Upgrades.addUpgradeToInventory(SpawnedUpgrade.numberOfTheUpgrade);
-			Destroy(SpawnedUpgrade);
 			SpawnedUpgrade.Die();
         }
     }

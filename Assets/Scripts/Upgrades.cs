@@ -14,13 +14,14 @@ public class UpgradeItem
 
 public class Upgrades : MonoBehaviour
 {
+	[SerializeField]
 	private Player Player;
 
     // Add upgrades to the player's inventory
     public void addUpgradeToInventory(int numberUpgradeToAdd)
     {
         int i = (3 * numberUpgradeToAdd) - 2;
-        string[] lines = File.ReadAllLines("upgradeInventoryIndex.txt");
+        string[] lines = File.ReadAllLines("Assets/Upgrades/upgradeInventoryIndex.txt");
         UpgradeItem upgrade = new UpgradeItem
         {
             upgradeName = lines[i],
