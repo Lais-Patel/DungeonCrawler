@@ -8,8 +8,8 @@ public class UpgradeItem
 {
     public string upgradeName { get; set; }
     public float upgradeTier { get; set; }
-    public float upgradeValue1 { get; set; }
-    public float upgradeValue2 { get; set; }
+    public string upgradeValue1 { get; set; }
+    public string upgradeValue2 { get; set; }
 }
 
 public class Upgrades : MonoBehaviour
@@ -26,8 +26,8 @@ public class Upgrades : MonoBehaviour
         {
             upgradeName = lines[i],
             upgradeTier = 1f,
-            upgradeValue1 = float.Parse(lines[i + 1]),
-            upgradeValue2 = float.Parse(lines[i + 2])
+            upgradeValue1 = lines[i + 1],
+            upgradeValue2 = lines[i + 2]
         };
         Player.upgradeInventory.Add(upgrade);
     }
