@@ -29,6 +29,10 @@ public class Upgrades : MonoBehaviour
             upgradeValue1 = lines[i + 1],
             upgradeValue2 = lines[i + 2]
         };
+		Debug.Log("upgradeName  -  " + upgrade.upgradeName);
+		Debug.Log("upgradeTier  -  " + upgrade.upgradeTier);
+		Debug.Log("upgradeValue1  -  " + upgrade.upgradeValue1);
+		Debug.Log("upgradeValue2  -  " + upgrade.upgradeValue2);
         Player.upgradeInventory.Add(upgrade);
     }
 }
