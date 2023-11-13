@@ -12,8 +12,8 @@ public class Player : Entity
     private bool canDash = true;
     
 
-    public List<UpgradeItem> upgradeInventory = new List<UpgradeItem>();
-
+    //public List<UpgradeItem> upgradeInventory = new List<UpgradeItem>();
+	
     public Counters Icons;
 
     // Start is called before the first frame update

@@ -17,8 +17,22 @@ public class Upgrades : MonoBehaviour
 	[SerializeField]
 	private Player Player;
 
+	public object[,] upgradeShop = 
+	{
+		{"Damage UP", 0, 10f}, 
+		{"Max Health UP", 0, 10f}, 
+		{"Defence UP", 0, 10f}, 
+		{"Speed UP", 0, 10f}	
+	};
+
     // Add upgrades to the player's inventory
-    public void addUpgradeToInventory(int numberUpgradeToAdd)
+	public void addUpgradeToInventory(int numberUpgradeToAdd)
+	{
+		Debug.Log(upgradeShop[numberUpgradeToAdd, 1]);
+		upgradeShop[numberUpgradeToAdd, 1] = (int)upgradeShop[numberUpgradeToAdd, 1] + 1;
+		Debug.Log(upgradeShop[numberUpgradeToAdd, 1]);
+	}
+    /* public void addUpgradeToInventory(int numberUpgradeToAdd)
     {
         int i = (3 * numberUpgradeToAdd) - 2;
         string[] lines = File.ReadAllLines("Assets/Upgrades/upgradeInventoryIndex.txt");
@@ -34,5 +48,7 @@ public class Upgrades : MonoBehaviour
 		Debug.Log("upgradeValue1  -  " + upgrade.upgradeValue1);
 		Debug.Log("upgradeValue2  -  " + upgrade.upgradeValue2);
         Player.upgradeInventory.Add(upgrade);
-    }
+    } */
+
+	
 }
