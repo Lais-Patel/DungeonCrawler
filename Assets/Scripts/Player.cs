@@ -99,7 +99,7 @@ public class Player : Entity
     //Calculate the damage dealt by the entity
     public static float calculateDamageDealt()
     {
-        float damageDealt = attackPower;
+        float damageDealt = attackPower * float.Parse("1."+Upgrades.upgradeShop[0,1]);
         return damageDealt;
     }
 }
