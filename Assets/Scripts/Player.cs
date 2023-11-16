@@ -15,6 +15,7 @@ public class Player : Entity
     //public List<UpgradeItem> upgradeInventory = new List<UpgradeItem>();
 	
     public Counters Icons;
+	public Upgrades Upgrades;
 
     // Start is called before the first frame update
     void Start()
@@ -99,7 +100,7 @@ public class Player : Entity
     //Calculate the damage dealt by the entity
     public static float calculateDamageDealt()
     {
-        float damageDealt = attackPower * float.Parse("1."+Upgrades.upgradeShop[0,1]);
+        float damageDealt = attackPower * (float)Upgrades.upgradeShop[0,2];
         return damageDealt;
     }
 }

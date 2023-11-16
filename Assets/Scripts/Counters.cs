@@ -34,6 +34,11 @@ public class Counters : MonoBehaviour
         sliderHealthBar.value = health;
         healthTextUI.text = Mathf.RoundToInt(health).ToString();
     }
+	
+	public void UpgradeHealth(float percentageIncrease)
+	{
+		sliderHealthBar.maxValue *= percentageIncrease;
+	}
 
     // Set the defence value
     public void SetDefence(float defence)

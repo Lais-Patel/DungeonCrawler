@@ -8,12 +8,15 @@ public class Upgrades : MonoBehaviour
 	[SerializeField]
 	private Player Player;
 
+	[SerializeField]
+	private Counters Counters;
+
 	public static object[,] upgradeShop = 
 	{
-		{"Damage UP", 0, 10f}, 
-		{"Max Health UP", 0, 10f}, 
-		{"Defence UP", 0, 10f}, 
-		{"Speed UP", 0, 10f}	
+		{"Damage UP", 0, 1.1f}, 
+		{"Max Health UP", 0, 1.1f}, 
+		{"Defence UP", 0, 1.1f}, 
+		{"Speed UP", 0, 1.1f}	
 	};
 
     // Add upgrades to the player's inventory
@@ -29,7 +32,18 @@ public class Upgrades : MonoBehaviour
 	{
 		if (upgradeShop[1,0] == upgradeEffect)
 		{
-			Player.health *= 1.1;
+			Counters.UpgradeHealth((float)upgradeShop[1,2]);
+			Player.health *= (float)upgradeShop[1,2];
+			Counters.SetHealth(Player.health);
+		}
+		else if (upgradeShop[2,0] == upgradeEffect)
+		{
+			Player.defence *= (float)upgradeShop[2,2];
+			Counters.SetDefence(Player.defence);
+		}
+		else if (upgradeShop[3,0] == upgradeEffect)
+		{
+			Player.maxSpeed *= (float)upgradeShop[3,2];
 		}
 	}
 }
