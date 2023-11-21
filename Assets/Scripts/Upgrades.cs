@@ -25,13 +25,14 @@ public class Upgrades : MonoBehaviour
 		Debug.Log(upgradeShop[numberUpgradeToAdd, 1]);
 		upgradeShop[numberUpgradeToAdd, 1] = (int)upgradeShop[numberUpgradeToAdd, 1] + 1;
 		Debug.Log(upgradeShop[numberUpgradeToAdd, 1]);
-		//upgradeLogic(upgradeShop[numberUpgradeToAdd,0]);
+		upgradeLogic(upgradeShop[numberUpgradeToAdd,0]);
 	}
 	
 	private void upgradeLogic(string upgradeEffect)
 	{
 		if (upgradeShop[1,0] == upgradeEffect)
 		{
+			Debug.Log("	health ");
 			Counters.UpgradeHealth((float)upgradeShop[1,2]);
 			Player.health *= (float)upgradeShop[1,2];
 			Counters.SetHealth(Player.health);

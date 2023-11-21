@@ -483,6 +483,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 369410012}
     - target: {fileID: 2377052730019129464, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: Upgrades
+      value: 
+      objectReference: {fileID: 313734276}
+    - target: {fileID: 2377052730019129464, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
       propertyPath: maxSpeed
       value: 2.5
       objectReference: {fileID: 0}
@@ -498,6 +502,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 313734277}
+    - target: {fileID: 6051477862285858969, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: Counters
+      value: 
+      objectReference: {fileID: 369410012}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
 --- !u!1001 &3244367451747283903
