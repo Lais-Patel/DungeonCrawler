@@ -8,8 +8,7 @@ public class SpawnedUpgrade : MonoBehaviour
 
     void Start()
     {
-        //numberOfTheUpgrade = Random.Range(0, 3);
-		numberOfTheUpgrade = 1;
+        numberOfTheUpgrade = Random.Range(0, 4);
     }
 
     public void Die()
