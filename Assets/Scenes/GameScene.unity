@@ -209,6 +209,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 369410012}
     - target: {fileID: 5844192111571487634, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
+      propertyPath: upgradePrefab
+      value: 
+      objectReference: {fileID: 3244367453134122287, guid: f5e92cffde0840940b4512d8ec85406e, type: 3}
+    - target: {fileID: 5844192111571487634, guid: aaf9d650b5b7a5449818ad14ae89980a, type: 3}
       propertyPath: enemySpawnDelay
       value: 1
       objectReference: {fileID: 0}

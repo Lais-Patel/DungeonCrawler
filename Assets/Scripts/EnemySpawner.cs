@@ -6,6 +6,9 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject enemyPrefab;          // Prefab for the enemy to be spawned
+    
+    [SerializeField]
+    private GameObject upgradePrefab;          
 
     [SerializeField]
     private float enemySpawnDelay;           // Delay between enemy spawns
@@ -55,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (enemiesSpawnedTotal <= Icons.enemiesFelledCount)
                 {
-                    Countdown.StartCountdown(2f);
+                    Instantiate(upgradePrefab, transform.position, Quaternion.identity);
                     enemySpawnOn = false;
                 }
             }
