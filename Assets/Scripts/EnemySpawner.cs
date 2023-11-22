@@ -58,7 +58,9 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (enemiesSpawnedTotal <= Icons.enemiesFelledCount)
                 {
-                    Instantiate(upgradePrefab, transform.position, Quaternion.identity);
+                    Instantiate(upgradePrefab, new Vector3(0f, 2f, transform.position.z), Quaternion.identity);
+                    Instantiate(upgradePrefab, new Vector3(2f, 2f, transform.position.z), Quaternion.identity);
+                    Instantiate(upgradePrefab, new Vector3(-2f, 2f, transform.position.z), Quaternion.identity);
                     enemySpawnOn = false;
                 }
             }

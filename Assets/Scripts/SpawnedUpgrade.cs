@@ -40,9 +40,4 @@ public class SpawnedUpgrade : MonoBehaviour
         Renderer = GetComponent<Renderer>();
         Renderer.material.color = colour;
     }
-
-    public void Die()
-    {
-        Destroy(gameObject);
-    }
 }

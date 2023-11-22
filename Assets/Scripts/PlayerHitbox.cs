@@ -26,8 +26,14 @@ public class PlayerHitbox : MonoBehaviour
         {
 			SpawnedUpgrade SpawnedUpgrade = other.gameObject.GetComponent<SpawnedUpgrade>();
             Upgrades.addUpgradeToInventory(SpawnedUpgrade.numberOfTheUpgrade);
-			SpawnedUpgrade.Die();
-			Countdown.StartCountdown(5f);
+            
+            Countdown.StartCountdown(5f);
+            
+            GameObject[] upgradesToDestroy = GameObject.FindGameObjectsWithTag("SpawnedUpgrade");
+            foreach (GameObject upgradeOnScreen in upgradesToDestroy)
+            {
+                Destroy(upgradeOnScreen);
+            }
         }
     }
 }
