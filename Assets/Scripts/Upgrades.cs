@@ -22,9 +22,9 @@ public class Upgrades : MonoBehaviour
     // Add upgrades to the player's inventory
 	public void addUpgradeToInventory(int numberUpgradeToAdd)
 	{
-		Debug.Log(upgradeShop[numberUpgradeToAdd, 1]);
+		//Debug.Log(upgradeShop[numberUpgradeToAdd, 1]);
 		upgradeShop[numberUpgradeToAdd, 1] = (int)upgradeShop[numberUpgradeToAdd, 1] + 1;
-		Debug.Log(upgradeShop[numberUpgradeToAdd, 1]);
+		//Debug.Log(upgradeShop[numberUpgradeToAdd, 1]);
 		upgradeLogic((string)upgradeShop[numberUpgradeToAdd,0]);
 	}
 	
@@ -32,7 +32,7 @@ public class Upgrades : MonoBehaviour
 	{
 		if (upgradeShop[1,0] == upgradeEffect)
 		{
-			Debug.Log("	health ");
+			//Debug.Log("	health ");
 			Counters.UpgradeHealth((float)upgradeShop[1,2]);
 			Player.health *= (float)upgradeShop[1,2];
 			Counters.SetHealth(Player.health);
