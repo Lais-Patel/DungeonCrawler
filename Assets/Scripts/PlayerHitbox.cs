@@ -6,6 +6,7 @@ public class PlayerHitbox : MonoBehaviour
 {
     public Player Player; // Reference to the associated player
 	public Upgrades Upgrades;
+	public Countdown Countdown;
 
     // Called when another 2D collider enters this trigger collider
     void OnTriggerEnter2D(Collider2D other)
@@ -26,6 +27,7 @@ public class PlayerHitbox : MonoBehaviour
 			SpawnedUpgrade SpawnedUpgrade = other.gameObject.GetComponent<SpawnedUpgrade>();
             Upgrades.addUpgradeToInventory(SpawnedUpgrade.numberOfTheUpgrade);
 			SpawnedUpgrade.Die();
+			Countdown.StartCountdown(5f);
         }
     }
 }

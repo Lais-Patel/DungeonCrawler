@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (CountdownOn)
         {
-            Countdown.StartCountdown(5f);
+            //Countdown.StartCountdown(5f);
             enemySpawnOn = false;
         }
         else
