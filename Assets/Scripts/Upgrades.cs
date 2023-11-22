@@ -25,7 +25,7 @@ public class Upgrades : MonoBehaviour
 		Debug.Log(upgradeShop[numberUpgradeToAdd, 1]);
 		upgradeShop[numberUpgradeToAdd, 1] = (int)upgradeShop[numberUpgradeToAdd, 1] + 1;
 		Debug.Log(upgradeShop[numberUpgradeToAdd, 1]);
-		upgradeLogic(upgradeShop[numberUpgradeToAdd,0]);
+		upgradeLogic((string)upgradeShop[numberUpgradeToAdd,0]);
 	}
 	
 	private void upgradeLogic(string upgradeEffect)
