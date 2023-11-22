@@ -14,7 +14,8 @@ public class Enemy : Entity
     public Room Room;
     private float spawnDelay = 1;
     public bool currentlySpawning;
-    
+
+    [SerializeField]
     new private float health;
     new private float attackPower;
     
@@ -104,7 +105,7 @@ public class Enemy : Entity
         health -= calculateDamageTaken(defence, Player.calculateDamageDealt());
 		Debug.Log("HIT");
         
-        if (health == 0)
+        if (health <= 0)
         {
 			Debug.Log("KILL");
             // Increment the count of defeated enemies and destroy this enemy object
