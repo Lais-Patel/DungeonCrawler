@@ -20,7 +20,7 @@ public class Upgrades : MonoBehaviour
 		{"Max Health UP", 0, 1.1f}, 
 		{"Defence UP", 0, 1.1f}, 
 		{"Speed UP", 0, 1.1f},
-		{"Fire Speed UP", 0, 1.1f}
+		{"Fire Speed UP", 0, 0.9f}
 	};
 
     // Add upgrades to the player's inventory
@@ -52,10 +52,10 @@ public class Upgrades : MonoBehaviour
 			Debug.Log("	speed ");
 			Player.maxSpeed *= (float)upgradeShop[3,2];
 		}
-		else if (upgradeShop[3,0] == upgradeEffect)
+		else if (upgradeShop[4,0] == upgradeEffect)
 		{
 			Debug.Log("	fire speed ");
-			Gun.delayFire *= (1f- (float)upgradeShop[4,2]);
+			Gun.delayFire *= (float)upgradeShop[4,2];
 		}
 	}
 }
