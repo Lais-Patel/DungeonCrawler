@@ -102,9 +102,11 @@ public class Enemy : Entity
     public void TakeDamage()
     {
         health -= calculateDamageTaken(defence, Player.calculateDamageDealt());
+		Debug.Log("HIT");
         
         if (health == 0)
         {
+			Debug.Log("KILL");
             // Increment the count of defeated enemies and destroy this enemy object
             Icons.IncrementEnemeyFelledCount();
             Destroy(gameObject);
