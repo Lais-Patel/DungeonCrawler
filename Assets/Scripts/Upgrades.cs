@@ -34,7 +34,12 @@ public class Upgrades : MonoBehaviour
 	
 	private void upgradeLogic(string upgradeEffect)
 	{
-		if (upgradeShop[1,0] == upgradeEffect)
+		if (upgradeShop[0,0] == upgradeEffect)
+		{
+			Debug.Log("	attack ");
+			Player.attackPower *= (float)upgradeShop[0,2];
+		}
+		else if (upgradeShop[1,0] == upgradeEffect)
 		{
 			Debug.Log("	health ");
 			Counters.UpgradeHealth((float)upgradeShop[1,2]);

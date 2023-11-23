@@ -108,7 +108,7 @@ public class Player : Entity
     //Calculate the damage dealt by the entity
     public static float calculateDamageDealt()
     {
-        float damageDealt = attackPower * (float)Upgrades.upgradeShop[0,2];
+        float damageDealt = attackPower;
         return damageDealt;
     }
 }
