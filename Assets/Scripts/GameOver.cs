@@ -25,9 +25,9 @@ public class GameOver : MonoBehaviour
 	public void updateScoreScreen()
 	{
 		calculateGameScore();
-		scoreBreakdown.text = "SCORE          " +
-			                  "Enemy Kills   : " + Counters.enemiesFelledCount +
-			                  "Rooms Cleared : " + Room.rooms +
+		scoreBreakdown.text = "SCORE          " + "\n" +
+			                  "Enemy Kills   : " + Counters.enemiesFelledCount + "\n" +
+			                  "Rooms Cleared : " + Room.rooms + "\n" +
 							  "Score Acheived: " + gameScore;	
 	}
 }
