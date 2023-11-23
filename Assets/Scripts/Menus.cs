@@ -12,6 +12,9 @@ public class Menus : MonoBehaviour
     public GameObject difficultyMenu;
     public GameObject gameOverScreen;
 
+	[SerializeField]
+    private GameOver GameOver;
+
     public static float difficultyRating;
     public static bool isGamePaused;
 
@@ -120,6 +123,13 @@ public class Menus : MonoBehaviour
         difficultyMenu.SetActive(true);
     }
     
+	public void endGame()
+	{
+		gameOverScreen.SetActive(true);
+        Time.timeScale = 0f;
+		isGamePaused = true;
+		GameOver.updateScoreScreen();
+	}
     public void QuitGame()
     {
         Application.Quit();

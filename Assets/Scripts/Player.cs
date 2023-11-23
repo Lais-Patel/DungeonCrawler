@@ -17,6 +17,9 @@ public class Player : Entity
     public Counters Icons;
 	public Upgrades Upgrades;
 
+	[SerializeField]
+    private Menus Menus;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,11 @@ public class Player : Entity
     {
         // Handle player control
         PlayerControlAlgorithm();
+
+		if (health <= 0)
+		{
+			Menus.endGame();
+		}
     }
 
     // FixedUpdate is called at fixed time intervals

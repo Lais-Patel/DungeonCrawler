@@ -1031,6 +1031,8 @@ MonoBehaviour:
   audioMenu: {fileID: 1016398546}
   graphicsMenu: {fileID: 176229236}
   difficultyMenu: {fileID: 549425695}
+  gameOverScreen: {fileID: 87986315}
+  GameOver: {fileID: 0}
 --- !u!1 &435448744
 GameObject:
   m_ObjectHideFlags: 0
