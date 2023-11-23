@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnedUpgrade : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class SpawnedUpgrade : MonoBehaviour
 
     void Start()
     {
-        numberOfTheUpgrade = Random.Range(0, 4);
+        numberOfTheUpgrade = Random.Range(0, 5);
         
         Debug.Log(numberOfTheUpgrade);
         
