@@ -26,8 +26,9 @@ public class GameOver : MonoBehaviour
 	{
 		calculateGameScore();
 		scoreBreakdown.text = "SCORE          " + "\n" +
-			                  "Enemy Kills   : " + Counters.enemiesFelledCount + "\n" +
-			                  "Rooms Cleared : " + Room.rooms + "\n" +
-							  "Score Acheived: " + gameScore;	
+			                  "Enemy Kills : " + Counters.enemiesFelledCount + "\n" +
+			                  "Rooms Cleared Multiplier : " + Room.rooms + "x \n" +
+							  "Difficulty Multiplier : " + PlayerPrefs.GetFloat("DifficultyRating") + "x \n" +
+							  "Score Acheived  :::  " + gameScore;	
 	}
 }
