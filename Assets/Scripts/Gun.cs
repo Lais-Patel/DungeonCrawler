@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
         pointTowardsMousePointer(); // Point the gun towards the mouse pointer
 
         // Check for user input to fire bullets
-        if (Input.GetButtonDown("Fire1") && canFire && !Menus.isGamePaused)
+        if ((Input.GetButtonDown("Fire1") || (Input.GetMouseButton(0))) && canFire && !Menus.isGamePaused)
         {
             StartCoroutine(fireAlgorithm()); // Start firing sequence
         }
