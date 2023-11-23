@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+    
+    [SerializeField]
+    private Counters Counters;
+    
+    [SerializeField]
+    private Room Room;
+    
+    public TextMeshProUGUI scoreBreakdown;
+    
+    
     // Start is called before the first frame update
     void Start()
     {

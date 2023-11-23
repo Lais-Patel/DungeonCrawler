@@ -10,6 +10,7 @@ public class Menus : MonoBehaviour
     public GameObject audioMenu;
     public GameObject graphicsMenu;
     public GameObject difficultyMenu;
+    public GameObject gameOverScreen;
 
     public static float difficultyRating;
     public static bool isGamePaused;
@@ -30,6 +31,7 @@ public class Menus : MonoBehaviour
         audioMenu.SetActive(false);
         graphicsMenu.SetActive(false);
         difficultyMenu.SetActive(false);
+        gameOverScreen.SetActive(false);
     }
 
     void Update()
@@ -117,7 +119,7 @@ public class Menus : MonoBehaviour
         graphicsMenu.SetActive(false);
         difficultyMenu.SetActive(true);
     }
-
+    
     public void QuitGame()
     {
         Application.Quit();
