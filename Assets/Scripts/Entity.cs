@@ -9,7 +9,7 @@ public class Entity : MonoBehaviour
     public float velocity;
     public float acceleration;
     public Rigidbody2D rb;
-
+    
     public static float health;
     public float defence;
     public static float attackPower;
@@ -48,7 +48,14 @@ public class Entity : MonoBehaviour
     public float calculateDamageTaken(float defence, float damageDealt)
     {
         damageTaken = (damageDealt - defence * 0.2f);
-        return damageTaken;
+        if (damageTaken <= 0)
+        {
+            return 0f;
+        }
+        else
+        {
+            return damageTaken;
+        }
     }
 
     /*

@@ -43,7 +43,7 @@ public class Counters : MonoBehaviour
     // Set the defence value
     public void SetDefence(float defence)
     {
-        defenceTextUI.text = defence.ToString();
+        defenceTextUI.text = Mathf.RoundToInt(defence).ToString();
     }
 
     // Set the number of rooms
