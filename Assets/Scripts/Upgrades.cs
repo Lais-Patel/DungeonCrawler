@@ -43,7 +43,7 @@ public class Upgrades : MonoBehaviour
 		{
 			Debug.Log("	health ");
 			Counters.UpgradeHealth((float)upgradeShop[1,2]);
-			Player.health *= (float)upgradeShop[1,2];
+			Player.health += (Counters.sliderHealthBar.maxValue * (float)upgradeShop[1,2]) - Counters.sliderHealthBar.maxValue;
 			Counters.SetHealth(Player.health);
 		}
 		else if (upgradeShop[2,0] == upgradeEffect)
