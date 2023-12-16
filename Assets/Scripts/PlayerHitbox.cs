@@ -15,7 +15,7 @@ public class PlayerHitbox : MonoBehaviour
         {
             // When attacked by an enemy, calculate and apply damage to the player
             Enemy Enemy = other.GetComponentInParent<Enemy>();
-            if (!Enemy.currentlySpawning)
+            if (!Enemy.currentlySpawning && !Player.hasPressedDash)
             {
                 float damageDealt = Enemy.calculateDamageDealt();
                 Player.enemyMeleeAttack(damageDealt);

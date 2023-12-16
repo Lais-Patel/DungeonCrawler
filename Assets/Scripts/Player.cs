@@ -8,7 +8,7 @@ public class Player : Entity
     public float dashPower;
     public float dashLength;
     public float dashCooldown;
-    private bool hasPressedDash;
+    public bool hasPressedDash;
     private bool canDash = true;
     
 

@@ -41,9 +41,9 @@ public class Enemy : Entity
         // Set initial values for enemy properties
         maxSpeed = 2f;
         acceleration = 0.0333f;
-        health = 20f;
-        defence = 0f;
         difficultyScore = Room.rooms;
+        health = 20f * (1f + difficultyScore * 0.1f);
+        defence = 0f;
         attackPower = 2f * (1f + difficultyScore * 0.1f);
     }
 

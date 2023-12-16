@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     private GameObject upgradePrefab;          
 
     [SerializeField]
-    private float enemySpawnDelay;           // Delay between enemy spawns
+    private float maxEnemySpawnDelay;           // Delay between enemy spawns
 
     [SerializeField]
     private bool enemySpawnOn = true;        // Toggle for enabling enemy spawning
@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
             
             if (enemiesSpawned >= enemiesSpawnCapIncremental && enemyWavesOn)
             {
-                if (enemiesSpawnedTotal <= Icons.enemiesFelledCount)
+                if (GameObject.FindGameObjectsWithTag("Enemies").Length == 0)
                 {
                     Instantiate(upgradePrefab, new Vector3(0f, 2f, transform.position.z), Quaternion.identity);
                     Instantiate(upgradePrefab, new Vector3(2f, 2f, transform.position.z), Quaternion.identity);
@@ -70,14 +70,14 @@ public class EnemySpawner : MonoBehaviour
     // Set a random time delay until the next enemy spawn
     private void TimeUntilNextSpawn()
     {
-        timeUntilEnemySpawn = Random.Range((enemySpawnDelay * 0.5f), enemySpawnDelay);
+        timeUntilEnemySpawn = Random.Range((maxEnemySpawnDelay * 0.2f), maxEnemySpawnDelay);
     }
 
     // Move the spawner to a random position on the screen
     void MoveToRandomPosition()
     {
-        float x = Random.Range(-5f, 6.9f);
-        float y = Random.Range(-3.6f, 2.85f);
+        float x = Random.Range(-7.5f, 7.5f);
+        float y = Random.Range(-5f, 2.85f);
 
         randomPositionOnScreen = new Vector3(x, y, transform.position.z);
         rb.MovePosition(randomPositionOnScreen);
@@ -110,7 +110,7 @@ public class EnemySpawner : MonoBehaviour
     {
         enemySpawnOn = true;
         Room.IncrementRoomCount();
-        enemiesSpawnCapIncremental = Room.enemiesSpawnCap * (Room.rooms * 1.1f);
+        enemiesSpawnCapIncremental = Room.enemiesSpawnCap * (1 + (Room.rooms * 0.1f));
         enemiesSpawned = 0;
         SpawnEnemyWaveForLevel();
     }

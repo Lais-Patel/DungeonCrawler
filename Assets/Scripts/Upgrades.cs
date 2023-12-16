@@ -16,11 +16,11 @@ public class Upgrades : MonoBehaviour
 
 	public static object[,] upgradeShop = 
 	{
-		{"Damage UP", 0, 1.25f}, 
+		{"Damage UP", 0, 1.5f}, 
 		{"Max Health UP", 0, 1.1f}, 
-		{"Defence UP", 0, 1.25f}, 
-		{"Speed UP", 0, 1.25f},
-		{"Fire Speed UP", 0, 0.5f}
+		{"Defence UP", 0, 1.5f}, 
+		{"Speed UP", 0, 1.20f},
+		{"Fire Speed UP", 0, 0.9f}
 	};
 
     // Add upgrades to the player's inventory
