@@ -5,20 +5,13 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    public float dashPower;
-    public float dashLength;
-    public float dashCooldown;
-    public bool hasPressedDash;
-    private bool canDash = true;
-    
-
-    //public List<UpgradeItem> upgradeInventory = new List<UpgradeItem>();
-	
-    public Counters Icons;
-	public Upgrades Upgrades;
-
-	[SerializeField]
-    private Menus Menus;
+    public float dashPower;                // How much force the player dashes with
+    public float dashLength;               // How long the dash lasts
+    public float dashCooldown;             // The cooldown between when the player can dash
+    public bool hasPressedDash;            // If the player is currently dashing
+    private bool canDash = true;           // If the player is allowed to dash
+    public Counters Icons;                 // Reference to the Counters Script
+	[SerializeField] private Menus Menus;  // Reference to the Menus Script
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +20,6 @@ public class Player : Entity
         dashPower = 20f;
         dashLength = 0.15f;
         dashCooldown = 1f;
-        
         defence = 5f;
 
         // Set initial values for health and defence in the UI

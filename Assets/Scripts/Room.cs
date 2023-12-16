@@ -4,62 +4,44 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public float rooms = 0;     // Number of rooms cleared
-    public Counters Icons;      // Reference to the Counters script for UI updates
-    public static float difficultyRating;
-    public static float enemiesSpawnCap;
-    public static float difficultySpawnCap;
-
-    private float enemiesSpawnCapBase = 5f;
-    private float difficultySpawnCapBase = 10f;
-    
-    private float playerHealthBase = 100f;
-    private float playerAttackBase = 10f;
+    public float rooms = 0;                      // Number of rooms cleared
+    public Counters Icons;                       // Reference to the Counters script for UI updates
+    public static float difficultyRating;        // Stores the difficulty of the game
+    public static float enemiesSpawnCap;         // Value of how many enemies can spawn
+    private float enemiesSpawnCapBase = 5f;      // Base value of how many enemies can spawn
+    private float playerHealthBase = 100f;       // Base value of how much health the player has
+    private float playerAttackBase = 10f;        // Base value of how much attack the player has
 
     // Start is called before the first frame update
     void Start()
-    {
-        if (PlayerPrefs.HasKey("DifficultyRating"))
-        {
-            difficultyRating = PlayerPrefs.GetFloat("DifficultyRating");
-        }
-        else
-        {
-            difficultyRating = 2f;
-        }
+    {   // Finds the difficulty of the game
+        difficultyRating = PlayerPrefs.GetFloat("DifficultyRating");
         
-        if (difficultyRating == 1)
+        // Checks what the difficulty of the game is set to and applies the changes
+        if (difficultyRating == 1) // Easy
         {
             enemiesSpawnCap = enemiesSpawnCapBase * 0.5f;
-            difficultySpawnCap = difficultySpawnCapBase * 0.5f;
-            
             Player.health = playerHealthBase * 2f;
             Icons.SetMaxHealth(Player.health);
             Player.attackPower = playerAttackBase * 2f;
         }
-        else if (difficultyRating == 2)
+        else if (difficultyRating == 2) // Normal
         {
             enemiesSpawnCap = enemiesSpawnCapBase;
-            difficultySpawnCap = difficultySpawnCapBase;
-            
             Player.health = playerHealthBase * 1f;
             Icons.SetMaxHealth(Player.health);
             Player.attackPower = playerAttackBase * 1f;
         }
-        else if (difficultyRating == 3)
+        else if (difficultyRating == 3) // Hard
         {
             enemiesSpawnCap = enemiesSpawnCapBase * 1.5f;
-            difficultySpawnCap = difficultySpawnCapBase * 1.5f;
-            
             Player.health = playerHealthBase * 0.75f;
             Icons.SetMaxHealth(Player.health);
             Player.attackPower = playerAttackBase * 0.75f;
         }
-        else if (difficultyRating == 4)
+        else if (difficultyRating == 4) // Expert
         {
             enemiesSpawnCap = enemiesSpawnCapBase * 3f;
-            difficultySpawnCap = difficultySpawnCapBase * 3f;
-            
             Player.health = playerHealthBase * 0.05f;
             Icons.SetMaxHealth(Player.health);
             Player.attackPower = playerAttackBase * 0.5f;

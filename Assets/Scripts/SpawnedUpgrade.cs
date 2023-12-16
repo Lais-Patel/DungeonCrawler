@@ -6,16 +6,17 @@ using Random = UnityEngine.Random;
 
 public class SpawnedUpgrade : MonoBehaviour
 {
-    public int numberOfTheUpgrade;
-    private Renderer Renderer;
-    private Color colour;
+    public int numberOfTheUpgrade;  // Stores the value of the upgrade
+    private Renderer Renderer;      // Reference to the Renderer of the upgrade
+    private Color colour;           // Reference to the Colour component of the upgrade
 
+    // Start is called before the first frame update
     void Start()
     {
+        // Sets the value of the upgrade randomly from 1 to 4
         numberOfTheUpgrade = Random.Range(0, 5);
         
-        Debug.Log(numberOfTheUpgrade);
-        
+        // Applies colour based on the value
         if (numberOfTheUpgrade == 0)
         {
             ColorUtility.TryParseHtmlString("#983944", out colour);
@@ -36,8 +37,6 @@ public class SpawnedUpgrade : MonoBehaviour
         {
             ColorUtility.TryParseHtmlString("#F77622", out colour);
         }
-        
-        Debug.Log(colour);
         
         Renderer = GetComponent<Renderer>();
         Renderer.material.color = colour;

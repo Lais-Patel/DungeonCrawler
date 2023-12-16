@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public float rangeTime;      // Time until bullet is destroyed
     public float size;           // Bullet size
     public float bulletForce;    // Bullet speed
-    private Rigidbody2D rb;     // Rigidbody component
+    private Rigidbody2D rb;      // Rigidbody component
     
     public bool hitEnemy = false;
 

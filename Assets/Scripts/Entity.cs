@@ -9,17 +9,14 @@ public class Entity : MonoBehaviour
     public float velocity;
     public float acceleration;
     public Rigidbody2D rb;
-    
     public static float health;
     public float defence;
     public static float attackPower;
     public float damageTaken;
     public float damageDealt;
-
     public Vector2 directionMovement;
     public Vector2 directionMovementSmooth;
     public Vector2 directionMovementSmoothRef;
-
     public Animator animationController;
 
     // Awake is called when the script is initialized
@@ -46,8 +43,9 @@ public class Entity : MonoBehaviour
 
     // Calculate the damage taken by the entity
     public float calculateDamageTaken(float defence, float damageDealt)
-    {
+    {   
         damageTaken = (damageDealt - defence * 0.2f);
+        // Makes sure that a negative value is sent through
         if (damageTaken <= 0)
         {
             return 0f;
@@ -57,13 +55,4 @@ public class Entity : MonoBehaviour
             return damageTaken;
         }
     }
-
-    /*
-    Calculate the damage dealt by the entity
-    public float calculateDamageDealt(float attackPower)
-    {
-        damageDealt = attackPower;
-        return damageDealt;
-    }
-    */
 }

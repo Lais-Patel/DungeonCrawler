@@ -5,21 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class Menus : MonoBehaviour
 {
-    public GameObject pauseMenu;
-    public GameObject settingsMenu;
-    public GameObject audioMenu;
-    public GameObject graphicsMenu;
-    public GameObject difficultyMenu;
-    public GameObject gameOverScreen;
+    public GameObject pauseMenu;                // Reference to the Pause Menu game object
+    public GameObject settingsMenu;             // Reference to the Settings Menu game object
+    public GameObject audioMenu;                // Reference to the Audio Menu Panel game object
+    public GameObject graphicsMenu;             // Reference to the Graphics Menu Panel game object
+    public GameObject difficultyMenu;           // Reference to the Difficulty Menu Panel game object
+    public GameObject gameOverScreen;           // Reference to the GameOver Screen game object
+	[SerializeField] private GameOver GameOver; // Reference to the GameOver Script
+    public static float difficultyRating;       // Stores the difficulty of the game
+    public static bool isGamePaused;            // If the game is currently in a paused state
 
-	[SerializeField]
-    private GameOver GameOver;
-
-    public static float difficultyRating;
-    public static bool isGamePaused;
-
+    // Start is called before the first frame update
     void Start()
-    {
+    {   // Checks if Difficulty Rating exists and collects the value, else sets a default value
         if (PlayerPrefs.HasKey("DifficultyRating"))
         {
             difficultyRating = PlayerPrefs.GetFloat("DifficultyRating");
@@ -29,6 +27,7 @@ public class Menus : MonoBehaviour
             difficultyRating = 2f;
         }
         
+        // Ensures all the different panels are deactivated upon start
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
         audioMenu.SetActive(false);
@@ -37,8 +36,9 @@ public class Menus : MonoBehaviour
         gameOverScreen.SetActive(false);
     }
 
+    // Update is called once per frame
     void Update()
-    {
+    {   // Toggle pause with the escape key
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if (isGamePaused)
@@ -51,7 +51,7 @@ public class Menus : MonoBehaviour
             }
         }
     }
-
+    
     public void ChangeScenetoGame()
     {
         SceneManager.LoadScene("GameScene");
@@ -123,6 +123,7 @@ public class Menus : MonoBehaviour
         difficultyMenu.SetActive(true);
     }
     
+    // Activates the gameover screen and pauses the games process
 	public void endGame()
 	{
 		gameOverScreen.SetActive(true);

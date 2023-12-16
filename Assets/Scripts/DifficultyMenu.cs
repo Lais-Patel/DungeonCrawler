@@ -6,9 +6,9 @@ using TMPro;
 
 public class DifficultyMenu : MonoBehaviour
 {
-    public Slider difficultyBar;
-	public TextMeshProUGUI difficultyDescription;
-    public static float difficultyRating;
+    public Slider difficultyBar;                   // Slider UI reference
+	public TextMeshProUGUI difficultyDescription;  // Text UI element for the description of the difficultly
+    public static float difficultyRating;          // The difficulty the game is set to
     
     
     // Start is called before the first frame update
@@ -26,7 +26,8 @@ public class DifficultyMenu : MonoBehaviour
 	    difficultyBar.value = difficultyRating;
 		updateDifficultyRating();
     }
-
+	
+    // Updates the difficulty of the game, as well as description of it
     public void updateDifficultyRating()
     {
         difficultyRating = difficultyBar.value;

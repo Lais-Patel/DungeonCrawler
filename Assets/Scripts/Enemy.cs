@@ -7,23 +7,14 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Enemy : Entity
 {
-    public Transform player;
-    public float distanceFromPlayer;
-    private float difficultyScore;
-    public Counters Icons;
-    public Room Room;
-    private float spawnDelay = 1;
-    public bool currentlySpawning;
-
-    [SerializeField]
-    new private float health;
-    new private float attackPower;
-    
-    private float closestDistance = float.MaxValue;
-    private Enemy closestEnemy = null;
-    private Vector3 positionClosestEnemy;
-
-    private Vector3 targetPosition;
+    public Transform player;                          // Reference to Players Position
+    private float difficultyScore;                    // Difficulty of the game
+    public Counters Icons;                            // Reference to the Counters Script
+    public Room Room;                                 // Reference to the Room Script
+    private float spawnDelay = 1;                     // Time it takes for Enemy to spawn in
+    public bool currentlySpawning;                    // If the enemy is currently spawning in
+    [SerializeField] new private float health;        // Holds the health of the enemy
+    new private float attackPower;                    // Holds the attack of the enemy
 
     // Start is called before the first frame update
     void Start()
@@ -64,12 +55,10 @@ public class Enemy : Entity
         }
         else
         {
-            // Calculate distance from the enemy to the player
-            targetPosition = player.transform.position;
-            distanceFromPlayer = Vector2.Distance(transform.position, targetPosition);
-            directionMovement = targetPosition - transform.position;
+            // Finds the direction that the enemy is moving in
+            directionMovement = player.transform.position - transform.position;
             
-            // Set animation parameters
+            // Sets animation parameters to play the correct animation cycle
             animationController.SetFloat("Vertical", directionMovement.y);
             animationController.SetFloat("Horizontal", directionMovement.x);
             animationController.SetFloat("Velocity", directionMovement.sqrMagnitude);
@@ -87,7 +76,7 @@ public class Enemy : Entity
         {
             // Set the enemy's velocity for movement
             velocity = maxSpeed;
-            transform.position = Vector2.MoveTowards(this.transform.position, (targetPosition), maxSpeed * Time.fixedDeltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, (player.transform.position), maxSpeed * Time.fixedDeltaTime);
             EntityMovementCalc();
         }
     }
@@ -109,41 +98,6 @@ public class Enemy : Entity
             // Increment the count of defeated enemies and destroy this enemy object
             Icons.IncrementEnemeyFelledCount();
             Destroy(gameObject);
-        }
-    }
-
-	private void FindClosestEnemy()
-	{
-		List<Enemy> enemiesOnScreen = new List<Enemy>();
-        enemiesOnScreen.AddRange(FindObjectsOfType<Enemy>());
-        float count = 0;
-
-        foreach (Enemy screenEnemy in enemiesOnScreen)
-        {
-            count++;
-            Debug.Log("Count of Enemies on Screen:    " + count);
-            if (screenEnemy != this)
-            {
-                float distanceFromEnemy = Vector3.Distance(transform.position, screenEnemy.transform.position);
-
-                if (distanceFromEnemy < closestDistance)
-                {
-                    closestDistance = distanceFromEnemy;
-                    closestEnemy = screenEnemy;
-                }
-            }
-        }
-    } 
-    
-    private void CalculateTargetPosition()
-    {
-        if (Vector3.Distance(transform.position, closestEnemy.transform.position) > 1f)
-        {
-            targetPosition = player.transform.position;
-        }
-        else
-        {
-            targetPosition = player.transform.position - closestEnemy.transform.position;
         }
     }
 }

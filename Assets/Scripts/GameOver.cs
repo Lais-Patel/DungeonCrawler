@@ -7,21 +7,18 @@ using TMPro;
 public class GameOver : MonoBehaviour
 {
     
-    [SerializeField]
-    private Counters Counters;
+    [SerializeField] private Counters Counters;  // Reference to the Counters Script
+    [SerializeField] private Room Room;          // Reference to the Room Script
+    public TextMeshProUGUI scoreBreakdown;       // Text UI for the breakdown of the score
+	private float gameScore;                     // Stores the value for the score gained
     
-    [SerializeField]
-    private Room Room;
-    
-    public TextMeshProUGUI scoreBreakdown;
-
-	private float gameScore;
-    
+	// Calculates the game score
 	public void calculateGameScore()
 	{
 		gameScore = Counters.enemiesFelledCount * Room.rooms * PlayerPrefs.GetFloat("DifficultyRating");
 	}
-
+ 
+	// Updates the score breakdown
 	public void updateScoreScreen()
 	{
 		calculateGameScore();
