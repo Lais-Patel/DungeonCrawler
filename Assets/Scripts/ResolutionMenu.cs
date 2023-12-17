@@ -7,10 +7,10 @@ public class ResolutionMenu : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown resolutionDropdown;
 
-    private Resolution[] resolutions;           // List of all resolutions and refresh rates of the screen
-    private List<Resolution> resolutionsFilter; // Filter list for the resolution list
-    public int currentScreenResolution;         // Current resolution of the screen
-    public float currentAspectRatio;            // Current Aspect ratio of the screen
+    private Resolution[] resolutions;
+    private List<Resolution> resolutionsFilter;
+    public int currentScreenResolution;
+    public float currentAspectRatio;
 
     // Start is called before the first frame update
     void Start()
@@ -20,14 +20,13 @@ public class ResolutionMenu : MonoBehaviour
         
         // Clears the dropdown menu of placeholder options
         resolutionDropdown.ClearOptions();
-        
-        // Finds the current aspect ratio the screen is in
         currentAspectRatio = (float)Screen.currentResolution.width / Screen.currentResolution.height;
-        
+                
         // Loops through the list and filters out all resolutions off the wrong aspect ratio
         for (int i = resolutions.Length - 1; i >= 0; i--)
         {
             float aspectRatio = (float)resolutions[i].width / resolutions[i].height;
+            Debug.Log("Checking aspect: " + aspectRatio);
             if (aspectRatio == currentAspectRatio)
             {
                 resolutionsFilter.Add(resolutions[i]);
@@ -40,12 +39,12 @@ public class ResolutionMenu : MonoBehaviour
         // Loops through the filtered resolutions and formats them and adds them to the dropdown menu
         for (int i = 0; i < resolutionsFilter.Count; i++)
         {
-            string resolutionOption = resolutionsFilter[i].width + "x" +  
-                                      resolutionsFilter[i].height + " : " +  
+            string resolutionOption = resolutionsFilter[i].width + "x" +
+                                      resolutionsFilter[i].height + " : " +
                                       resolutionsFilter[i].refreshRate + "Hz";
             optionsOfDropdown.Add(resolutionOption);
             
-            // Finds the formatted current resolution of the screen 
+            // Finds the formatted current resolution of the screen
             if (resolutionsFilter[i].width == Screen.width && resolutionsFilter[i].height == Screen.height)
             {
                 currentScreenResolution = i;
