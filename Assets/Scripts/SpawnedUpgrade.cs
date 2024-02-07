@@ -14,7 +14,7 @@ public class SpawnedUpgrade : MonoBehaviour
     void Start()
     {
         // Sets the value of the upgrade randomly from 1 to 4
-        numberOfTheUpgrade = Random.Range(0, 5);
+        numberOfTheUpgrade = Random.Range(0, 6);
         
         // Applies colour based on the value
         if (numberOfTheUpgrade == 0)
@@ -36,6 +36,10 @@ public class SpawnedUpgrade : MonoBehaviour
         else if (numberOfTheUpgrade == 4)
         {
             ColorUtility.TryParseHtmlString("#F77622", out colour);
+        }
+        else if (numberOfTheUpgrade == 5)
+        {
+            ColorUtility.TryParseHtmlString("#FFFF00", out colour);
         }
         
         Renderer = GetComponent<Renderer>();
