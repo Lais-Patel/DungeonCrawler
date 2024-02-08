@@ -8,6 +8,7 @@ using Vector3 = UnityEngine.Vector3;
 public class Enemy : Entity
 {
     public Transform player;                          // Reference to Players Position
+    private Renderer Renderer;      // Reference to the Renderer of the upgrade
     private float difficultyScore;                    // Difficulty of the game
     public Counters Icons;                            // Reference to the Counters Script
     public Room Room;                                 // Reference to the Room Script
@@ -36,6 +37,7 @@ public class Enemy : Entity
         health = 20f * (1f + difficultyScore * 0.1f);
         defence = 0f;
         attackPower = 2f * (1f + difficultyScore * 0.1f);
+        Renderer = GetComponent<Renderer>();
     }
 
     // Coroutine to handle enemy spawning animation delay
@@ -44,6 +46,15 @@ public class Enemy : Entity
         currentlySpawning = true;
         yield return new WaitForSeconds(spawnDelay);
         currentlySpawning = false;
+    }
+    private IEnumerator damageSlowDown()
+    {
+        Renderer.material.color = Color.red;
+        float temp = maxSpeed;
+        maxSpeed *= 0.5f;
+        yield return new WaitForSeconds(0.5f);
+        Renderer.material.color = Color.white;
+        maxSpeed = temp;
     }
 
     // Update is called once per frame
@@ -76,7 +87,7 @@ public class Enemy : Entity
         {
             // Set the enemy's velocity for movement
             velocity = maxSpeed;
-            transform.position = Vector2.MoveTowards(this.transform.position, (player.transform.position), maxSpeed * Time.fixedDeltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, (player.transform.position), velocity * Time.fixedDeltaTime);
             EntityMovementCalc();
         }
     }
@@ -92,6 +103,7 @@ public class Enemy : Entity
     public void TakeDamage()
     {
         health -= calculateDamageTaken(defence, Player.calculateDamageDealt());
+        StartCoroutine(damageSlowDown());
         
         if (health <= 0)
         {

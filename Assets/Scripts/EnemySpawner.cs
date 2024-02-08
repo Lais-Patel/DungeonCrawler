@@ -79,6 +79,7 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         enemiesSpawned++;
         enemiesSpawnedTotal++;
+        Icons.SetProgress(enemiesSpawnCapIncremental - enemiesSpawned);
         TimeUntilNextSpawn();
         MoveToRandomPosition();
     }
@@ -101,6 +102,7 @@ public class EnemySpawner : MonoBehaviour
         enemySpawnOn = true;
         Room.IncrementRoomCount();
         enemiesSpawnCapIncremental = Room.enemiesSpawnCap * (1 + (Room.rooms * 0.1f));
+        Icons.SetMaxProgress(enemiesSpawnCapIncremental);
         enemiesSpawned = 0;
         SpawnEnemyWaveForLevel();
     }

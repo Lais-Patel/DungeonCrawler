@@ -11,6 +11,7 @@ public class Counters : MonoBehaviour
     public TextMeshProUGUI roomsTextUI;            // Text UI for displaying rooms
     public TextMeshProUGUI enemyKilledTextUI;      // Text UI for displaying enemies killed
     public Slider sliderHealthBar;                 // Health bar slider
+    public Slider sliderProgressBar;               // Progress bar slider
     public float enemiesFelledCount;               // Counter for enemies defeated
     
     // Set the maximum health for the health bar
@@ -26,6 +27,18 @@ public class Counters : MonoBehaviour
     {
         sliderHealthBar.value = health;
         healthTextUI.text = Mathf.RoundToInt(health).ToString();
+    }
+    
+    public void SetMaxProgress(float progress)
+    {
+        sliderProgressBar.maxValue = progress;
+        sliderProgressBar.value = progress;
+    }
+
+    // Set the current health value on the health bar
+    public void SetProgress(float progress)
+    {
+        sliderProgressBar.value = progress;
     }
 	
     // Increases the maximum value of the health bar
