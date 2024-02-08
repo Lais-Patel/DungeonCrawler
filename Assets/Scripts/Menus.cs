@@ -34,6 +34,8 @@ public class Menus : MonoBehaviour
         graphicsMenu.SetActive(false);
         difficultyMenu.SetActive(false);
         gameOverScreen.SetActive(false);
+        Time.timeScale = 1f;
+        isGamePaused = false;
     }
 
     // Update is called once per frame
@@ -54,6 +56,7 @@ public class Menus : MonoBehaviour
     
     public void ChangeScenetoGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("GameScene");
     }
 
