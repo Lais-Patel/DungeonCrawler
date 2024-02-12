@@ -16,6 +16,8 @@ public class Enemy : Entity
     public bool currentlySpawning;                    // If the enemy is currently spawning in
     [SerializeField] new private float health;        // Holds the health of the enemy
     new private float attackPower;                    // Holds the attack of the enemy
+    private float maxSpeed;
+    private float temp_speed;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,7 @@ public class Enemy : Entity
 
         // Set initial values for enemy properties
         maxSpeed = 2f;
+        temp_speed = maxSpeed;
         acceleration = 0.0333f;
         difficultyScore = Room.rooms;
         health = 20f * (1f + difficultyScore * 0.1f);
@@ -50,11 +53,11 @@ public class Enemy : Entity
     private IEnumerator damageSlowDown()
     {
         Renderer.material.color = Color.red;
-        float temp = maxSpeed;
+        temp_speed = maxSpeed;
         maxSpeed *= 0.5f;
         yield return new WaitForSeconds(0.5f);
         Renderer.material.color = Color.white;
-        maxSpeed = temp;
+        maxSpeed = temp_speed;
     }
 
     // Update is called once per frame
