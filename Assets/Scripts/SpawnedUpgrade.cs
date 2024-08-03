@@ -13,7 +13,7 @@ public class SpawnedUpgrade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Sets the value of the upgrade randomly from 1 to 4
+        // Sets the value of the upgrade randomly from 0 to 5
         numberOfTheUpgrade = Random.Range(0, 6);
         
         // Applies colour based on the value
