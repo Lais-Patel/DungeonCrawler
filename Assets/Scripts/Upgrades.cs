@@ -14,9 +14,9 @@ public class Upgrades : MonoBehaviour
 		{"Damage UP", 0, 1.5f},     // Dark red
 		{"Max Health UP", 0, 1.1f}, // Light Red
 		{"Defence UP", 0, 1.5f},    // Pale Blue
-		{"Speed UP", 0, 1.20f},     // Green
-		{"Fire Speed UP", 0, 0.9f},  // Orange
-		{"Health Regain", 0, 0.2f}  // Yellow
+		{"Speed UP", 0, 1.25f},     // Green
+		{"Fire Speed UP", 0, 0.85f},  // Orange
+		{"Health Regain", 0, 0.3f}  // Yellow
 	};
 
     // Add upgrades to the player's inventory

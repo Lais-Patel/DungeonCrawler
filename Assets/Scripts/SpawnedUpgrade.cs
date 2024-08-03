@@ -7,7 +7,13 @@ using Random = UnityEngine.Random;
 public class SpawnedUpgrade : MonoBehaviour
 {
     public int numberOfTheUpgrade;  // Stores the value of the upgrade
-    private Renderer Renderer;      // Reference to the Renderer of the upgrade
+    public Sprite UpgradeIcon0;     // Reference to the Image Icon of the Upgrade
+    public Sprite UpgradeIcon1;     // Reference to the Image Icon of the Upgrade
+    public Sprite UpgradeIcon2;     // Reference to the Image Icon of the Upgrade
+    public Sprite UpgradeIcon3;     // Reference to the Image Icon of the Upgrade
+    public Sprite UpgradeIcon4;     // Reference to the Image Icon of the Upgrade
+    public Sprite UpgradeIcon5;     // Reference to the Image Icon of the Upgrade
+    private SpriteRenderer Renderer;      // Reference to the Renderer of the upgrade
     private Color colour;           // Reference to the Colour component of the upgrade
 
     // Start is called before the first frame update
@@ -16,33 +22,31 @@ public class SpawnedUpgrade : MonoBehaviour
         // Sets the value of the upgrade randomly from 0 to 5
         numberOfTheUpgrade = Random.Range(0, 6);
         
+        Renderer = GetComponent<SpriteRenderer>();
         // Applies colour based on the value
         if (numberOfTheUpgrade == 0)
         {
-            ColorUtility.TryParseHtmlString("#983944", out colour);
+            Renderer.sprite = UpgradeIcon0;
         }
         else if (numberOfTheUpgrade == 1)
         {
-            ColorUtility.TryParseHtmlString("#D95763", out colour);
+            Renderer.sprite = UpgradeIcon1;
         }
         else if (numberOfTheUpgrade == 2)
         {
-            ColorUtility.TryParseHtmlString("#8895AF", out colour);
+            Renderer.sprite = UpgradeIcon2;
         }
         else if (numberOfTheUpgrade == 3)
         {
-            ColorUtility.TryParseHtmlString("#5DA863", out colour);
+            Renderer.sprite = UpgradeIcon3;
         }
         else if (numberOfTheUpgrade == 4)
         {
-            ColorUtility.TryParseHtmlString("#F77622", out colour);
+            Renderer.sprite = UpgradeIcon4;
         }
         else if (numberOfTheUpgrade == 5)
         {
-            ColorUtility.TryParseHtmlString("#FFFF00", out colour);
+            Renderer.sprite = UpgradeIcon5;
         }
-        
-        Renderer = GetComponent<Renderer>();
-        Renderer.material.color = colour;
     }
 }
