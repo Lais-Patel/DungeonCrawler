@@ -11,16 +11,6 @@ public class PlayerHitbox : MonoBehaviour
     // Called when another 2D collider enters this trigger collider
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy Melee Hitbox"))
-        {   // When attacked by an enemy, calculate and apply damage to the player
-            Enemy Enemy = other.GetComponentInParent<Enemy>();
-            if (!Enemy.currentlySpawning && !Player.hasPressedDash)
-            {
-                float damageDealt = Enemy.calculateDamageDealt();
-                Player.enemyMeleeAttack(damageDealt);
-            }
-        }
-
         if (other.CompareTag("SpawnedUpgrade"))
         {   // When the player picks up an upgrade it pulls the type of the upgrade 
 			SpawnedUpgrade SpawnedUpgrade = other.gameObject.GetComponent<SpawnedUpgrade>();
@@ -36,5 +26,10 @@ public class PlayerHitbox : MonoBehaviour
                 Destroy(upgradeOnScreen);
             }
         }
+    }
+
+    public void enemyMeleeAttack(float damageDealt)
+    {
+        Player.enemyMeleeAttack(damageDealt);
     }
 }

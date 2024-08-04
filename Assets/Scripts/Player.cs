@@ -8,7 +8,7 @@ public class Player : Entity
     public float dashPower;                // How much force the player dashes with
     public float dashLength;               // How long the dash lasts
     public float dashCooldown;             // The cooldown between when the player can dash
-    public bool hasPressedDash;            // If the player is currently dashing
+    public static bool hasPressedDash;            // If the player is currently dashing
     private bool canDash = true;           // If the player is allowed to dash
     public Counters Icons;                 // Reference to the Counters Script
 	[SerializeField] private Menus Menus;  // Reference to the Menus Script
@@ -91,7 +91,7 @@ public class Player : Entity
     }
 
     // Handle enemy melee attack
-    public void enemyMeleeAttack( float damageDealt)
+    public void enemyMeleeAttack(float damageDealt)
     {
         health -= calculateDamageTaken(defence, damageDealt);
         Icons.SetHealth(health);

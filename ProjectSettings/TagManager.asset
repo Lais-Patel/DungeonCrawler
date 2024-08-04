@@ -13,6 +13,7 @@ TagManager:
   - Enemy Melee Hitbox
   - Upper Walls
   - SpawnedUpgrade
+  - Player Hitbox
   layers:
   - Default
   - TransparentFX

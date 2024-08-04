@@ -8,7 +8,9 @@ using Vector3 = UnityEngine.Vector3;
 public class Enemy : Entity
 {
     public Transform player;                          // Reference to Players Position
-    private Renderer Renderer;      // Reference to the Renderer of the upgrade
+    private Renderer Renderer;                        // Reference to the Renderer of the upgrade
+    public Collider2D enemyMeleeHitbox;
+    public Collider2D playerHitbox;
     private float difficultyScore;                    // Difficulty of the game
     public Counters Icons;                            // Reference to the Counters Script
     public Room Room;                                 // Reference to the Room Script
@@ -25,13 +27,13 @@ public class Enemy : Entity
         // Start spawning animation wait
         StartCoroutine(SpawningAnimationWait());
 
-        // Get a reference to the player's Transform
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
         // Find references to Counters and Room scripts in the scene
         Icons = FindObjectOfType<Counters>();
         Room = FindObjectOfType<Room>();
-
+        
+        // Get a reference to the player's Transform
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        
         // Set initial values for enemy properties
         maxSpeed = 2f;
         temp_speed = maxSpeed;

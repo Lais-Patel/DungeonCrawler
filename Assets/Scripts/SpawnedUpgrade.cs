@@ -7,12 +7,7 @@ using Random = UnityEngine.Random;
 public class SpawnedUpgrade : MonoBehaviour
 {
     public int numberOfTheUpgrade;  // Stores the value of the upgrade
-    public Sprite UpgradeIcon0;     // Reference to the Image Icon of the Upgrade
-    public Sprite UpgradeIcon1;     // Reference to the Image Icon of the Upgrade
-    public Sprite UpgradeIcon2;     // Reference to the Image Icon of the Upgrade
-    public Sprite UpgradeIcon3;     // Reference to the Image Icon of the Upgrade
-    public Sprite UpgradeIcon4;     // Reference to the Image Icon of the Upgrade
-    public Sprite UpgradeIcon5;     // Reference to the Image Icon of the Upgrade
+    public Sprite[] UpgradeIcons;     // Reference to the Image Icon of the Upgrade
     private SpriteRenderer Renderer;      // Reference to the Renderer of the upgrade
     private Color colour;           // Reference to the Colour component of the upgrade
 
@@ -24,29 +19,9 @@ public class SpawnedUpgrade : MonoBehaviour
         
         Renderer = GetComponent<SpriteRenderer>();
         // Applies colour based on the value
-        if (numberOfTheUpgrade == 0)
+        if (numberOfTheUpgrade >= 0 && numberOfTheUpgrade < UpgradeIcons.Length)
         {
-            Renderer.sprite = UpgradeIcon0;
-        }
-        else if (numberOfTheUpgrade == 1)
-        {
-            Renderer.sprite = UpgradeIcon1;
-        }
-        else if (numberOfTheUpgrade == 2)
-        {
-            Renderer.sprite = UpgradeIcon2;
-        }
-        else if (numberOfTheUpgrade == 3)
-        {
-            Renderer.sprite = UpgradeIcon3;
-        }
-        else if (numberOfTheUpgrade == 4)
-        {
-            Renderer.sprite = UpgradeIcon4;
-        }
-        else if (numberOfTheUpgrade == 5)
-        {
-            Renderer.sprite = UpgradeIcon5;
+            Renderer.sprite = UpgradeIcons[numberOfTheUpgrade];
         }
     }
 }

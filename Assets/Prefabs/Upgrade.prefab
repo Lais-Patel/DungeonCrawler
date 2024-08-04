@@ -99,7 +99,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfTheUpgrade: 0
-  UpgradeIcon0: {fileID: 21300000, guid: 47f777b1c3273a44f8eff870e80fc67c, type: 3}
+  UpgradeIcons:
+  - {fileID: 21300000, guid: 47f777b1c3273a44f8eff870e80fc67c, type: 3}
+  - {fileID: 21300000, guid: b459cd1e189e1624d9fc1a984b4ef469, type: 3}
+  - {fileID: 21300000, guid: 7792df404a20a054e8a46ec54baa10f9, type: 3}
+  - {fileID: 21300000, guid: 6220ef96271e8254c942488e4a4ec66b, type: 3}
+  - {fileID: 21300000, guid: 8c9ddd52045b08240a90caaa56c162b2, type: 3}
+  - {fileID: 21300000, guid: dbdd397d7af70b34a94bb07aa9667a4d, type: 3}
   UpgradeIcon1: {fileID: 21300000, guid: b459cd1e189e1624d9fc1a984b4ef469, type: 3}
   UpgradeIcon2: {fileID: 21300000, guid: 7792df404a20a054e8a46ec54baa10f9, type: 3}
   UpgradeIcon3: {fileID: 21300000, guid: 6220ef96271e8254c942488e4a4ec66b, type: 3}
