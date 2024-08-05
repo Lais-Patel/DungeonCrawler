@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerText: {fileID: 477139418}
-  enemySpawner: {fileID: 0}
+  EnemySpawner: {fileID: 0}
 --- !u!1 &1090671323
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Counters: {fileID: 5796099865492681444}
   Room: {fileID: 0}
-  scoreBreakdown: {fileID: 1730695722}
+  ScoreBreakdown: {fileID: 0}
 --- !u!1 &1730695720
 GameObject:
   m_ObjectHideFlags: 0
@@ -3733,8 +3733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7572d86984dce4ea23fc2b7df03864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyBar: {fileID: 1050046210029738784}
-  difficultyDescription: {fileID: 8023878519935830953}
+  DifficultyBar: {fileID: 0}
+  DifficultyDescription: {fileID: 0}
 --- !u!1 &3516954248372059189
 GameObject:
   m_ObjectHideFlags: 0
@@ -7081,12 +7081,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8067817f416bcd47a93d794f775f7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthTextUI: {fileID: 9097185227533307411}
-  defenceTextUI: {fileID: 3729088883193466851}
-  roomsTextUI: {fileID: 6009456126639947571}
-  enemyKilledTextUI: {fileID: 2240043799590409735}
-  sliderHealthBar: {fileID: 5796099865685491195}
-  sliderProgressBar: {fileID: 0}
+  HealthTextUI: {fileID: 9097185227533307411}
+  DefenceTextUI: {fileID: 3729088883193466851}
+  RoomsTextUI: {fileID: 6009456126639947571}
+  EnemyKilledTextUI: {fileID: 2240043799590409735}
+  SliderHealthBar: {fileID: 5796099865685491195}
+  SliderProgressBar: {fileID: 1719487843662242560}
   enemiesFelledCount: 0
 --- !u!114 &7381850661413743655
 MonoBehaviour:
@@ -7100,12 +7100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a000eccbb6a5d34485ef758ef7b072a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 6205981293908525877}
-  settingsMenu: {fileID: 7924831057277755716}
-  audioMenu: {fileID: 5260215788557656798}
-  graphicsMenu: {fileID: 1998209093455583119}
-  difficultyMenu: {fileID: 3405537094240074816}
-  gameOverScreen: {fileID: 1313972189}
+  PauseMenu: {fileID: 6205981293908525877}
+  SettingsMenu: {fileID: 7924831057277755716}
+  AudioMenu: {fileID: 68880758890454731}
+  GraphicsMenu: {fileID: 1998209093455583119}
+  DifficultyMenu: {fileID: 5899191276268421426}
+  GameOverScreen: {fileID: 1313972189}
   GameOver: {fileID: 1313972193}
 --- !u!1 &5796099865508351329
 GameObject:

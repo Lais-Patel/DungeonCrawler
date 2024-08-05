@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
+  PlayerHitbox: {fileID: 0}
 --- !u!1 &2522958807061351808
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,16 +269,16 @@ MonoBehaviour:
   maxSpeed: 5
   velocity: 0
   acceleration: 0.0333
-  rb: {fileID: 2522958806053397661}
+  RigidBody: {fileID: 2522958806053397661}
   defence: 0
   damageTaken: 0
   damageDealt: 0
   directionMovement: {x: 0, y: 0}
   directionMovementSmooth: {x: 0, y: 0}
   directionMovementSmoothRef: {x: 0, y: 0}
-  animationController: {fileID: 2522958807061351810}
-  player: {fileID: 0}
-  Icons: {fileID: 0}
+  AnimationController: {fileID: 2522958807061351810}
+  Player: {fileID: 0}
+  Counters: {fileID: 0}
   Room: {fileID: 0}
   currentlySpawning: 0
   health: 0

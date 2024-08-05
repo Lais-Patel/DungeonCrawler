@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemyPrefab_;      // Prefab for the enemy to be spawned
+    [SerializeField] private GameObject[] _enemyPrefab_;      // Prefab for the enemy to be spawned
     [SerializeField] private GameObject _upgradePrefab_;    // Prefab for the upgrades to be spawned  
     [SerializeField] private float maxEnemySpawnDelay;    // Delay between enemy spawns
     [SerializeField] private bool enemySpawnOn = true;    // Toggle for enabling enemy spawning
@@ -77,7 +77,7 @@ public class EnemySpawner : MonoBehaviour
     // Spawn a single enemy
     private void SpawnEnemy()
     {
-        Instantiate(_enemyPrefab_, transform.position, Quaternion.identity);
+        Instantiate(_enemyPrefab_[0], transform.position, Quaternion.identity);
         enemiesSpawned++;
         enemiesSpawnedTotal++;
         Icons.SetProgress(enemiesSpawnCapIncremental - enemiesSpawned);
