@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerHitbox : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class PlayerHitbox : MonoBehaviour
     {
         if (other.CompareTag("SpawnedUpgrade"))
         {   // When the player picks up an upgrade it pulls the type of the upgrade 
-			SpawnedUpgrade SpawnedUpgrade = other.gameObject.GetComponent<SpawnedUpgrade>();
-            Upgrades.addUpgradeToInventory(SpawnedUpgrade.numberOfTheUpgrade);
+			SpawnedUpgrade spawnedUpgrade = other.gameObject.GetComponent<SpawnedUpgrade>();
+            Upgrades.AddUpgradeToInventory(spawnedUpgrade.numberOfTheUpgrade);
             
             // Starts a countdown until the next wave of enemies starts
             Countdown.StartCountdown(5f);
@@ -28,8 +29,8 @@ public class PlayerHitbox : MonoBehaviour
         }
     }
 
-    public void enemyMeleeAttack(float damageDealt)
+    public void EnemyMeleeAttack(float damageDealt)
     {
-        Player.enemyMeleeAttack(damageDealt);
+        Player.EnemyMeleeAttack(damageDealt);
     }
 }

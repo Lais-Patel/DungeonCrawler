@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : Entity
 {
@@ -10,7 +11,7 @@ public class Player : Entity
     public float dashCooldown;             // The cooldown between when the player can dash
     public static bool hasPressedDash;            // If the player is currently dashing
     private bool canDash = true;           // If the player is allowed to dash
-    public Counters Icons;                 // Reference to the Counters Script
+    public Counters Counters;                 // Reference to the Counters Script
 	[SerializeField] private Menus Menus;  // Reference to the Menus Script
 
     // Start is called before the first frame update
@@ -23,8 +24,8 @@ public class Player : Entity
         defence = 5f;
 
         // Set initial values for health and defence in the UI
-        Icons.SetMaxHealth(health);
-        Icons.SetDefence(defence);
+        Counters.SetMaxHealth(health);
+        Counters.SetDefence(defence);
     }
 
     // Update is called once per frame
@@ -35,7 +36,7 @@ public class Player : Entity
 
 		if (health <= 0)
 		{
-			Menus.endGame();
+			Menus.EndGame();
 		}
     }
 
@@ -64,21 +65,21 @@ public class Player : Entity
         directionMovement.y = Input.GetAxisRaw("Vertical");
 
         // Set animation parameters based on movement
-        animationController.SetFloat("Vertical", directionMovement.y);
-        animationController.SetFloat("Horizontal", directionMovement.x);
-        animationController.SetFloat("Velocity", directionMovement.sqrMagnitude);
+        AnimationController.SetFloat("Vertical", directionMovement.y);
+        AnimationController.SetFloat("Horizontal", directionMovement.x);
+        AnimationController.SetFloat("Velocity", directionMovement.sqrMagnitude);
 
         directionMovement = directionMovement.normalized;
 
         // Check for dashing input
         if (Input.GetButtonDown("Dash") && canDash)
         {
-            StartCoroutine(dashAlgorithm());
+            StartCoroutine(DashAlgorithm());
         }
     }
 
     // Dash behavior
-    private IEnumerator dashAlgorithm()
+    private IEnumerator DashAlgorithm()
     {
         hasPressedDash = true;
         canDash = false;
@@ -91,14 +92,14 @@ public class Player : Entity
     }
 
     // Handle enemy melee attack
-    public void enemyMeleeAttack(float damageDealt)
+    public void EnemyMeleeAttack(float damageDealt)
     {
-        health -= calculateDamageTaken(defence, damageDealt);
-        Icons.SetHealth(health);
+        health -= CalculateDamageTaken(defence, damageDealt);
+        Counters.SetHealth(health);
     }
     
     //Calculate the damage dealt by the entity
-    public static float calculateDamageDealt()
+    public static float CalculateDamageDealt()
     {
         float damageDealt = attackPower;
         return damageDealt;

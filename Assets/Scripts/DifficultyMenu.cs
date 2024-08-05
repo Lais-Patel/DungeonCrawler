@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class DifficultyMenu : MonoBehaviour
 {
-    public Slider difficultyBar;                   // Slider UI reference
-	public TextMeshProUGUI difficultyDescription;  // Text UI element for the description of the difficultly
+    public Slider DifficultyBar;                   // Slider UI reference
+	public TextMeshProUGUI DifficultyDescription;  // Text UI element for the description of the difficultly
     public static float difficultyRating;          // The difficulty the game is set to
     
     
@@ -23,44 +24,44 @@ public class DifficultyMenu : MonoBehaviour
 		    difficultyRating = 2f;
 	    }
 
-	    difficultyBar.value = difficultyRating;
-		updateDifficultyRating();
+	    DifficultyBar.value = difficultyRating;
+		UpdateDifficultyRating();
     }
 	
     // Updates the difficulty of the game, as well as description of it
-    public void updateDifficultyRating()
+    public void UpdateDifficultyRating()
     {
-        difficultyRating = difficultyBar.value;
+        difficultyRating = DifficultyBar.value;
         PlayerPrefs.SetFloat("DifficultyRating", difficultyRating);
         
 		if (difficultyRating == 1)
 		{
-			difficultyDescription.text = "Player Health 200%     " +
+			DifficultyDescription.text = "Player Health 200%     " +
 			                             "Player Damage 200%     " +
 			                             "Enemy Spawns 0.5x      ";
-			difficultyDescription.color = Color.white;
+			DifficultyDescription.color = Color.white;
 			
 		}
 		else if (difficultyRating == 2)
 		{
-			difficultyDescription.text = "Player Health 100%     " +
+			DifficultyDescription.text = "Player Health 100%     " +
 			                             "Player Damage 100%     " +
 			                             "Enemy Spawns 1x        ";
-			difficultyDescription.color = Color.white;
+			DifficultyDescription.color = Color.white;
 		}
 		else if (difficultyRating == 3)
 		{
-			difficultyDescription.text = "Player Health 75%      " +
+			DifficultyDescription.text = "Player Health 75%      " +
 			                             "Player Damage 75%      " +
 			                             "Enemy Spawns 1.5x      ";
-			difficultyDescription.color = Color.white;
+			DifficultyDescription.color = Color.white;
 		}
 		else if (difficultyRating == 4)
 		{
-			difficultyDescription.text = "Player Health 5%        " +
+			DifficultyDescription.text = "Player Health 5%        " +
 			                             "Player Damage 50%      " +
 			                             "Enemy Spawns 3x        ";
-			difficultyDescription.color = Color.red;
+			DifficultyDescription.color = Color.red;
 		}
     }
 }

@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class SpawnedUpgrade : MonoBehaviour
 {
     public int numberOfTheUpgrade;  // Stores the value of the upgrade
-    public Sprite[] UpgradeIcons;     // Reference to the Image Icon of the Upgrade
+    public Sprite[] upgradeIcons;     // Reference to the Image Icon of the Upgrade
     private SpriteRenderer Renderer;      // Reference to the Renderer of the upgrade
     private List<int> possibleChoices = new List<int> {0, 1, 2, 3, 4, 5};
 
@@ -23,16 +24,15 @@ public class SpawnedUpgrade : MonoBehaviour
         foreach (GameObject upgradeOnScreen in upgradesToCheck)
         {
             SpawnedUpgrade spawnedUpgrades = upgradeOnScreen.GetComponent<SpawnedUpgrade>();
-            Debug.Log(spawnedUpgrades.numberOfTheUpgrade);
             possibleChoices.Remove(spawnedUpgrades.numberOfTheUpgrade);
         }
         numberOfTheUpgrade = possibleChoices[Random.Range(0, possibleChoices.Count)];
         
         Renderer = GetComponent<SpriteRenderer>();
         
-        if (numberOfTheUpgrade >= 0 && numberOfTheUpgrade < UpgradeIcons.Length)
+        if (numberOfTheUpgrade >= 0 && numberOfTheUpgrade < upgradeIcons.Length)
         {
-            Renderer.sprite = UpgradeIcons[numberOfTheUpgrade];
+            Renderer.sprite = upgradeIcons[numberOfTheUpgrade];
         }
     }
 }

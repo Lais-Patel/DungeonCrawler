@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;      // Prefab for the enemy to be spawned
-    [SerializeField] private GameObject upgradePrefab;    // Prefab for the upgrades to be spawned  
+    [SerializeField] private GameObject _enemyPrefab_;      // Prefab for the enemy to be spawned
+    [SerializeField] private GameObject _upgradePrefab_;    // Prefab for the upgrades to be spawned  
     [SerializeField] private float maxEnemySpawnDelay;    // Delay between enemy spawns
     [SerializeField] private bool enemySpawnOn = true;    // Toggle for enabling enemy spawning
     [SerializeField] private bool enemyWavesOn = true;    // Toggle for enabling enemy waves
-    [SerializeField] private bool CountdownOn = true;     // Toggle for enabling the countdown between waves
+    [SerializeField] private bool countdownOn = true;     // Toggle for enabling the countdown between waves
     private Vector3 randomPositionOnScreen;               // Random position to spawn enemies
-    public Rigidbody2D rb;                                // Reference to the rigidbody of the spawner
+    public Rigidbody2D RigidBody;                                // Reference to the rigidbody of the spawner
     private float timeUntilEnemySpawn;                    // Countdown timer for enemy spawn
     private float enemiesSpawnCapIncremental;             // Number of enemies to spawn in each level
     private float enemiesSpawned;                         // Counter for enemies spawned in the current level
@@ -22,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (CountdownOn)
+        if (countdownOn)
         {
             //Countdown.StartCountdown(5f);
             enemySpawnOn = false;
@@ -48,9 +49,9 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (GameObject.FindGameObjectsWithTag("Enemies").Length == 0)
                 {   // Spawns 3 upgrades in the middle of the screen and turns off enemy spawning
-                    Instantiate(upgradePrefab, new Vector3(0f, 2f, transform.position.z), Quaternion.identity);
-                    Instantiate(upgradePrefab, new Vector3(2f, 2f, transform.position.z), Quaternion.identity);
-                    Instantiate(upgradePrefab, new Vector3(-2f, 2f, transform.position.z), Quaternion.identity);
+                    Instantiate(_upgradePrefab_, new Vector3(0f, 2f, transform.position.z), Quaternion.identity);
+                    Instantiate(_upgradePrefab_, new Vector3(2f, 2f, transform.position.z), Quaternion.identity);
+                    Instantiate(_upgradePrefab_, new Vector3(-2f, 2f, transform.position.z), Quaternion.identity);
                     enemySpawnOn = false;
                 }
             }
@@ -70,13 +71,13 @@ public class EnemySpawner : MonoBehaviour
         float y = Random.Range(-5f, 2.85f);
 
         randomPositionOnScreen = new Vector3(x, y, transform.position.z);
-        rb.MovePosition(randomPositionOnScreen);
+        RigidBody.MovePosition(randomPositionOnScreen);
     }
 
     // Spawn a single enemy
     private void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        Instantiate(_enemyPrefab_, transform.position, Quaternion.identity);
         enemiesSpawned++;
         enemiesSpawnedTotal++;
         Icons.SetProgress(enemiesSpawnCapIncremental - enemiesSpawned);

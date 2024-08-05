@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 public class Enemy : Entity
 {
-    public Transform player;                          // Reference to Players Position
+    public Transform Player;                          // Reference to Players Position
     private Renderer Renderer;                        // Reference to the Renderer of the upgrade
     private float difficultyScore;                    // Difficulty of the game
-    public Counters Icons;                            // Reference to the Counters Script
+    public Counters Counters;                            // Reference to the Counters Script
     public Room Room;                                 // Reference to the Room Script
     private float spawnDelay = 1;                     // Time it takes for Enemy to spawn in
     public bool currentlySpawning;                    // If the enemy is currently spawning in
-    [SerializeField] new private float health;        // Holds the health of the enemy
-    new private float attackPower;                    // Holds the attack of the enemy
-    private float maxSpeed;
-    private float temp_speed;
+    [SerializeField] private new float health;        // Holds the health of the enemy
+    private new float attackPower;                    // Holds the attack of the enemy
+    private new float maxSpeed;
+    private float tempSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +27,15 @@ public class Enemy : Entity
         StartCoroutine(SpawningAnimationWait());
 
         // Find references to Counters and Room scripts in the scene
-        Icons = FindObjectOfType<Counters>();
+        Counters = FindObjectOfType<Counters>();
         Room = FindObjectOfType<Room>();
         
         // Get a reference to the player's Transform
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
         
         // Set initial values for enemy properties
         maxSpeed = 2f;
-        temp_speed = maxSpeed;
+        tempSpeed = maxSpeed;
         acceleration = 0.0333f;
         difficultyScore = Room.rooms;
         health = 20f * (1f + difficultyScore * 0.1f);
@@ -50,14 +51,14 @@ public class Enemy : Entity
         yield return new WaitForSeconds(spawnDelay);
         currentlySpawning = false;
     }
-    private IEnumerator damageSlowDown()
+    private IEnumerator DamageSlowDown()
     {
         Renderer.material.color = Color.red;
-        temp_speed = maxSpeed;
+        tempSpeed = maxSpeed;
         maxSpeed *= 0.5f;
         yield return new WaitForSeconds(0.5f);
         Renderer.material.color = Color.white;
-        maxSpeed = temp_speed;
+        maxSpeed = tempSpeed;
     }
 
     // Update is called once per frame
@@ -66,12 +67,12 @@ public class Enemy : Entity
         if (!currentlySpawning)
         {
             // Finds the direction that the enemy is moving in
-            directionMovement = player.transform.position - transform.position;
+            directionMovement = Player.transform.position - transform.position;
             
             // Sets animation parameters to play the correct animation cycle
-            animationController.SetFloat("Vertical", directionMovement.y);
-            animationController.SetFloat("Horizontal", directionMovement.x);
-            animationController.SetFloat("Velocity", directionMovement.sqrMagnitude);
+            AnimationController.SetFloat("Vertical", directionMovement.y);
+            AnimationController.SetFloat("Horizontal", directionMovement.x);
+            AnimationController.SetFloat("Velocity", directionMovement.sqrMagnitude);
         }
     }
 
@@ -82,13 +83,13 @@ public class Enemy : Entity
         {
             // Set the enemy's velocity for movement
             velocity = maxSpeed;
-            transform.position = Vector2.MoveTowards(this.transform.position, (player.transform.position), velocity * Time.fixedDeltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, (Player.transform.position), velocity * Time.fixedDeltaTime);
             EntityMovementCalc();
         }
     }
 
     // Calculate the damage dealt by the enemy
-    public float calculateDamageDealt()
+    public float CalculateDamageDealt()
     {
         damageDealt = attackPower;
         return damageDealt;
@@ -97,13 +98,13 @@ public class Enemy : Entity
     // Handle enemy taking damage
     public void TakeDamage()
     {
-        health -= calculateDamageTaken(defence, Player.calculateDamageDealt());
-        StartCoroutine(damageSlowDown());
+        health -= CalculateDamageTaken(defence, global::Player.CalculateDamageDealt());
+        StartCoroutine(DamageSlowDown());
         
         if (health <= 0)
         {
             // Increment the count of defeated enemies and destroy this enemy object
-            Icons.IncrementEnemeyFelledCount();
+            Counters.IncrementEnemeyFelledCount();
             Destroy(gameObject);
         }
     }

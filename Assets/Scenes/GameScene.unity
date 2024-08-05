@@ -590,6 +590,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2377052730019129470, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377052730019129471, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606372399902471852, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606372399902471852, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606372399902471852, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6032503978336862014, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
       propertyPath: delayFire
       value: 0.5
@@ -606,6 +626,14 @@ PrefabInstance:
       propertyPath: Counters
       value: 
       objectReference: {fileID: 369410012}
+    - target: {fileID: 7291511462365268652, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291511462365268652, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd299017db11d684fae3e4ba975ce44c, type: 3}
 --- !u!114 &3899686331322310943 stripped

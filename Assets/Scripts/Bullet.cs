@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public float rangeTime;      // Time until bullet is destroyed
     public float size;           // Bullet size
     public float bulletForce;    // Bullet speed
-    private Rigidbody2D rb;      // Rigidbody component
+    private Rigidbody2D RigidBody;      // Rigidbody component
     
     public bool hitEnemy = false;
 
@@ -27,10 +27,10 @@ public class Bullet : MonoBehaviour
         Vector3 directionToMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         Vector3 angleToMouse = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        rb = GetComponent<Rigidbody2D>(); // Get Rigidbody2D
+        RigidBody = GetComponent<Rigidbody2D>(); // Get Rigidbody2D
 
         // Set bullet velocity and rotation towards the cursor
-        rb.velocity = new Vector2(directionToMouse.x, directionToMouse.y).normalized * bulletForce;
+        RigidBody.velocity = new Vector2(directionToMouse.x, directionToMouse.y).normalized * bulletForce;
         float rotation = Mathf.Atan2(angleToMouse.y, angleToMouse.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotation + 90); // Adjust rotation
     }

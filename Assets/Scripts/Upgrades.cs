@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.Serialization;
 
 public class Upgrades : MonoBehaviour
 {
@@ -20,14 +21,14 @@ public class Upgrades : MonoBehaviour
 	};
 
     // Add upgrades to the player's inventory
-	public void addUpgradeToInventory(int numberUpgradeToAdd)
+	public void AddUpgradeToInventory(int numberUpgradeToAdd)
 	{
 		upgradeShop[numberUpgradeToAdd, 1] = (int)upgradeShop[numberUpgradeToAdd, 1] + 1;
-		upgradeLogic((string)upgradeShop[numberUpgradeToAdd,0]);
+		UpgradeLogic((string)upgradeShop[numberUpgradeToAdd,0]);
 	}
 	
 	// Applies the changes that the gained upgrade gives
-	private void upgradeLogic(string upgradeEffect)
+	private void UpgradeLogic(string upgradeEffect)
 	{
 		if (upgradeShop[0,0] == upgradeEffect)
 		{
@@ -36,7 +37,7 @@ public class Upgrades : MonoBehaviour
 		else if (upgradeShop[1,0] == upgradeEffect)
 		{
 			Counters.UpgradeHealth((float)upgradeShop[1,2]);
-			Player.health += Counters.sliderHealthBar.maxValue * (float)upgradeShop[1,2] - Counters.sliderHealthBar.maxValue;
+			Player.health += Counters.SliderHealthBar.maxValue * (float)upgradeShop[1,2] - Counters.SliderHealthBar.maxValue;
 			Counters.SetHealth(Player.health);
 		}
 		else if (upgradeShop[2,0] == upgradeEffect)
@@ -54,13 +55,13 @@ public class Upgrades : MonoBehaviour
 		}
 		else if (upgradeShop[5,0] == upgradeEffect)
 		{
-			if ((Player.health + Counters.sliderHealthBar.maxValue * (float)upgradeShop[5, 2]) > Counters.sliderHealthBar.maxValue)
+			if ((Player.health + Counters.SliderHealthBar.maxValue * (float)upgradeShop[5, 2]) > Counters.SliderHealthBar.maxValue)
 			{
-				Player.health = Counters.sliderHealthBar.maxValue;
+				Player.health = Counters.SliderHealthBar.maxValue;
 			}
 			else
 			{
-				Player.health += Counters.sliderHealthBar.maxValue * (float)upgradeShop[5,2];
+				Player.health += Counters.SliderHealthBar.maxValue * (float)upgradeShop[5,2];
 			}
 			Counters.SetHealth(Player.health);
 		}

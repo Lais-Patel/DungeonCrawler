@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Gun : MonoBehaviour
 {
-    public GameObject bulletPrefab;     // Prefab for the bullet to be fired
-    public Transform bulletTransform;   // Transform where bullets will spawn
+    public GameObject _bulletPrefab_;     // Prefab for the bullet to be fired
+    public Transform BulletTransform;   // Transform where bullets will spawn
     public bool canFire;                // Boolean to control firing
     public float delayFire;             // Delay between shots
 
@@ -18,26 +19,26 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pointTowardsMousePointer(); // Point the gun towards the mouse pointer
+        PointTowardsMousePointer(); // Point the gun towards the mouse pointer
 
         // Check for user input to fire bullets
         if ((Input.GetButtonDown("Fire1") || (Input.GetMouseButton(0))) && canFire && !Menus.isGamePaused)
         {
-            StartCoroutine(fireAlgorithm()); // Start firing sequence
+            StartCoroutine(FireAlgorithm()); // Start firing sequence
         }
     }
 
     // Coroutine to handle the firing sequence
-    private IEnumerator fireAlgorithm()
+    private IEnumerator FireAlgorithm()
     {
         canFire = false; // Disable firing during the sequence
-        Instantiate(bulletPrefab, bulletTransform.position, Quaternion.identity); // Spawn a bullet
+        Instantiate(_bulletPrefab_, BulletTransform.position, Quaternion.identity); // Spawn a bullet
         yield return new WaitForSeconds(delayFire); // Wait for the specified delay
         canFire = true; // Enable firing again
     }
 
     // Point the gun towards the mouse pointer
-    private void pointTowardsMousePointer()
+    private void PointTowardsMousePointer()
     {
         Vector2 directionToMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float angleToMouse = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg - 90;

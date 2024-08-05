@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyHitbox : MonoBehaviour
 {
     public Enemy Enemy; // Reference to the associated enemy
     private bool canAttack = true;
     private float attackDelay = 1f;
-    private PlayerHitbox PlayerHitbox;
-    private Collider2D enemyMeleeHitbox;
-    private Collider2D playerHitbox;
+    public PlayerHitbox PlayerHitbox;
+    private Collider2D enemyMeleeCollider;
+    private Collider2D playerCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -17,16 +18,16 @@ public class EnemyHitbox : MonoBehaviour
         // Find and store a reference to the Enemy script in the scene
         Enemy = FindObjectOfType<Enemy>();
         PlayerHitbox = FindObjectOfType<PlayerHitbox>();
-        enemyMeleeHitbox = GetComponent<Collider2D>();
-        playerHitbox = PlayerHitbox.GetComponent<Collider2D>();
+        enemyMeleeCollider = GetComponent<Collider2D>();
+        playerCollider = PlayerHitbox.GetComponent<Collider2D>();
     }
     
     // FixedUpdate is called at fixed time intervals
     void FixedUpdate()
     {
-        if (canAttack && enemyMeleeHitbox.IsTouching(playerHitbox) && !Player.hasPressedDash)
+        if (canAttack && enemyMeleeCollider.IsTouching(playerCollider) && !Player.hasPressedDash)
         {
-            StartCoroutine(attackCooldown());
+            StartCoroutine(AttackCooldown());
 
         }
     }
@@ -36,20 +37,20 @@ public class EnemyHitbox : MonoBehaviour
     {
         if (other.CompareTag("Bullets") && !Enemy.currentlySpawning)
         {
-            Bullet Bullet = other.gameObject.GetComponent<Bullet>();
+            Bullet bullet = other.gameObject.GetComponent<Bullet>();
             // If the entering collider has the "Bullets" tag, inform the associated enemy to take damage
-            if (!Bullet.hitEnemy)
+            if (!bullet.hitEnemy)
             {
-                Bullet.hitEnemy = true;
+                bullet.hitEnemy = true;
                 Enemy.TakeDamage();
             }
         }
     }
     
-    private IEnumerator attackCooldown()
+    private IEnumerator AttackCooldown()
     {
         canAttack = false;
-        PlayerHitbox.enemyMeleeAttack(Enemy.calculateDamageDealt());
+        PlayerHitbox.EnemyMeleeAttack(Enemy.CalculateDamageDealt());
         yield return new WaitForSeconds(attackDelay);
         canAttack = true;
     }

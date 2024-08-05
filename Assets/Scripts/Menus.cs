@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class Menus : MonoBehaviour
 {
-    public GameObject pauseMenu;                // Reference to the Pause Menu game object
-    public GameObject settingsMenu;             // Reference to the Settings Menu game object
-    public GameObject audioMenu;                // Reference to the Audio Menu Panel game object
-    public GameObject graphicsMenu;             // Reference to the Graphics Menu Panel game object
-    public GameObject difficultyMenu;           // Reference to the Difficulty Menu Panel game object
-    public GameObject gameOverScreen;           // Reference to the GameOver Screen game object
+    public GameObject PauseMenu;                // Reference to the Pause Menu game object
+    public GameObject SettingsMenu;             // Reference to the Settings Menu game object
+    public GameObject AudioMenu;                // Reference to the Audio Menu Panel game object
+    public GameObject GraphicsMenu;             // Reference to the Graphics Menu Panel game object
+    public GameObject DifficultyMenu;           // Reference to the Difficulty Menu Panel game object
+    public GameObject GameOverScreen;           // Reference to the GameOver Screen game object
 	[SerializeField] private GameOver GameOver; // Reference to the GameOver Script
     public static float difficultyRating;       // Stores the difficulty of the game
     public static bool isGamePaused;            // If the game is currently in a paused state
@@ -28,12 +29,12 @@ public class Menus : MonoBehaviour
         }
         
         // Ensures all the different panels are deactivated upon start
-        pauseMenu.SetActive(false);
-        settingsMenu.SetActive(false);
-        audioMenu.SetActive(false);
-        graphicsMenu.SetActive(false);
-        difficultyMenu.SetActive(false);
-        gameOverScreen.SetActive(false);
+        PauseMenu.SetActive(false);
+        SettingsMenu.SetActive(false);
+        AudioMenu.SetActive(false);
+        GraphicsMenu.SetActive(false);
+        DifficultyMenu.SetActive(false);
+        GameOverScreen.SetActive(false);
         Time.timeScale = 1f;
         isGamePaused = false;
     }
@@ -73,66 +74,66 @@ public class Menus : MonoBehaviour
 
     public void PauseGame()
     {
-        pauseMenu.SetActive(true);
-        settingsMenu.SetActive(false);
+        PauseMenu.SetActive(true);
+        SettingsMenu.SetActive(false);
         Time.timeScale = 0f;
         isGamePaused = true;
     }
 
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false);
-        settingsMenu.SetActive(false);
+        PauseMenu.SetActive(false);
+        SettingsMenu.SetActive(false);
         Time.timeScale = 1f;
         isGamePaused = false;
     }
     
-    public void openSettingsMenu()
+    public void OpenSettingsMenu()
     {
-        settingsMenu.SetActive(true);
-        pauseMenu.SetActive(false);
-        audioMenu.SetActive(false);
-        graphicsMenu.SetActive(false);
-        difficultyMenu.SetActive(false);
+        SettingsMenu.SetActive(true);
+        PauseMenu.SetActive(false);
+        AudioMenu.SetActive(false);
+        GraphicsMenu.SetActive(false);
+        DifficultyMenu.SetActive(false);
     }
     
-    public void closeSettingsMenu()
+    public void CloseSettingsMenu()
     {
-        settingsMenu.SetActive(false);
-        pauseMenu.SetActive(true);
-        audioMenu.SetActive(false);
-        graphicsMenu.SetActive(false);
-        difficultyMenu.SetActive(false);
+        SettingsMenu.SetActive(false);
+        PauseMenu.SetActive(true);
+        AudioMenu.SetActive(false);
+        GraphicsMenu.SetActive(false);
+        DifficultyMenu.SetActive(false);
     }
     
-    public void openAudioMenu()
+    public void OpenAudioMenu()
     {
-        audioMenu.SetActive(true);
-        graphicsMenu.SetActive(false);
-        difficultyMenu.SetActive(false);
+        AudioMenu.SetActive(true);
+        GraphicsMenu.SetActive(false);
+        DifficultyMenu.SetActive(false);
     }
 
-    public void openGraphicsMenu()
+    public void OpenGraphicsMenu()
     {
-        audioMenu.SetActive(false);
-        graphicsMenu.SetActive(true);
-        difficultyMenu.SetActive(false);
+        AudioMenu.SetActive(false);
+        GraphicsMenu.SetActive(true);
+        DifficultyMenu.SetActive(false);
     }
     
-    public void openDifficultyMenu()
+    public void OpenDifficultyMenu()
     {
-        audioMenu.SetActive(false);
-        graphicsMenu.SetActive(false);
-        difficultyMenu.SetActive(true);
+        AudioMenu.SetActive(false);
+        GraphicsMenu.SetActive(false);
+        DifficultyMenu.SetActive(true);
     }
     
     // Activates the gameover screen and pauses the games process
-	public void endGame()
+	public void EndGame()
 	{
-		gameOverScreen.SetActive(true);
+		GameOverScreen.SetActive(true);
         Time.timeScale = 0f;
 		isGamePaused = true;
-		GameOver.updateScoreScreen();
+		GameOver.UpdateScoreScreen();
 	}
     public void QuitGame()
     {
