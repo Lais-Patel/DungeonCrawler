@@ -955,12 +955,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a000eccbb6a5d34485ef758ef7b072a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1154716428}
-  settingsMenu: {fileID: 1154716428}
-  audioMenu: {fileID: 1154716428}
-  graphicsMenu: {fileID: 1154716428}
-  difficultyMenu: {fileID: 1154716428}
-  gameOverScreen: {fileID: 1154716428}
+  PauseMenu: {fileID: 1154716428}
+  SettingsMenu: {fileID: 1154716428}
+  AudioMenu: {fileID: 1154716428}
+  GraphicsMenu: {fileID: 1154716428}
+  DifficultyMenu: {fileID: 1154716428}
+  GameOverScreen: {fileID: 1154716428}
   GameOver: {fileID: 0}
 --- !u!1 &1534526892
 GameObject:

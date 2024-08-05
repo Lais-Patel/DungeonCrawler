@@ -16,7 +16,7 @@ public class EnemyHitbox : MonoBehaviour
     void Start()
     {
         // Find and store a reference to the Enemy script in the scene
-        Enemy = FindObjectOfType<Enemy>();
+        Enemy = GetComponentInParent<Enemy>();
         PlayerHitbox = FindObjectOfType<PlayerHitbox>();
         enemyMeleeCollider = GetComponent<Collider2D>();
         playerCollider = PlayerHitbox.GetComponent<Collider2D>();

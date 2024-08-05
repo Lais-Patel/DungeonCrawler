@@ -5,20 +5,21 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
+using Random = UnityEngine.Random;
 
 public class Enemy : Entity
 {
     public Transform Player;                          // Reference to Players Position
-    private Renderer Renderer;                        // Reference to the Renderer of the upgrade
-    private float difficultyScore;                    // Difficulty of the game
-    public Counters Counters;                            // Reference to the Counters Script
+    public Renderer Renderer;                        // Reference to the Renderer of the upgrade
+    public float difficultyScore;                     // Difficulty of the game
+    public Counters Counters;                         // Reference to the Counters Script
     public Room Room;                                 // Reference to the Room Script
     private float spawnDelay = 1;                     // Time it takes for Enemy to spawn in
     public bool currentlySpawning;                    // If the enemy is currently spawning in
-    [SerializeField] private new float health;        // Holds the health of the enemy
-    private new float attackPower;                    // Holds the attack of the enemy
-    private new float maxSpeed;
-    private float tempSpeed;
+    [SerializeField] public new float health;        // Holds the health of the enemy
+    public new float attackPower;                    // Holds the attack of the enemy
+    public new float maxSpeed;
+    public float tempSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,7 @@ public class Enemy : Entity
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         
         // Set initial values for enemy properties
-        maxSpeed = 2f;
+        maxSpeed = Random.Range(1.7f,2.3f);
         tempSpeed = maxSpeed;
         acceleration = 0.0333f;
         difficultyScore = Room.rooms;
@@ -45,7 +46,7 @@ public class Enemy : Entity
     }
 
     // Coroutine to handle enemy spawning animation delay
-    private IEnumerator SpawningAnimationWait()
+    public IEnumerator SpawningAnimationWait()
     {
         currentlySpawning = true;
         yield return new WaitForSeconds(spawnDelay);

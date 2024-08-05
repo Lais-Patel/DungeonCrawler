@@ -426,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Counters: {fileID: 5796099865492681444}
   Room: {fileID: 0}
-  ScoreBreakdown: {fileID: 0}
+  ScoreBreakdown: {fileID: 1730695722}
 --- !u!1 &1730695720
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7381850661413743655}
         m_TargetAssemblyTypeName: Menus, Assembly-CSharp
-        m_MethodName: openAudioMenu
+        m_MethodName: OpenAudioMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2601,7 +2601,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7381850661413743655}
         m_TargetAssemblyTypeName: Menus, Assembly-CSharp
-        m_MethodName: closeSettingsMenu
+        m_MethodName: CloseSettingsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3733,8 +3733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7572d86984dce4ea23fc2b7df03864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DifficultyBar: {fileID: 0}
-  DifficultyDescription: {fileID: 0}
+  DifficultyBar: {fileID: 1050046210029738784}
+  DifficultyDescription: {fileID: 8023878519935830953}
 --- !u!1 &3516954248372059189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5695,7 +5695,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7381850661413743655}
         m_TargetAssemblyTypeName: Menus, Assembly-CSharp
-        m_MethodName: openGraphicsMenu
+        m_MethodName: OpenGraphicsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7102,9 +7102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 6205981293908525877}
   SettingsMenu: {fileID: 7924831057277755716}
-  AudioMenu: {fileID: 68880758890454731}
+  AudioMenu: {fileID: 5260215788557656798}
   GraphicsMenu: {fileID: 1998209093455583119}
-  DifficultyMenu: {fileID: 5899191276268421426}
+  DifficultyMenu: {fileID: 3405537094240074816}
   GameOverScreen: {fileID: 1313972189}
   GameOver: {fileID: 1313972193}
 --- !u!1 &5796099865508351329
@@ -7512,7 +7512,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7381850661413743655}
         m_TargetAssemblyTypeName: Menus, Assembly-CSharp
-        m_MethodName: openDifficultyMenu
+        m_MethodName: OpenDifficultyMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

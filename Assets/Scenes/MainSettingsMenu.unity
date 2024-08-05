@@ -1026,12 +1026,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a000eccbb6a5d34485ef758ef7b072a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 87986315}
-  settingsMenu: {fileID: 87986315}
-  audioMenu: {fileID: 1016398546}
-  graphicsMenu: {fileID: 176229236}
-  difficultyMenu: {fileID: 549425695}
-  gameOverScreen: {fileID: 87986315}
+  PauseMenu: {fileID: 87986315}
+  SettingsMenu: {fileID: 87986315}
+  AudioMenu: {fileID: 1016398546}
+  GraphicsMenu: {fileID: 176229236}
+  DifficultyMenu: {fileID: 549425695}
+  GameOverScreen: {fileID: 87986315}
   GameOver: {fileID: 0}
 --- !u!1 &435448744
 GameObject:
@@ -1457,8 +1457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7572d86984dce4ea23fc2b7df03864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyBar: {fileID: 869064881}
-  difficultyDescription: {fileID: 1407848482}
+  DifficultyBar: {fileID: 869064881}
+  DifficultyDescription: {fileID: 1407848482}
 --- !u!1 &625921754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,7 +2134,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 390661423}
         m_TargetAssemblyTypeName: Menus, Assembly-CSharp
-        m_MethodName: openDifficultyMenu
+        m_MethodName: OpenDifficultyMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2275,7 +2275,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 549425699}
         m_TargetAssemblyTypeName: DifficultyMenu, Assembly-CSharp
-        m_MethodName: updateDifficultyRating
+        m_MethodName: UpdateDifficultyRating
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3179,7 +3179,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 390661423}
         m_TargetAssemblyTypeName: Menus, Assembly-CSharp
-        m_MethodName: openGraphicsMenu
+        m_MethodName: OpenGraphicsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4955,7 +4955,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 390661423}
         m_TargetAssemblyTypeName: Menus, Assembly-CSharp
-        m_MethodName: openAudioMenu
+        m_MethodName: OpenAudioMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

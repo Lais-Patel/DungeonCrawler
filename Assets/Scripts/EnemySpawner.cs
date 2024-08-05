@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -77,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
     // Spawn a single enemy
     private void SpawnEnemy()
     {
-        Instantiate(_enemyPrefab_[0], transform.position, Quaternion.identity);
+        Instantiate(_enemyPrefab_[Random.Range(0,_enemyPrefab_.Length)], transform.position, Quaternion.identity);
         enemiesSpawned++;
         enemiesSpawnedTotal++;
         Icons.SetProgress(enemiesSpawnCapIncremental - enemiesSpawned);
