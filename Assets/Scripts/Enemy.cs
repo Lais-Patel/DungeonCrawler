@@ -9,8 +9,6 @@ public class Enemy : Entity
 {
     public Transform player;                          // Reference to Players Position
     private Renderer Renderer;                        // Reference to the Renderer of the upgrade
-    public Collider2D enemyMeleeHitbox;
-    public Collider2D playerHitbox;
     private float difficultyScore;                    // Difficulty of the game
     public Counters Icons;                            // Reference to the Counters Script
     public Room Room;                                 // Reference to the Room Script
@@ -65,11 +63,7 @@ public class Enemy : Entity
     // Update is called once per frame
     void Update()
     {
-        if (currentlySpawning)
-        {
-            return; // Do nothing during spawning animation
-        }
-        else
+        if (!currentlySpawning)
         {
             // Finds the direction that the enemy is moving in
             directionMovement = player.transform.position - transform.position;
@@ -84,11 +78,7 @@ public class Enemy : Entity
     // FixedUpdate is called at fixed time intervals
     void FixedUpdate()
     {
-        if (currentlySpawning)
-        {
-            return; // Do nothing during spawning animation
-        }
-        else
+        if (!currentlySpawning)
         {
             // Set the enemy's velocity for movement
             velocity = maxSpeed;
